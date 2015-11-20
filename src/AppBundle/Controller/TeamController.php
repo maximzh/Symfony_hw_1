@@ -19,12 +19,13 @@ class TeamController extends Controller
 {
     /**
      * @Route("/team")
+     * @Route("/team/")
      * @Template("AppBundle:team:team.html.twig")
      * @Method("GET")
      */
     public function indexAction()
     {
-        return [];
+        return $this->redirectToRoute("show_team", ["team" => "ukraine"], 302);
     }
 
     /**
