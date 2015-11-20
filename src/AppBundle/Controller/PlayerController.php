@@ -2,11 +2,12 @@
 /**
  * Created by PhpStorm.
  * User: fumus
- * Date: 19.11.15
- * Time: 15:24
+ * Date: 20.11.15
+ * Time: 22:16
  */
 
 namespace AppBundle\Controller;
+
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -15,24 +16,24 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class TeamController extends Controller
+class PlayerController extends Controller
 {
     /**
-     * @Route("/team")
-     * @Route("/team/")
+     * @Route("/player")
+     * @Route("/player/")
      * @Method("GET")
      */
     public function indexAction()
     {
-        return $this->redirectToRoute("show_team", ["team" => "ukraine"], 302);
+        return $this->redirectToRoute("homepage",[], 302);
     }
 
     /**
-     * @Route("/team/{team}", requirements={"team" = "^[a-z]+_?[a-z]+$"}, name="show_team")
-     * @Template("AppBundle:team:team.html.twig")
+     * @Route("/player/{player}", requirements={"player" = "^[a-z]+_?[a-z]+$"})
+     * @Template("AppBundle:player:player.html.twig")
      * @Method("GET")
      */
-    public function showAction($team)
+    public function showAction($player)
     {
         return [];
     }
