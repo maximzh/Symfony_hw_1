@@ -15,21 +15,25 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class TeamController extends  Controller
+class TeamController extends Controller
 {
     /**
      * @Route("/team")
+     * @Template("AppBundle:team:team.html.twig")
+     * @Method("GET")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
-        return $this->render('@App/team/team.html.twig', array());
+        return [];
     }
 
     /**
-     * @Route("/team/{id}")
+     * @Route("/team/{team}", requirements={"team" = "^[a-z]+_?[a-z]+$"}, name="show_team")
+     * @Template("AppBundle:team:team.html.twig")
+     * @Method("GET")
      */
-    public function showAction($id)
+    public function showAction($team)
     {
-        return $this->render('@App/team/team.html.twig', array());
+        return [];
     }
 }
