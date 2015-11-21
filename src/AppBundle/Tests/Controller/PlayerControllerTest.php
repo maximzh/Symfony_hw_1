@@ -14,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class PlayerControllerTest extends WebTestCase
 {
     /**
-     * @param $code
+     * @param $statusCode
      * @param $url
      * @dataProvider showProvider
      */

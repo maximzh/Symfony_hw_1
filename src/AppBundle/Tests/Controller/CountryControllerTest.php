@@ -15,7 +15,7 @@ class CountryControllerTest extends WebTestCase
 {
 
     /**
-     * @param $code
+     * @param $statusCode
      * @param $url
      * @dataProvider showProvider
      */
