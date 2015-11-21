@@ -8,14 +8,14 @@
 
 namespace AppBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-
 
 class CountryControllerTest extends AbstractController
 {
 
     /**
      * @dataProvider showProvider
+     * @param $expectedStatusCode
+     * @param $path
      */
     public function testShow($expectedStatusCode, $path)
     {
@@ -33,7 +33,7 @@ class CountryControllerTest extends AbstractController
                 [302, "/country"],
                 [404, "/country/_ukraine_"],
                 [404, "/country/eng1and2"],
-                [404, "/country/12"]
-        ];
+                [404, "/country/12"],
+            ];
     }
 }

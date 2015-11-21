@@ -8,14 +8,14 @@
 
 namespace AppBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-
 
 class GameControllerTest extends AbstractController
 {
     /**
      *
      * @dataProvider showProvider
+     * @param $expectedStatusCode
+     * @param $path
      */
     public function testShow($expectedStatusCode, $path)
     {
@@ -32,7 +32,7 @@ class GameControllerTest extends AbstractController
                 [302, "/game"],
                 [404, "/game/0002"],
                 [404, "/game/abcd"],
-                [404, "/game/2_game"]
+                [404, "/game/2_game"],
             ];
     }
 }

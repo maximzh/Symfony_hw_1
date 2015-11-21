@@ -8,8 +8,6 @@
 
 namespace AppBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-
 
 class TeamControllerTest extends AbstractController
 {
@@ -17,6 +15,8 @@ class TeamControllerTest extends AbstractController
     /**
      *
      * @dataProvider showProvider
+     * @param $expectedStatusCode
+     * @param $path
      */
 
     public function testShow($expectedStatusCode, $path)
@@ -35,7 +35,7 @@ class TeamControllerTest extends AbstractController
                 [404, "/team/england2"],
                 [404, "/team/12"],
                 [302, "/team"],
-                [302, "/team/"]
+                [302, "/team/"],
             ];
     }
 }

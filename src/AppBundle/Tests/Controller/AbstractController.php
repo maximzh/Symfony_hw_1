@@ -23,8 +23,14 @@ class AbstractController extends WebTestCase
         $this->assertEquals(
             $expectedStatusCode,
             $client->getResponse()->getStatusCode(),
-            sprintf('We expected that uri "%s" will return %s status code, but had received %d', $path, $expectedStatusCode, $client->getResponse()->getStatusCode())
+            sprintf(
+                'We expected that uri "%s" will return %s status code, but had received %d',
+                $path,
+                $expectedStatusCode,
+                $client->getResponse()->getStatusCode()
+            )
         );
+
         return $crawler;
     }
 }
