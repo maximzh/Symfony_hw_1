@@ -30,7 +30,7 @@ class CountryController extends Controller
     }
 
     /**
-     * @Route("/country/{country}", requirements={"country" = "^[a-z]+[a-z_-]+[a-z]+$"}, name="show_country")
+     * @Route("/country/{country}", requirements={"country" = "^[a-z]+[a-z_-]*[a-z]+$"}, name="show_country")
      * @Template("AppBundle:country:country.html.twig")
      * @Method("GET")
      */

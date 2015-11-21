@@ -28,7 +28,7 @@ class TeamController extends Controller
     }
 
     /**
-     * @Route("/team/{team}", requirements={"team" = "^[a-z]+[a-z_-]+[a-z]+$"}, name="show_team")
+     * @Route("/team/{team}", requirements={"team" = "^[a-z]+[a-z_-]*[a-z]+$"}, name="show_team")
      * @Template("AppBundle:team:team.html.twig")
      * @Method("GET")
      */
