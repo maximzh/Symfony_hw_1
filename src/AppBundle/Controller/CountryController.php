@@ -26,11 +26,11 @@ class CountryController extends Controller
      */
     public function indexAction()
     {
-        return $this->redirectToRoute("show_country", ["country" => "ukraine"], 302);
+        return $this->redirectToRoute("homepage", [], 302);
     }
 
     /**
-     * @Route("/country/{country}", requirements={"country" = "^[a-z]+_?[a-z]+$"}, name="show_country")
+     * @Route("/country/{country}", requirements={"country" = "^[a-z]+[a-z_-]+[a-z]+$"}, name="show_country")
      * @Template("AppBundle:country:country.html.twig")
      * @Method("GET")
      */

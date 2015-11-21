@@ -24,11 +24,11 @@ class TeamController extends Controller
      */
     public function indexAction()
     {
-        return $this->redirectToRoute("show_team", ["team" => "ukraine"], 302);
+        return $this->redirectToRoute("homepage", [], 302);
     }
 
     /**
-     * @Route("/team/{team}", requirements={"team" = "^[a-z]+_?[a-z]+$"}, name="show_team")
+     * @Route("/team/{team}", requirements={"team" = "^[a-z]+[a-z_-]+[a-z]+$"}, name="show_team")
      * @Template("AppBundle:team:team.html.twig")
      * @Method("GET")
      */
