@@ -16,7 +16,7 @@ class DefaultController extends Controller
      * @Method("GET")
      * @Template("AppBundle:default:default.html.twig")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         return [];
     }
