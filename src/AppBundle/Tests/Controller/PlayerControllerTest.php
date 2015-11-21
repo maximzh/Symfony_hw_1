@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: fumus
  * Date: 21.11.15
- * Time: 19:42
+ * Time: 20:42
  */
 
 namespace AppBundle\Tests\Controller;
@@ -11,9 +11,8 @@ namespace AppBundle\Tests\Controller;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 
-class CountryControllerTest extends WebTestCase
+class PlayerControllerTest extends WebTestCase
 {
-
     /**
      * @param $code
      * @param $url
@@ -32,14 +31,14 @@ class CountryControllerTest extends WebTestCase
     {
         return
             [
-                [200, "/country/ukraine"],
-                [200, "/country/republic_of_ireland"],
-                [200, "/country/czech-republic"],
-                [302, "/country/"],
-                [302, "/country"],
-                [404, "/country/_ukraine_"],
-                [404, "/country/eng1and2"],
-                [404, "/country/12"]
-        ];
+                [200, "/player/lukaku"],
+                [200, "/player/andriy_yarmolenko"],
+                [200, "/player/czech-republic"],
+                [302, "/player/"],
+                [302, "/player"],
+                [404, "/player/player6"],
+                [404, "/player/player_"],
+                [404, "/country/152"]
+            ];
     }
 }
