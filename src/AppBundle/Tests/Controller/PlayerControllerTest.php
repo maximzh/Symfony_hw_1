@@ -11,20 +11,16 @@ namespace AppBundle\Tests\Controller;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 
-class PlayerControllerTest extends WebTestCase
+class PlayerControllerTest extends AbstractController
 {
     /**
-     * @param $statusCode
+     * @param $$expectedStatusCode
      * @param $url
      * @dataProvider showProvider
      */
-    public function testShow($statusCode, $url)
+    public function testShow($expectedStatusCode, $path)
     {
-        $client = static::createClient();
-
-        $crawler = $client->request('GET', $url);
-        $this->assertEquals($statusCode, $client->getResponse()->getStatusCode());
-
+        $this->requestTest($expectedStatusCode, $path, 'GET');
     }
 
     public function showProvider()

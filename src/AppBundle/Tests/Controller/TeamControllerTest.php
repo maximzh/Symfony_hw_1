@@ -11,32 +11,17 @@ namespace AppBundle\Tests\Controller;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 
-class TeamControllerTest extends WebTestCase
+class TeamControllerTest extends AbstractController
 {
-    public function testIndex()
-    {
-        $client = static::createClient();
-
-        $crawler = $client->request('GET', '/team');
-        $this->assertEquals(302, $client->getResponse()->getStatusCode());
-
-        $crawler = $client->request('GET', '/team/');
-        $this->assertEquals(302, $client->getResponse()->getStatusCode());
-    }
-
 
     /**
-     * @param $code
-     * @param $url
+     *
      * @dataProvider showProvider
      */
-    public function testShow($code, $url)
+
+    public function testShow($expectedStatusCode, $path)
     {
-        $client = static::createClient();
-
-        $crawler = $client->request('GET', $url);
-        $this->assertEquals($code, $client->getResponse()->getStatusCode());
-
+        $this->requestTest($expectedStatusCode, $path, 'GET');
     }
 
     public function showProvider()
@@ -48,7 +33,9 @@ class TeamControllerTest extends WebTestCase
                 [200, "/team/czech-republic"],
                 [404, "/team/_ukraine_"],
                 [404, "/team/england2"],
-                [404, "/team/12"]
+                [404, "/team/12"],
+                [302, "/team"],
+                [302, "/team/"]
             ];
     }
 }
