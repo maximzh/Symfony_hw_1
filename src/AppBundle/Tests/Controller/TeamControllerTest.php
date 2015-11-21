@@ -45,10 +45,10 @@ class TeamControllerTest extends WebTestCase
             [
                 [200, "/team/ukraine"],
                 [200, "/team/northern_ireland"],
-                [200, "/country/czech-republic"],
-                [404, "/country/_ukraine_"],
-                [404, "/country/england2"],
-                [404, "/country/12"]
+                [200, "/team/czech-republic"],
+                [404, "/team/_ukraine_"],
+                [404, "/team/england2"],
+                [404, "/team/12"]
             ];
     }
 }
