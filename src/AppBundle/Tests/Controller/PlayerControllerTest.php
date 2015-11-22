@@ -34,7 +34,7 @@ class PlayerControllerTest extends AbstractController
                 [302, "/player"],
                 [404, "/player/player6"],
                 [404, "/player/player_"],
-                [404, "/country/152"]
+                [404, "/player/152"]
             ];
     }
 }
