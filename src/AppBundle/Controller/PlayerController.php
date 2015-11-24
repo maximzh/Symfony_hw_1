@@ -30,7 +30,7 @@ class PlayerController extends Controller
 
     /**
      * @Route("/player/{player}", requirements={"player" = "^[a-z]+[a-z_-]*[a-z]+$"})
-     * @Template("AppBundle:player:player.html.twig")
+     * @Template()
      * @Method("GET")
      */
     public function showAction($player)

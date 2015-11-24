@@ -14,7 +14,7 @@ class DefaultController extends Controller
     /**
      * @Route("/", name="homepage")
      * @Method("GET")
-     * @Template("AppBundle:default:default.html.twig")
+     * @Template()
      */
     public function indexAction(Request $request)
     {

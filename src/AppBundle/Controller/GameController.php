@@ -20,7 +20,7 @@ class GameController extends Controller
 
     /**
      * @Route("/game/{id}", requirements={"id" = "^[1-9]+[\d]*$"}, name="show_game_by_id")
-     * @Template("AppBundle:game:game.html.twig")
+     * @Template()
      *
      */
     public function showAction($id)

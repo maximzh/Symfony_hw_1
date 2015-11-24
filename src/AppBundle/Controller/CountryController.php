@@ -21,7 +21,6 @@ class CountryController extends Controller
     /**
      * @Route("/country")
      * @Route("/country/")
-     * @Template("AppBundle:country:country.html.twig")
      * @Method("GET")
      */
     public function indexAction()
@@ -31,7 +30,7 @@ class CountryController extends Controller
 
     /**
      * @Route("/country/{country}", requirements={"country" = "^[a-z]+[a-z_-]*[a-z]+$"}, name="show_country")
-     * @Template("AppBundle:country:country.html.twig")
+     * @Template()
      * @Method("GET")
      */
     public function showAction($country)
