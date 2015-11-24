@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+          integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"
+          integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+{% endblock %}
+
+{% block title %}Game{% endblock %}
+
+{% block body %}
+    <h1><a href="{{ path('homepage') }}"><img src="/pictures/Euro2016.png"></a> Game</h1>
+    <div style="width: 600px; margin: 70px; background-color: #F4F4F4">
+           <h2>Team1 1-0 Team2</h2>
+           <div>
+               <h3>Game statistics</h3>
+               <p>
+                   text text text text text text text text text text text text text
+                   text text text text text text text text text text text text text
+                   text text text text text text text text text text text text text
+                   text text text text text
+
+               </p>
+           </div>
+    </div>
+
+{% endblock %}
