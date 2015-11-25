@@ -1,0 +1,23 @@
+{
+  "name": "football",
+  "description": "GH Symfony homework",
+  "main": "index.js",
+  "authors": [
+    "Maxim Zhurilo"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/maximzh/Symfony_hw_1",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}
