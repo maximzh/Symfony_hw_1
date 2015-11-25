@@ -1,61 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+{% extends 'base.html.twig' %}
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+{% block title %}Game{% endblock %}
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+{% block body %}
+    <h1><a href="{{ path('homepage') }}"><img src="/pictures/Euro2016.png"></a> Team information</h1>
+    <table class="table table-bordered">
+        <tr>
+            <th>Players list</th>
+            <th>Coaches list</th>
+            <th>Last games</th>
+        </tr>
+        <tr>
+            <td>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+                <div><a href="#">Player1</a></div>
+            </td>
+            <td>
+                <div><a href="#">Coach1</a></div>
+                <div><a href="#">Coach1</a></div>
+                <div><a href="#">Coach1</a></div>
+                <div><a href="#">Coach1</a></div>
+            </td>
+            <td>
+                <div>Team1 (1 - 0) Team2</div>
+                <div>Team1 (2 - 3) Team2</div>
+                <div>Team1 (3 - 1) Team2</div>
+                <div>Team1 (1 - 1) Team2</div>
+            </td>
+        </tr>
+    </table>
 
-    <title>Team info</title>
-</head>
-<body>
-<h1><a href="{{ path('homepage') }}"><img src="/pictures/Euro2016.png"></a> Team information</h1>
-<table class="table table-bordered" style="background-color: #F2F2F2">
-    <tr>
-        <th>Players list</th>
-        <th>Coaches list</th>
-        <th>Last games</th>
-    </tr>
-    <tr>
-        <td>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-            <div><a href="#">Player1</a></div>
-        </td>
-        <td>
-            <div><a href="#">Coach1</a></div>
-            <div><a href="#">Coach1</a></div>
-            <div><a href="#">Coach1</a></div>
-            <div><a href="#">Coach1</a></div>
-        </td>
-        <td>
-            <div>Team1 (1 - 0) Team2</div>
-            <div>Team1 (2 - 3) Team2</div>
-            <div>Team1 (3 - 1) Team2</div>
-            <div>Team1 (1 - 1) Team2</div>
-        </td>
-    </tr>
-</table>
-</body>
-</html>
+{% endblock %}
