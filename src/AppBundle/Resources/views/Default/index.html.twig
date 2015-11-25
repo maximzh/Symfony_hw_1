@@ -3,7 +3,7 @@
 {% block title %}Country{% endblock %}
 
 {% block body %}
-<h1><img src="/pictures/Euro2016.png"> UEFA EURO 2016 FRANCE</h1>
+<h1><img src="{{ asset('pictures/Euro2016.png') }}"> UEFA EURO 2016 FRANCE</h1>
 <table class="table table-bordered table-hover">
     <tr>
         <th>POT 1</th>
@@ -13,11 +13,11 @@
     </tr>
     <tr>
         <td>
-            <a href="{{ path('show_country', {'country': 'france'}) }}"><img src="/pictures/france.png"></a>
+            <a href="{{ path('show_country', {'country': 'france'}) }}"><img src="{{ asset('pictures/france.png') }}"></a>
             <a href="{{ path('show_team', {'team': 'france'}) }}">France</a>
         </td>
         <td>
-            <a href="#"><img src="/pictures/italy.png"></a>
+            <a href="#"><img src="{{ asset('pictures/italy.png') }}"></a>
             <a href="#"> Italy</a>
         </td>
         <td>
