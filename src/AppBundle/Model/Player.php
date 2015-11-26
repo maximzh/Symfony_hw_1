@@ -23,10 +23,15 @@ class Player
 
     public function __construct($name)
     {
-        $this->name = $name;
+        $this->name = str_replace('_', '\'', $name);
+        $arr = explode('-', $this->name);
+        foreach($arr as &$value) {
+          $value = ucfirst($value);
+        }
+        $this->name = implode(' ', $arr);
 
         $this->requestFormatName = strtolower($this->name);
-        $this->requestFormatName = str_replace(' ', '_', $this->requestFormatName);
+        $this->requestFormatName = str_replace(' ', '-', $this->requestFormatName);
         $this->requestFormatName = str_replace('\'', '_', $this->requestFormatName);
 
         $faker = Factory::create();
