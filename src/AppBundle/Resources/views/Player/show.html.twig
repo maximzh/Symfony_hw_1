@@ -5,12 +5,12 @@
 {% block body %}
     <h1><a href="{{ path('homepage') }}"><img src="/pictures/Euro2016.png"></a> Player information</h1>
     <div>
-        <h2>Player 1</h2>
-        <p>Position : forward</p>
-        <p>Age : 24</p>
-        <p>Nationality: nationality</p>
-        <p>Games played: 44</p>
-        <p>Goals: 19</p>
+        <h2>{{ player.name }}</h2>
+        <p>Position: {{ player.position }}</p>
+        <p>Squad Number: {{ player.squadNumber }}</p>
+        <p>Date of birth: {{ player.dateOfBirth|date("m/d/Y") }}</p>
+        <p>Height: {{ player.height }} cm</p>
+        <p>Weight: {{ player.weight }} kg</p>
     </div>
 
 {% endblock %}

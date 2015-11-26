@@ -12,26 +12,10 @@
         </tr>
         <tr>
             <td>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
-                <div><a href="#">Player1</a></div>
+                {% for player in team.players %}
+                   <div> <a href="{{ path('show_player', {'player': player.requestFormatName }) }}">{{ player.name }}</a></div>
+                {% endfor %}
+
             </td>
             <td>
                 <div><a href="#">Coach1</a></div>

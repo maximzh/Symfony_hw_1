@@ -9,6 +9,7 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Model\Player;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -29,12 +30,15 @@ class PlayerController extends Controller
     }
 
     /**
-     * @Route("/player/{player}", requirements={"player" = "^[a-z]+[a-z_-]*[a-z]+$"})
+     * @Route("/player/{player}", name="show_player", requirements={"player" = "^[a-z]+[a-z_-]*[a-z]+$"})
      * @Template()
      * @Method("GET")
      */
     public function showAction($player)
     {
-        return [];
+        $instance = new Player($player);
+        //$instance = $instance->generateData();
+
+        return ['player' => $instance];
     }
 }
