@@ -3,125 +3,60 @@
 {% block title %}Euro 2016{% endblock %}
 
 {% block body %}
-<h1 class="bg-primary"><img src="{{ asset('pictures/Euro2016.png') }}"> UEFA EURO 2016 FRANCE</h1>
-<table class="table table-bordered table-hover">
+<h1 class="bg-primary"><img src="{{ asset('pictures/Euro2016.png') }}"> UEFA EURO 2016</h1>
+    <table class="table table-bordered table-hover">
     <tr>
         <th>POT 1</th>
+        {% for item in data.potOne %}
+           <td>
+               <a href="{{ path('show_country', {'country': item}) }}">
+                   <img src="{{ ['/pictures/', item, '.png']|join }}">
+               </a>
+               <a href="{{ path('show_team', {'team': item}) }}">
+                   {{ item|replace({'_': ' '})|title }}
+               </a>
+           </td>
+        {% endfor %}
+    </tr>
+    <tr>
         <th>POT 2</th>
+        {% for item in data.potTwo %}
+            <td>
+                <a href="{{ path('show_country', {'country': item}) }}">
+                    <img src="{{ ['/pictures/', item, '.png']|join }}">
+                </a>
+                <a href="{{ path('show_team', {'team': item}) }}">
+                    {{ item|replace({'_': ' '})|title }}
+                </a>
+            </td>
+        {% endfor %}
+    </tr>
+    <tr>
         <th>POT 3</th>
+        {% for item in data.potThree %}
+            <td>
+                <a href="{{ path('show_country', {'country': item}) }}">
+                    <img src="{{ ['/pictures/', item, '.png']|join }}">
+                </a>
+                <a href="{{ path('show_team', {'team': item}) }}">
+                    {{ item|replace({'_': ' '})|title }}
+                </a>
+            </td>
+        {% endfor %}
+    </tr>
+    <tr>
         <th>POT 4</th>
+        {% for item in data.potFour %}
+            <td>
+                <a href="{{ path('show_country', {'country': item}) }}">
+                    <img src="{{ ['/pictures/', item, '.png']|join }}">
+                </a>
+                <a href="{{ path('show_team', {'team': item}) }}">
+                    {{ item|replace({'_': ' '})|title }}
+                </a>
+            </td>
+        {% endfor %}
     </tr>
-    <tr>
-        <td>
-            <a href="{{ path('show_country', {'country': 'france'}) }}"><img src="{{ asset('pictures/france.png') }}"></a>
-            <a href="{{ path('show_team', {'team': 'france'}) }}">France</a>
-        </td>
-        <td>
-            <a href="#"><img src="{{ asset('pictures/italy.png') }}"></a>
-            <a href="#"> Italy</a>
-        </td>
-        <td>
-            <a href="#"><img src="{{ asset('pictures/czech_republic.png') }}"></a>
-            <a href="#"> Czech Republic</a>
-        </td>
-        <td>
-            <a href="#"><img src="{{ asset('pictures/turkey.png') }}"></a>
-            <a href="#"> Turkey</a>
-        </td>
-    </tr>
-    </tr>
-    <tr>
-        <td>
-            <a href="#"><img src="/pictures/spain.png"></a>
-            <a href="#"> Spain</a>
-        </td>
-        <td>
-            <a href="#"><img src="/pictures/russia.png"></a>
-            <a href="#"> Russia</a>
-        </td>
-        <td>
-            <a href="#"><img src="/pictures/sweden.png"></a>
-            <a href="#"> Sweden</a>
-        </td>
-        <td>
-            <a href="#"><img src="/pictures/ireland.png"></a>
-            <a href="#"> Republic of Ireland</a>
-        </td>
-    </tr>
-    </tr>
-    <tr>
-        <td>
-            <a href="#"><img src="/pictures/germany.png"></a>
-            <a href="#"> Germany</a>
-        </td>
-        <td>
-            <a href="#"><img src="/pictures/switzerland.png"></a>
-            <a href="#"> Switzerland</a>
-        </td>
-        <td>
-            <a href="#"><img src="/pictures/poland.png"></a>
-            <a href="#"> Poland</a>
-        </td>
-        <td>
-            <a href="#"><img src="/pictures/iceland.png"></a>
-            <a href="#"> Iceland</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="#"><img src="/pictures/england.png"></a>
-            <a href="#"> England</a>
-        </td>
-        <td>
-            <a href="#"><img src="/pictures/austria.png"></a>
-            <a href="#"> Austria</a>
-        </td>
-        <td>
-            <a href="#"><img src="/pictures/romania.png"></a>
-            <a href="#"> Romania</a>
-        </td>
-        <td>
-            <a href="#"><img src="/pictures/wales.png"></a>
-            <a href="#"> Wales</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="#"><img src="/pictures/portugal.png"></a>
-            <a href="#"> Portugal</a>
-        </td>
-        <td>
-            <a href="#"><img src="/pictures/croatia.png"></a>
-            <a href="#"> Croatia</a>
-        </td>
-        <td>
-            <a href="#"><img src="/pictures/slovakia.png"></a>
-            <a href="#"> Slovakia</a>
-        </td>
-        <td>
-            <a href="#"><img src="/pictures/albania.png"></a>
-            <a href="#"> Albania</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="#"><img src="/pictures/belgium.png"></a>
-            <a href="#"> Belgium</a>
-        </td>
-        <td>
-            <a href="#"><img src="/pictures/ukraine.png"></a>
-            <a href="#"> Ukraine</a>
-        </td>
-        <td>
-            <a href="#"><img src="/pictures/hungary.png"></a>
-            <a href="#"> Hungary</a>
-        </td>
-        <td>
-            <a href="#"><img src="/pictures/northern_ireland.png"></a>
-            <a href="#"> Northern Ireland</a>
-        </td>
-    </tr>
-
-</table>
+    </table>
 
 {% endblock %}

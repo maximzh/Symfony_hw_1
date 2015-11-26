@@ -18,6 +18,16 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        return [];
+        $potOne = ['france', 'spain', 'germany', 'england', 'portugal', 'belgium'];
+        $potTwo = ['italy', 'russia', 'switzerland', 'austria', 'croatia', 'ukraine'];
+        $potThree = ['czech_republic', 'sweden', 'poland', 'romania', 'slovakia', 'hungary'];
+        $potFour = ['turkey', 'republic_of_ireland', 'iceland', 'wales', 'albania', 'northern_ireland'];
+        $data['potOne'] = $potOne;
+        $data['potTwo'] = $potTwo;
+        $data['potThree'] = $potThree;
+        $data['potFour'] = $potFour;
+        return [
+            'data' => $data
+        ];
     }
 }

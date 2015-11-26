@@ -15,9 +15,11 @@ class Country
 {
     protected $name;
     protected $requestFormatName;
-    protected $nationalTeam;
     protected $uefaRank;
     protected $flag;
+    protected $shortHistory;
+    protected $firstMembership;
+    protected $nationalTeamFoundedAt;
 
     public function __construct($name)
     {
@@ -35,6 +37,12 @@ class Country
         $this->uefaRank = $faker->numberBetween(1, 54);
 
         $this->flag = '/pictures/'.$this->requestFormatName.'.png';
+
+        $this->shortHistory = $faker->text(900);
+
+        $this->firstMembership = $faker->year;
+
+        $this->nationalTeamFoundedAt = $faker->year;
 
     }
 
@@ -57,4 +65,20 @@ class Country
     {
         return $this->flag;
     }
+
+    public function getShortHistory()
+    {
+        return $this->shortHistory;
+    }
+
+    public function getFirstMembership()
+    {
+        return $this->firstMembership;
+    }
+
+    public function getNationalTeamFoundedAt()
+    {
+        return $this->nationalTeamFoundedAt;
+    }
+
 }
