@@ -41,7 +41,7 @@ class Player
 
         $this->squadNumber = $faker->numberBetween(1, 100);
 
-        $this->height = $faker->numberBetween(165, 200);
+        $this->height = $faker->numberBetween(165, 195);
 
         $this->weight = $faker->numberBetween(65, 90);
 

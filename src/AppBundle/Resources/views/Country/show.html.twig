@@ -3,29 +3,11 @@
 {% block title %}Country info{% endblock %}
 
 {% block body %}
-    <h1><a href="{{ path('homepage') }}"><img src="/pictures/Euro2016.png"></a> Country information</h1>
-    <div>
-
-
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer scelerisque, augue a aliquet volutpat, enim
-        lectus lacinia elit, vel elementum neque erat mattis urna. Proin posuere dictum hendrerit. Donec efficitur
-        rutrum ullamcorper. Nunc varius dui augue, eu finibus odio placerat sed. Aliquam nec molestie metus. Nullam
-        sodales porta quam, at ullamcorper justo euismod cursus. Class aptent taciti sociosqu ad litora torquent per
-        conubia nostra, per inceptos himenaeos. Vestibulum pharetra, risus eu ultricies scelerisque, mauris lorem
-        molestie ligula, id tincidunt nibh metus in lorem. Praesent porta lacus ut lacinia fringilla. Pellentesque
-        rhoncus blandit purus, id ultricies nibh ullamcorper ac. Suspendisse auctor lectus in turpis pellentesque, eget
-        scelerisque ex sagittis.
-
-        Integer ut ornare lectus, non semper leo. Vestibulum maximus quam at dignissim pharetra. Sed a purus lorem.
-        Mauris sollicitudin mauris eu blandit viverra. Donec eget euismod magna. Fusce mattis risus eu nunc consequat,
-        in sodales orci varius. Morbi vitae lacinia lacus, at tempor ligula. Nunc nec leo et risus condimentum placerat.
-        In nec vulputate neque. Donec hendrerit laoreet libero.
-
-        Sed faucibus luctus nisi sed porttitor. Nunc ut dictum ipsum, non consectetur enim. Curabitur cursus malesuada
-        metus, sit amet tristique mauris egestas non. Etiam sed faucibus ante. Nulla efficitur, ex sit amet malesuada
-        commodo, orci metus auctor orci, eu lobortis magna velit id erat. Nullam rhoncus, leo sed dignissim mattis,
-        tortor eros dignissim sem, vitae vulputate eros ante in purus. Pellentesque habitant morbi tristique senectus et
-        netus et malesuada fames ac turpis egestas.
+    <h1 class="bg-primary"><a href="{{ path('homepage') }}"> <img src="{{ asset('pictures/Euro2016.png') }}"></a> {{ country.name }} </h1>
+    <div class="pull-left bg-info">
+        <div>National flag: <img src="{{ asset(country.flag) }}"></div>
+        <div>UEFA rank: {{ country.uefaRank }}</div>
     </div>
+
 
 {% endblock %}

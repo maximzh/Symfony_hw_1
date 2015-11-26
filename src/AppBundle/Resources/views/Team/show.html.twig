@@ -3,7 +3,7 @@
 {% block title %}Game{% endblock %}
 
 {% block body %}
-    <h1><a href="{{ path('homepage') }}"><img src="/pictures/Euro2016.png"></a> Team information</h1>
+    <h1 class="bg-primary"><a href="{{ path('homepage') }}"><img src="/pictures/Euro2016.png"></a>{{ team.name|upper }}</h1>
     <table class="table table-bordered">
         <tr>
             <th>Players list</th>
@@ -12,9 +12,52 @@
         </tr>
         <tr>
             <td>
-                {% for player in team.players %}
-                   <div> <a href="{{ path('show_player', {'player': player.requestFormatName }) }}">{{ player.name }}</a></div>
-                {% endfor %}
+
+                    <div>
+                        <p class="bg-primary">FORWARDS</p>
+                        {% for player in team.players %}
+
+                                {% if player.position == 'Forward' %}
+                                    <div>
+                                        <a href="{{ path('show_player', {'player': player.requestFormatName }) }}">{{ player.name }}</a>
+                                    </div>
+                                {% endif %}
+                        {% endfor %}
+                    </div>
+
+                <div>
+                    <p class="bg-primary">DEFENDERS</p>
+                    {% for player in team.players %}
+
+                        {% if player.position == 'Defender' %}
+                            <div>
+                                <a href="{{ path('show_player', {'player': player.requestFormatName }) }}">{{ player.name }}</a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div>
+                    <p class="bg-primary">MIDFIELDERS</p>
+                    {% for player in team.players %}
+
+                        {% if player.position == 'Midfielder' %}
+                            <div>
+                                <a href="{{ path('show_player', {'player': player.requestFormatName }) }}">{{ player.name }}</a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div>
+                    <p class="bg-primary">GOAL KEEPERS</p>
+                    {% for player in team.players %}
+
+                        {% if player.position == 'Goal keeper' %}
+                            <div>
+                                <a href="{{ path('show_player', {'player': player.requestFormatName }) }}">{{ player.name }}</a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
 
             </td>
             <td>

@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 class GameController extends Controller
 {
@@ -25,6 +26,10 @@ class GameController extends Controller
      */
     public function showAction($id)
     {
+        //$arr['test'] = 'some';
+        //$response = new Response();
+       // $response->setContent($arr);
+
         return [];
     }
 }

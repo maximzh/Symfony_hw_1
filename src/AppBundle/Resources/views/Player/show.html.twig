@@ -3,14 +3,14 @@
 {% block title %}Player{% endblock %}
 
 {% block body %}
-    <h1><a href="{{ path('homepage') }}"><img src="/pictures/Euro2016.png"></a> Player information</h1>
-    <div>
-        <h2>{{ player.name }}</h2>
-        <p>Position: {{ player.position }}</p>
-        <p>Squad Number: {{ player.squadNumber }}</p>
-        <p>Date of birth: {{ player.dateOfBirth|date("m/d/Y") }}</p>
-        <p>Height: {{ player.height }} cm</p>
-        <p>Weight: {{ player.weight }} kg</p>
+    <h1 class="bg-primary"><a href="{{ path('homepage') }}"><img src="/pictures/Euro2016.png"></a> Player information</h1>
+    <div class="bg-info">
+        <h2 class="bg-primary">{{ player.name }}</h2>
+        <div ><div class="fixed-width pull-left bg-primary text-center">Position:</div> {{ player.position }}</div>
+        <div><div class="fixed-width pull-left bg-primary text-center">Squad Number:</div> {{ player.squadNumber }}</div>
+        <div><div class="fixed-width pull-left bg-primary text-center">Date of Birth:</div> {{ player.dateOfBirth|date("m/d/Y") }}</div>
+        <div><div class="fixed-width pull-left bg-primary text-center">Height:</div> {{ player.height }} cm</div>
+        <div><div class="fixed-width pull-left bg-primary text-center">Weight:</div> {{ player.weight }} kg</div>
     </div>
 
 {% endblock %}
