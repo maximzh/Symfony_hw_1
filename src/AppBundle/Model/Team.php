@@ -28,6 +28,11 @@ class Team
 
             $this->players[] = new Player($faker->firstNameMale.' '.$faker->lastName);
         }
+
+        $this->coaches = [];
+        for($i = 1; $i <=4; $i++) {
+            $this->coaches[] = $faker->firstNameMale.' '.$faker->lastName;
+        }
     }
 
     public function getPlayers()
@@ -38,6 +43,11 @@ class Team
     public function getName()
     {
         return $this->name;
+    }
+
+    public function getCoaches()
+    {
+        return $this->coaches;
     }
 
 }

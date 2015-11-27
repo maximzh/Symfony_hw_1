@@ -26,7 +26,7 @@ class Country
         $faker = Factory::create();
         $this->name = ucfirst(strtolower($name));
         $arr = explode('_', $this->name);
-        foreach($arr as &$value) {
+        foreach ($arr as &$value) {
             $value = ucfirst($value);
         }
         $this->name = implode(' ', $arr);

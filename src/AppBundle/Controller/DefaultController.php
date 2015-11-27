@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Model\Country;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -16,7 +17,7 @@ class DefaultController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
         $potOne = ['france', 'spain', 'germany', 'england', 'portugal', 'belgium'];
         $potTwo = ['italy', 'russia', 'switzerland', 'austria', 'croatia', 'ukraine'];
@@ -26,8 +27,28 @@ class DefaultController extends Controller
         $data['potTwo'] = $potTwo;
         $data['potThree'] = $potThree;
         $data['potFour'] = $potFour;
+
+        foreach($potOne as $country) {
+            $potOneCountries[] = new Country($country);
+        }
+
+        foreach($potTwo as $country) {
+            $potTwoCountries[] = new Country($country);
+        }
+
+        foreach($potThree as $country) {
+            $potThreeCountries[] = new Country($country);
+        }
+
+        foreach($potFour as $country) {
+            $potFourCountries[] = new Country($country);
+        }
+
         return [
-            'data' => $data
+            'pot_one' => $potOneCountries,
+            'pot_two' => $potTwoCountries,
+            'pot_three' => $potThreeCountries,
+            'pot_four' => $potFourCountries
         ];
     }
 }

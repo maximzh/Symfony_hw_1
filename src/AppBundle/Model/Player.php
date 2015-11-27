@@ -20,6 +20,7 @@ class Player
     protected $height;
     protected $weight;
     protected $dateOfBirth;
+    protected $shortBiography;
 
     public function __construct($name)
     {
@@ -46,8 +47,14 @@ class Player
         $this->weight = $faker->numberBetween(65, 90);
 
         $this->dateOfBirth = $faker->dateTimeBetween('-35 years', '-21 years');
+
+        $this->shortBiography = $faker->text(1000);
     }
 
+    public function getShortBiography()
+    {
+        return $this->shortBiography;
+    }
 
     public function getName()
     {

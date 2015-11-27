@@ -3,12 +3,12 @@
 {% block title %}Game{% endblock %}
 
 {% block body %}
-    <h1 class="bg-primary"><a href="{{ path('homepage') }}"><img src="/pictures/Euro2016.png"></a>{{ team.name|upper }}</h1>
-    <table class="table table-bordered">
+    <h1 class="bg-primary"><a href="{{ path('homepage') }}"><img src="/pictures/Euro2016.png"></a>{{ team.name|title|replace({'_': ' '}) }}</h1>
+    <table class="table table-bordered table-hover">
         <tr>
-            <th>Players list</th>
-            <th>Coaches list</th>
-            <th>Last games</th>
+            <th class="bg-primary">Players list</th>
+            <th class="bg-primary">Coaches list</th>
+            <th class="bg-primary">Last games</th>
         </tr>
         <tr>
             <td>
@@ -60,17 +60,19 @@
                 </div>
 
             </td>
-            <td>
-                <div><a href="#">Coach1</a></div>
-                <div><a href="#">Coach1</a></div>
-                <div><a href="#">Coach1</a></div>
-                <div><a href="#">Coach1</a></div>
+            <td class="bg-success">
+                {% for coach in team.coaches %}
+
+                <div>{{ coach }}</div>
+
+                {% endfor %}
+
             </td>
-            <td>
-                <div>Team1 (1 - 0) Team2</div>
-                <div>Team1 (2 - 3) Team2</div>
-                <div>Team1 (3 - 1) Team2</div>
-                <div>Team1 (1 - 1) Team2</div>
+            <td class="bg-warning">
+                <div>
+                   {{ render(controller('AppBundle:Game:lastGames', {'team': team.name}))|replace({'_': ' '})|title|nl2br }}
+                </div>
+
             </td>
         </tr>
     </table>
