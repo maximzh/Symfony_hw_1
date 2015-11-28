@@ -76,11 +76,6 @@ class Country
         return $this->uefaRank;
     }
 
-    public function getRequestFormatName()
-    {
-        return $this->requestFormatName;
-    }
-
     public function getFlag()
     {
         return $this->flag;
