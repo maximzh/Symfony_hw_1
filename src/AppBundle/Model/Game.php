@@ -43,17 +43,19 @@ class Game
     {
         $faker = Factory::create();
         $games = [];
-        for($i = 1; $i <= 5; $i++) {
+        for ($i = 1; $i <= 5; $i++) {
             $games[] = new Game($team, $faker->country);
         }
 
         return $games;
     }
 
+
     public function setId($id)
     {
         $this->id = $id;
     }
+
 
     public function setFirstTeam($firstTeam)
     {

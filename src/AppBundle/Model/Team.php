@@ -24,7 +24,7 @@ class Team
         $this->players = [];
         $faker = Factory::create();
 
-        for($i = 1; $i <= 20; $i++ ) {
+        for($i = 1; $i <= 15; $i++ ) {
 
             $this->players[] = new Player($faker->firstNameMale.' '.$faker->lastName);
         }
