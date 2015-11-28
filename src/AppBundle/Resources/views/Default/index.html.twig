@@ -9,11 +9,11 @@
         <th>POT 1</th>
         {% for item in pot_one %}
            <td>
-               <a href="{{ path('show_country', {'country': item.name|lower|replace(' ', '_')}) }}">
+               <a href="{{ path('show_country', {'country': item.slug}) }}">
                    <img src="{{ item.flag }}">
                </a>
-               <a href="{{ path('show_team', {'team': item.name|lower|replace(' ', '_')}) }}">
-                   {{ item.name|replace({'_': ' '})|title }}
+               <a href="{{ path('show_team', {'team': item.slug}) }}">
+                   {{ item.name }}
                </a>
            </td>
         {% endfor %}
@@ -22,11 +22,11 @@
         <th>POT 2</th>
         {% for item in pot_two %}
             <td>
-                <a href="{{ path('show_country', {'country': item.name|lower|replace(' ', '_')}) }}">
+                <a href="{{ path('show_country', {'country': item.slug}) }}">
                     <img src="{{ item.flag }}">
                 </a>
-                <a href="{{ path('show_team', {'team': item.name|lower|replace(' ', '_')}) }}">
-                    {{ item.name|replace({'_': ' '})|title }}
+                <a href="{{ path('show_team', {'team': item.slug}) }}">
+                    {{ item.name }}
                 </a>
             </td>
         {% endfor %}
@@ -35,11 +35,11 @@
         <th>POT 3</th>
         {% for item in pot_three %}
             <td>
-                <a href="{{ path('show_country', {'country': item.name|lower|replace(' ', '_')}) }}">
+                <a href="{{ path('show_country', {'country': item.slug}) }}">
                     <img src="{{ item.flag }}">
                 </a>
-                <a href="{{ path('show_team', {'team': item.name|lower|replace(' ', '_')}) }}">
-                    {{ item.name|replace({'_': ' '})|title }}
+                <a href="{{ path('show_team', {'team': item.slug}) }}">
+                    {{ item.name }}
                 </a>
             </td>
         {% endfor %}
@@ -48,11 +48,11 @@
         <th>POT 4</th>
         {% for item in pot_four %}
             <td>
-                <a href="{{ path('show_country', {'country': item.name|lower|replace(' ', '_')}) }}">
+                <a href="{{ path('show_country', {'country': item.slug}) }}">
                     <img src="{{ item.flag }}">
                 </a>
-                <a href="{{ path('show_team', {'team': item.name|lower|replace(' ', '_')}) }}">
-                    {{ item.name|replace({'_': ' '})|title }}
+                <a href="{{ path('show_team', {'team': item.slug}) }}">
+                    {{ item.name }}
                 </a>
             </td>
         {% endfor %}

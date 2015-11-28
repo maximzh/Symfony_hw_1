@@ -9,43 +9,43 @@
         </a>
         Player information
     </h1>
-    <div class="bg-success">
-        <h2 class="bg-primary">{{ player.name }}</h2>
+    <div class="fixed-width pull-left">
+        <h2>{{ player.name }}</h2>
 
-        <div class="text-center">
-            <div class="fixed-width pull-left bg-primary text-center">
+        <div>
+            <div class="bg-primary">
                 Position:
             </div>
             <p class="bg-info">
                 {{ player.position }}
             </p>
         </div>
-        <div class="text-center">
-            <div class="fixed-width pull-left bg-primary text-center">
+        <div>
+            <div class="bg-primary">
                 Squad Number:
             </div>
             <p class="bg-info">
                 {{ player.squadNumber }}
             </p>
         </div>
-        <div class="text-center">
-            <div class="fixed-width pull-left bg-primary text-center">
+        <div>
+            <div class="bg-primary">
                 Date of Birth:
             </div>
             <p class="bg-info">
                 {{ player.dateOfBirth|date("m/d/Y") }}
             </p>
         </div>
-        <div class="text-center">
-            <div class="fixed-width pull-left bg-primary text-center">
+        <div>
+            <div class="bg-primary">
                 Height:
             </div>
             <p class="bg-info">
                 {{ player.height }} cm
             </p>
         </div>
-        <div class="text-center">
-            <div class="fixed-width pull-left bg-primary text-center">
+        <div>
+            <div class="bg-primary">
                 Weight:
             </div>
             <p class="bg-info">
@@ -53,10 +53,10 @@
             </p>
         </div>
     </div>
-    <div class="bg-success">
-        <h3 class="bg-primary">
+    <div class="bg-success pull-left">
+        <p class="bg-primary">
             Player short biography
-        </h3>
+        </p>
         {{ player.shortBiography }}
     </div>
 

@@ -14,7 +14,7 @@ use Faker\Factory;
 class Player
 {
     protected $name;
-    protected $requestFormatName;
+    protected $slug;
     protected $position;
     protected $squadNumber;
     protected $height;
@@ -31,9 +31,9 @@ class Player
         }
         $this->name = implode(' ', $arr);
 
-        $this->requestFormatName = strtolower($this->name);
-        $this->requestFormatName = str_replace(' ', '-', $this->requestFormatName);
-        $this->requestFormatName = str_replace('\'', '_', $this->requestFormatName);
+        $this->slug = strtolower($this->name);
+        $this->slug = str_replace(' ', '-', $this->slug);
+        $this->slug = str_replace('\'', '_', $this->slug);
 
         $faker = Factory::create();
 
@@ -61,9 +61,9 @@ class Player
         return $this->name;
     }
 
-    public function getRequestFormatName()
+    public function getSlug()
     {
-        return $this->requestFormatName;
+        return $this->slug;
     }
 
     public function getPosition()

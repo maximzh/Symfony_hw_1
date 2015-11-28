@@ -3,7 +3,8 @@
 {% block title %}Game{% endblock %}
 
 {% block body %}
-    <h1 class="bg-primary"><a href="{{ path('homepage') }}"><img src="/pictures/Euro2016.png"></a>{{ team.name|title|replace({'_': ' '}) }}</h1>
+    <h1 class="bg-primary"><a href="{{ path('homepage') }}"><img src="/pictures/Euro2016.png"></a>{{ team.name|title }}
+    </h1>
     <table class="table table-bordered table-hover">
         <tr>
             <th class="bg-primary">Players list</th>
@@ -13,17 +14,17 @@
         <tr>
             <td>
 
-                    <div>
-                        <p class="bg-primary">FORWARDS</p>
-                        {% for player in team.players %}
+                <div>
+                    <p class="bg-primary">FORWARDS</p>
+                    {% for player in team.players %}
 
-                                {% if player.position == 'Forward' %}
-                                    <div>
-                                        <a href="{{ path('show_player', {'player': player.requestFormatName }) }}">{{ player.name }}</a>
-                                    </div>
-                                {% endif %}
-                        {% endfor %}
-                    </div>
+                        {% if player.position == 'Forward' %}
+                            <div>
+                                <a href="{{ path('show_player', {'player': player.slug }) }}">{{ player.name }}</a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
 
                 <div>
                     <p class="bg-primary">DEFENDERS</p>
@@ -31,7 +32,7 @@
 
                         {% if player.position == 'Defender' %}
                             <div>
-                                <a href="{{ path('show_player', {'player': player.requestFormatName }) }}">{{ player.name }}</a>
+                                <a href="{{ path('show_player', {'player': player.slug }) }}">{{ player.name }}</a>
                             </div>
                         {% endif %}
                     {% endfor %}
@@ -42,7 +43,7 @@
 
                         {% if player.position == 'Midfielder' %}
                             <div>
-                                <a href="{{ path('show_player', {'player': player.requestFormatName }) }}">{{ player.name }}</a>
+                                <a href="{{ path('show_player', {'player': player.slug }) }}">{{ player.name }}</a>
                             </div>
                         {% endif %}
                     {% endfor %}
@@ -53,7 +54,7 @@
 
                         {% if player.position == 'Goal keeper' %}
                             <div>
-                                <a href="{{ path('show_player', {'player': player.requestFormatName }) }}">{{ player.name }}</a>
+                                <a href="{{ path('show_player', {'player': player.slug }) }}">{{ player.name }}</a>
                             </div>
                         {% endif %}
                     {% endfor %}
@@ -63,14 +64,20 @@
             <td class="bg-success">
                 {% for coach in team.coaches %}
 
-                <div>{{ coach }}</div>
+                    <div>{{ coach }}</div>
 
                 {% endfor %}
 
             </td>
             <td class="bg-warning">
                 <div>
-                   {{ render(controller('AppBundle:Game:lastGames', {'team': team.name}))|replace({'_': ' '})|title|nl2br }}
+                    {% for game in team.lastGames %}
+                        <div>
+                            <a href="{{ path('show_game_by_id', {'id': game.id}) }}">
+                                {{ game.firstTeam }} ( {{ game.result.0 }} - {{ game.result.1 }} ) {{ game.secondTeam }}
+                            </a>
+                        </div>
+                    {% endfor %}
                 </div>
 
             </td>

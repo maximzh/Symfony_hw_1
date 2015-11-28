@@ -20,12 +20,17 @@ class Game
     protected $startTime;
     protected $gameDate;
 
-    public function __construct($firstTeam = null, $secondTeam = null)
+    public function __construct($firstTeam = null, $secondTeam = null, $id = null)
     {
         $faker = Factory::create();
 
-        $this->firstTeam = $firstTeam;
-        $this->secondTeam = $secondTeam;
+        if (isset($firstTeam)) {
+            $this->firstTeam = $firstTeam;
+        }
+        if (isset($secondTeam)) {
+            $this->secondTeam = $secondTeam;
+        }
+
 
         $this->id = $faker->numberBetween(1, 10000);
 
@@ -37,17 +42,6 @@ class Game
         $this->gameDate = $faker->dateTimeBetween('-50 days', '+50 days');
         $this->startTime = $faker->time('H:i');
 
-    }
-
-    public static function getLastGames($team)
-    {
-        $faker = Factory::create();
-        $games = [];
-        for ($i = 1; $i <= 5; $i++) {
-            $games[] = new Game($team, $faker->country);
-        }
-
-        return $games;
     }
 
 

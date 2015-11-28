@@ -14,7 +14,7 @@ use Faker\Factory;
 class Country
 {
     protected $name;
-    protected $requestFormatName;
+    protected $slug;
     protected $uefaRank;
     protected $flag;
     protected $shortHistory;
@@ -25,25 +25,45 @@ class Country
     {
         $faker = Factory::create();
         $this->name = ucfirst(strtolower($name));
-        $arr = explode('_', $this->name);
-        foreach ($arr as &$value) {
-            $value = ucfirst($value);
-        }
-        $this->name = implode(' ', $arr);
 
-        $this->requestFormatName = strtolower($this->name);
-        $this->requestFormatName = str_replace(' ', '_', $this->requestFormatName);
+        if (substr_count($this->name, '_') > 0) {
+
+            $arr = explode('_', $this->name);
+            foreach ($arr as &$value) {
+                $value = ucfirst($value);
+            }
+            $this->name = implode(' ', $arr);
+
+
+        } elseif (substr_count($this->name, ' ') > 0) {
+
+            $arr = explode(' ', $this->name);
+            foreach ($arr as &$value) {
+                $value = ucfirst($value);
+            }
+            $this->name = implode(' ', $arr);
+        }
+
+
+        $this->slug = $this->name;
+        $this->slug = strtolower($this->slug);
+        $this->slug = str_replace(' ', '_', $this->slug);
 
         $this->uefaRank = $faker->numberBetween(1, 54);
 
-        $this->flag = '/pictures/'.$this->requestFormatName.'.png';
+        $this->flag = '/pictures/'.$this->slug.'.png';
 
-        $this->shortHistory = $faker->text(900);
+        $this->shortHistory = $faker->text(1000);
 
         $this->firstMembership = $faker->year;
 
         $this->nationalTeamFoundedAt = $faker->year;
 
+    }
+
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     public function getName()

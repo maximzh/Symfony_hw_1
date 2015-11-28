@@ -7,7 +7,6 @@ use Faker\Factory;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
 
 class GameController extends Controller
 {
@@ -28,22 +27,14 @@ class GameController extends Controller
      */
     public function showAction($id)
     {
-        $game = new Game();
-        $game->setId($id);
-        return [];
+        $game = new Game($id);
+
+        $faker = Factory::create();
+        $game->setFirstTeam($faker->country);
+        $game->setSecondTeam($faker->country);
+
+        return ['game' => $game];
     }
 
-
-    public function lastGamesAction($team)
-    {
-        $lastGames = Game::getLastGames($team);
-
-        foreach ($lastGames as $item) {
-            $data[] = $item->getFirstTeam().' '.$item->getResult()[0].' - '.$item->getResult(
-                )[1].' '.$item->getSecondTeam();
-        }
-
-        return new Response(implode("\n", $data));
-    }
 }
 

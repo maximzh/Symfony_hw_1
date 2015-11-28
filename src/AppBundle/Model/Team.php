@@ -14,12 +14,25 @@ use Faker\Factory;
 class Team
 {
     protected $name;
+    protected $slug;
     protected $players;
     protected $coaches;
+    protected $lastGames;
 
     public function __construct($name)
     {
-        $this->name = $name;
+        $this->name = ucfirst(strtolower($name));
+
+
+        $arr = explode('_', $this->name);
+        foreach ($arr as &$value) {
+            $value = ucfirst($value);
+        }
+        $this->name = implode(' ', $arr);
+
+        $this->slug = $this->name;
+        $this->slug = strtolower($this->slug);
+        $this->slug = str_replace(' ', '_', $this->slug);
 
         $this->players = [];
         $faker = Factory::create();
@@ -32,6 +45,12 @@ class Team
         $this->coaches = [];
         for($i = 1; $i <=4; $i++) {
             $this->coaches[] = $faker->firstNameMale.' '.$faker->lastName;
+        }
+
+        $this->lastGames = [];
+        $i = 0;
+        while(++$i <= 5) {
+          $this->lastGames[] = new Game($this->name, $faker->country);
         }
     }
 
@@ -48,6 +67,11 @@ class Team
     public function getCoaches()
     {
         return $this->coaches;
+    }
+
+    public function getLastGames()
+    {
+        return $this->lastGames;
     }
 
 }

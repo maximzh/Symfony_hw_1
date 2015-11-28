@@ -3,13 +3,38 @@
 {% block title %}Game{% endblock %}
 
 {% block body %}
-    <h1><a href="{{ path('homepage') }}"><img src="/pictures/Euro2016.png"></a> Game</h1>
+    <h1><a href="{{ path('homepage') }}"><img src="{{ asset('pictures/Euro2016.png') }}"></a> Game</h1>
     <div>
-           <h2>Team1 1-0 Team2</h2>
-           <div>
-               <h3>Game statistics</h3>
-               <p></p>
-           </div>
+        <div>
+            <p class="bg-primary">
+                Game result:
+            </p>
+
+            <p class="text-info">
+                {{ game.firstTeam }} ( <span class="bg-success"> {{ game.result.0 }} - {{ game.result.1 }} </span>
+                ) {{ game.secondTeam }}
+            </p>
+        </div>
+
+        <div>
+            <p class="bg-primary">
+                Game date:
+            </p>
+
+            <p class="text-info">
+                {{ game.gameDate|date("m/d/Y") }}
+            </p>
+        </div>
+
+        <div>
+            <p class="bg-primary">
+                Match starts at:
+            </p>
+
+            <p class="text-info">
+                {{ game.startTime }}
+            </p>
+        </div>
     </div>
 
 {% endblock %}
