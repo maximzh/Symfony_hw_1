@@ -8,6 +8,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Model\Team;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -29,11 +30,12 @@ class TeamController extends Controller
 
     /**
      * @Route("/team/{team}", requirements={"team" = "^[a-z]+[a-z_-]*[a-z]+$"}, name="show_team")
-     * @Template("AppBundle:team:team.html.twig")
+     * @Template()
      * @Method("GET")
      */
     public function showAction($team)
     {
-        return [];
+        $instance = new Team($team);
+        return ['team' => $instance];
     }
 }

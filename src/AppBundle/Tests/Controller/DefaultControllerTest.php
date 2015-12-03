@@ -13,6 +13,6 @@ class DefaultControllerTest extends AbstractController
 
         $crawler = $client->request("GET", "/");
 
-        $this->assertContains('UEFA EURO 2016 FRANCE', $crawler->filter('h1')->text());
+        $this->assertContains('UEFA EURO 2016', $crawler->filter('h1')->text());
     }
 }

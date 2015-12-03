@@ -12,7 +12,6 @@
         "symfony/symfony": "2.7.*",
         "doctrine/orm": "^2.4.8",
         "doctrine/doctrine-bundle": "~1.4",
-        "symfony/assetic-bundle": "~2.3",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~4.0",
@@ -21,6 +20,7 @@
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
+        "fzaninotto/faker": "^1.5",
         "phpunit/phpunit": "^5.0"
     },
     "scripts": {

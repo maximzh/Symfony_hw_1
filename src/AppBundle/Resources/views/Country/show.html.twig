@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Country info{% endblock %}
+
+{% block body %}
+    <h1 class="bg-primary"><a href="{{ path('homepage') }}"> <img src="{{ asset('pictures/Euro2016.png') }}"></a> {{ country.name }} </h1>
+    <div class="bg-info fixed-width">
+        <div>National flag: <img class="pull-right" src="{{ asset(country.flag) }}"></div>
+        <div>UEFA rank: <span class="pull-right">{{ country.uefaRank }}</span></div>
+        <div>First membership: <span class="pull-right">{{ country.firstMembership }}</span></div>
+        <div>National team founded: <span class="pull-right">{{ country.nationalTeamFoundedAt }}</span></div>
+
+    </div>
+    <div class="bg-success">
+        <h3 class="bg-primary">Short history of football in {{ country.name }}</h3>
+
+        {{ country.shortHistory }}
+    </div>
+
+
+{% endblock %}

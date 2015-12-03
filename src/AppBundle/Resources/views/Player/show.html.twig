@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Player{% endblock %}
+
+{% block body %}
+    <h1 class="bg-primary">
+        <a href="{{ path('homepage') }}">
+            <img src="/pictures/Euro2016.png">
+        </a>
+        Player information
+    </h1>
+    <div class="fixed-width pull-left">
+        <h2>{{ player.name }}</h2>
+
+        <div>
+            <div class="bg-primary">
+                Position:
+            </div>
+            <p class="bg-info">
+                {{ player.position }}
+            </p>
+        </div>
+        <div>
+            <div class="bg-primary">
+                Squad Number:
+            </div>
+            <p class="bg-info">
+                {{ player.squadNumber }}
+            </p>
+        </div>
+        <div>
+            <div class="bg-primary">
+                Date of Birth:
+            </div>
+            <p class="bg-info">
+                {{ player.dateOfBirth|date("m/d/Y") }}
+            </p>
+        </div>
+        <div>
+            <div class="bg-primary">
+                Height:
+            </div>
+            <p class="bg-info">
+                {{ player.height }} cm
+            </p>
+        </div>
+        <div>
+            <div class="bg-primary">
+                Weight:
+            </div>
+            <p class="bg-info">
+                {{ player.weight }} kg
+            </p>
+        </div>
+    </div>
+    <div class="bg-success pull-left">
+        <p class="bg-primary">
+            Player short biography
+        </p>
+        {{ player.shortBiography }}
+    </div>
+
+{% endblock %}

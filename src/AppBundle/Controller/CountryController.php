@@ -9,6 +9,7 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Model\Country;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -21,7 +22,6 @@ class CountryController extends Controller
     /**
      * @Route("/country")
      * @Route("/country/")
-     * @Template("AppBundle:country:country.html.twig")
      * @Method("GET")
      */
     public function indexAction()
@@ -31,11 +31,12 @@ class CountryController extends Controller
 
     /**
      * @Route("/country/{country}", requirements={"country" = "^[a-z]+[a-z_-]*[a-z]+$"}, name="show_country")
-     * @Template("AppBundle:country:country.html.twig")
+     * @Template()
      * @Method("GET")
      */
     public function showAction($country)
     {
-        return [];
+        $instance = new Country($country);
+        return ['country' => $instance];
     }
 }
