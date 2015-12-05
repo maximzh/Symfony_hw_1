@@ -3,7 +3,7 @@
 {% block title %}Game{% endblock %}
 
 {% block body %}
-    <h1 class="bg-primary"><a href="{{ path('homepage') }}"><img src="/pictures/Euro2016.png"></a>{{ team.name|title }}
+    <h1 class="bg-primary"><a href="{{ path('homepage') }}"><img src="/pictures/Euro2016.png"></a>{{ team.name }}
     </h1>
     <table class="table table-bordered table-hover">
         <tr>
@@ -62,14 +62,17 @@
 
             </td>
             <td>
-                {% for coach in team.coaches %}
 
-                    <div>{{ coach }}</div>
+                {% for coach in team.coaches %}
+                    <div>{{ coach.name }}</div>
 
                 {% endfor %}
 
+
+
             </td>
             <td>
+                {#
                 <div>
                     {% for game in team.lastGames %}
                         <div>
@@ -79,6 +82,9 @@
                         </div>
                     {% endfor %}
                 </div>
+                #}
+
+
 
             </td>
         </tr>

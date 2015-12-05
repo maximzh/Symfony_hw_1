@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Coach
+{% endblock title %}
+
+{% block body %}
+    <div>Name: {{ coach.name }}</div>
+    <div>Nationality: {{ coach.nationality }}</div>
+    <div>Date of birth: {{ coach.dateOfBirth|date("d/m/Y") }}</div>
+    <div>Team: {{ coach.team.name }}</div>
+{% endblock body %}

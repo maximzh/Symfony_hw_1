@@ -12,7 +12,7 @@
                <a href="{{ path('show_country', {'country': item.slug}) }}">
                    <img src="{{ item.flag }}">
                </a>
-               <a href="{{ path('show_team', {'team': item.slug}) }}">
+               <a href="{{ path('show_team', {'slug': item.team.slug }) }}">
                    {{ item.name }}
                </a>
            </td>
@@ -25,7 +25,7 @@
                 <a href="{{ path('show_country', {'country': item.slug}) }}">
                     <img src="{{ item.flag }}">
                 </a>
-                <a href="{{ path('show_team', {'team': item.slug}) }}">
+                <a href="{{ path('show_team', {'slug': item.team.slug}) }}">
                     {{ item.name }}
                 </a>
             </td>
@@ -38,7 +38,7 @@
                 <a href="{{ path('show_country', {'country': item.slug}) }}">
                     <img src="{{ item.flag }}">
                 </a>
-                <a href="{{ path('show_team', {'team': item.slug}) }}">
+                <a href="{{ path('show_team', {'slug': item.team.slug}) }}">
                     {{ item.name }}
                 </a>
             </td>
@@ -51,7 +51,7 @@
                 <a href="{{ path('show_country', {'country': item.slug}) }}">
                     <img src="{{ item.flag }}">
                 </a>
-                <a href="{{ path('show_team', {'team': item.slug}) }}">
+                <a href="{{ path('show_team', {'slug': item.team.slug}) }}">
                     {{ item.name }}
                 </a>
             </td>

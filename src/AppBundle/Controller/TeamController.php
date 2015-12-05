@@ -15,6 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Acl\Exception\AclNotFoundException;
 
 class TeamController extends Controller
 {
@@ -29,13 +30,18 @@ class TeamController extends Controller
     }
 
     /**
-     * @Route("/team/{team}", requirements={"team" = "^[a-z]+[a-z_-]*[a-z]+$"}, name="show_team")
+     * @Route("/team/{slug}", requirements={"team" = "^[a-z]+[a-z_-]*[a-z]+$"}, name="show_team")
      * @Template()
      * @Method("GET")
      */
-    public function showAction($team)
+    public function showAction($slug)
     {
-        $instance = new Team($team);
-        return ['team' => $instance];
+        $team = $this->getDoctrine()
+            ->getRepository('AppBundle:Team')
+            ->findOneBy(array('slug' => $slug));
+
+
+        return ['team' => $team];
     }
+
 }

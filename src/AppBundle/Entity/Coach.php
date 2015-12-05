@@ -31,6 +31,13 @@ class Coach
     /**
      * @var string
      *
+     * @ORM\Column(name="slug", type="string", length=255, unique=false)
+     */
+    private $slug;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="nationality", type="string", length=255)
      */
     private $nationality;
@@ -153,5 +160,29 @@ class Coach
     public function getTeam()
     {
         return $this->team;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Coach
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }
