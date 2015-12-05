@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Model\Country;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -17,29 +16,30 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $potOne = ['france', 'spain', 'gerMany', 'england', 'portugal', 'belgium'];
-        $potTwo = ['italy', 'russia', 'switzerland', 'austria', 'croatia', 'ukraine'];
-        $potThree = ['czech_republic', 'sweden', 'poland', 'romania', 'slovakia', 'hungary'];
-        $potFour = ['turkey', 'republic_of_ireland', 'iceland', 'wales', 'albania', 'northern ireland'];
-        $data['potOne'] = $potOne;
-        $data['potTwo'] = $potTwo;
-        $data['potThree'] = $potThree;
-        $data['potFour'] = $potFour;
+        $potOne = ['France', 'Spain', 'Germany', 'England', 'Portugal', 'Belgium'];
+        $potTwo = ['Italy', 'Russia', 'Switzerland', 'Austria', 'Croatia', 'Ukraine'];
+        $potThree = ['Czech Republic', 'Sweden', 'Poland', 'Romania', 'Slovakia', 'Hungary'];
+        $potFour = ['Turkey', 'Republic Of Ireland', 'Iceland', 'Wales', 'Albania', 'Northern Ireland'];
 
-        foreach ($potOne as $country) {
-            $potOneCountries[] = new Country($country);
-        }
 
-        foreach ($potTwo as $country) {
-            $potTwoCountries[] = new Country($country);
-        }
+        $allCountries = $this->getDoctrine()
+            ->getRepository('AppBundle:Country')
+            ->findAll();
 
-        foreach ($potThree as $country) {
-            $potThreeCountries[] = new Country($country);
-        }
+        foreach ($allCountries as $currentCountry) {
+            if (in_array($currentCountry->getName(), $potOne)) {
+                $potOneCountries[] = $currentCountry;
 
-        foreach ($potFour as $country) {
-            $potFourCountries[] = new Country($country);
+            } elseif (in_array($currentCountry->getName(), $potTwo)) {
+                $potTwoCountries[] = $currentCountry;
+
+            } elseif (in_array($currentCountry->getName(), $potThree)) {
+                $potThreeCountries[] = $currentCountry;
+
+            } elseif (in_array($currentCountry->getName(), $potFour)) {
+                $potFourCountries[] = $currentCountry;
+            }
+
         }
 
         return [

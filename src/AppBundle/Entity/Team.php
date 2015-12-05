@@ -31,7 +31,7 @@ class Team
     /**
      * @var string
      *
-     * @ORM\Column(name="slug", type="string", length=255, unique=true)
+     * @ORM\Column(name="slug", type="string", length=255, unique=false)
      */
     private $slug;
 
@@ -108,6 +108,7 @@ class Team
     public function __construct()
     {
         $this->players = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->coaches = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

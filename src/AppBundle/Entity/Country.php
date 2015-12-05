@@ -66,7 +66,7 @@ class Country
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="national_team_founded_at", type="date")
+     * @ORM\Column(name="national_team_founded_at", type="smallint")
      */
     private $nationalTeamFoundedAt;
 
