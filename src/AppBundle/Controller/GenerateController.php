@@ -75,11 +75,6 @@ class GenerateController extends Controller
 
                 $player->setName($faker->firstNameMale.' '.$faker->lastName);
 
-                $slug = strtolower($player->getName());
-                $slug = str_replace(' ', '-', $slug);
-                $slug = str_replace('\'', '_', $slug);
-                $player->setSlug($slug);
-
                 $position = $positions[array_rand($positions)];
                 $player->setPosition($position);
 
