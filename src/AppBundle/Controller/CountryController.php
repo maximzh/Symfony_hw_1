@@ -30,13 +30,20 @@ class CountryController extends Controller
     }
 
     /**
-     * @Route("/country/{country}", requirements={"country" = "^[a-z]+[a-z_-]*[a-z]+$"}, name="show_country")
+     * @Route("/country/{slug}", requirements={"country" = "^[a-z]+[a-z_-]*[a-z]+$"}, name="show_country")
      * @Template()
      * @Method("GET")
      */
-    public function showAction($country)
+    public function showAction($slug)
     {
-        $instance = new Country($country);
-        return ['country' => $instance];
+        $country = $this->getDoctrine()
+            ->getRepository('AppBundle:Country')
+            ->findOneBy(array('slug' => $slug));
+
+        if(!$country) {
+            throw $this->createNotFoundException('No country found: '.$slug);
+        }
+
+        return ['country' => $country];
     }
 }

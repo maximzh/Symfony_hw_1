@@ -8,14 +8,10 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Model\Team;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Acl\Exception\AclNotFoundException;
 
 class TeamController extends Controller
 {
@@ -39,6 +35,10 @@ class TeamController extends Controller
         $team = $this->getDoctrine()
             ->getRepository('AppBundle:Team')
             ->findOneBy(array('slug' => $slug));
+
+        if (!$team) {
+            throw $this->createNotFoundException('No team found: '.$slug);
+        }
 
 
         return ['team' => $team];

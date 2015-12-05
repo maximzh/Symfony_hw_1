@@ -30,15 +30,21 @@ class PlayerController extends Controller
     }
 
     /**
-     * @Route("/player/{player}", name="show_player", requirements={"player" = "^[a-z]+[a-z_-]*[a-z]+$"})
+     * @Route("/player/{id}", name="show_player", requirements={"id" = "\d+"})
      * @Template()
      * @Method("GET")
      */
-    public function showAction($player)
+    public function showAction($id)
     {
-        $instance = new Player($player);
-        //$instance = $instance->generateData();
 
-        return ['player' => $instance];
+        $player = $this->getDoctrine()
+            ->getRepository('AppBundle:Player')
+            ->find($id);
+
+        if(!$player) {
+            throw $this->createNotFoundException('No player found for id '.$id);
+        }
+
+        return ['player' => $player];
     }
 }

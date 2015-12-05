@@ -29,7 +29,7 @@ class CoachController extends Controller
             ->find($id);
 
         if(!$coach) {
-            throw $this->createNotFoundException('No coach found for id'.$id);
+            throw $this->createNotFoundException('No coach found for id: '.$id);
         }
 
         return ['coach' => $coach];
