@@ -40,8 +40,14 @@ class TeamController extends Controller
             throw $this->createNotFoundException('No team found: '.$slug);
         }
 
+        $games = $this->getDoctrine()
+            ->getRepository('AppBundle:Game')
+            ->findGamesByTeam($team);
 
-        return ['team' => $team];
+        return [
+            'team' => $team,
+            'games' => $games
+        ];
     }
 
 }

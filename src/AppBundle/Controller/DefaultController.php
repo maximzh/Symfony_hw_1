@@ -43,6 +43,7 @@ class DefaultController extends Controller
         }
 
         return [
+
             'pot_one' => $potOneCountries,
             'pot_two' => $potTwoCountries,
             'pot_three' => $potThreeCountries,

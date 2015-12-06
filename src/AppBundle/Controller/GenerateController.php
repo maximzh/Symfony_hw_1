@@ -11,6 +11,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Coach;
 use AppBundle\Entity\Country;
+use AppBundle\Entity\Game;
 use AppBundle\Entity\Player;
 use AppBundle\Entity\Team;
 use Faker\Factory;
@@ -124,6 +125,23 @@ class GenerateController extends Controller
 
 
         }
+
+        $teams = $this->getDoctrine()
+            ->getRepository('AppBundle:Team')
+            ->findAll();
+
+        foreach($teams as $team) {
+            $game = new Game();
+            $game->setFirstTeam($team);
+            $game->setFirstTeamScore($faker->numberBetween(0, 5));
+            $game->setSecondTeamScore($faker->numberBetween(0, 5));
+            $game->setGameDate($faker->dateTime);
+            $game->setGameStartsAt($faker->time('H:i'));
+            $randomCountry = $teams[array_rand($teams)];
+            $game->setSecondTeam($randomCountry);
+            $em->persist($game);
+        }
+        $em->flush();
 
         return new Response('Fake data generated and saved to database');
     }
