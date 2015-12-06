@@ -26,8 +26,6 @@ class GameControllerTest extends AbstractController
     {
         return
             [
-                [200, "/game/12"],
-                [200, "/game/2"],
                 [302, "/game/"],
                 [302, "/game"],
                 [404, "/game/0002"],

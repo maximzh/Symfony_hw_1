@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Game{% endblock %}
+{% block title %}Team{% endblock %}
 
 {% block body %}
-    <h1 class="bg-primary"><a href="{{ path('homepage') }}"><img src="/pictures/Euro2016.png"></a>{{ team.name|title }}
+    <h1 class="bg-primary"><a href="{{ path('homepage') }}"><img src="/pictures/Euro2016.png"></a>{{ team.name }}
     </h1>
     <table class="table table-bordered table-hover">
         <tr>
@@ -20,7 +20,7 @@
 
                         {% if player.position == 'Forward' %}
                             <div>
-                                <a href="{{ path('show_player', {'player': player.slug }) }}">{{ player.name }}</a>
+                                <a href="{{ path('show_player', {'id': player.id }) }}">{{ player.name }}</a>
                             </div>
                         {% endif %}
                     {% endfor %}
@@ -32,7 +32,7 @@
 
                         {% if player.position == 'Defender' %}
                             <div>
-                                <a href="{{ path('show_player', {'player': player.slug }) }}">{{ player.name }}</a>
+                                <a href="{{ path('show_player', {'id': player.id }) }}">{{ player.name }}</a>
                             </div>
                         {% endif %}
                     {% endfor %}
@@ -43,7 +43,7 @@
 
                         {% if player.position == 'Midfielder' %}
                             <div>
-                                <a href="{{ path('show_player', {'player': player.slug }) }}">{{ player.name }}</a>
+                                <a href="{{ path('show_player', {'id': player.id }) }}">{{ player.name }}</a>
                             </div>
                         {% endif %}
                     {% endfor %}
@@ -54,7 +54,7 @@
 
                         {% if player.position == 'Goal keeper' %}
                             <div>
-                                <a href="{{ path('show_player', {'player': player.slug }) }}">{{ player.name }}</a>
+                                <a href="{{ path('show_player', {'id': player.id }) }}">{{ player.name }}</a>
                             </div>
                         {% endif %}
                     {% endfor %}
@@ -62,23 +62,34 @@
 
             </td>
             <td>
-                {% for coach in team.coaches %}
 
-                    <div>{{ coach }}</div>
+                {% for coach in team.coaches %}
+                    <div>
+                        <a href="{{ path('show_coach', {'id': coach.id}) }}">
+                            {{ coach.name }}
+                        </a>
+                    </div>
 
                 {% endfor %}
 
+
+
             </td>
             <td>
+
                 <div>
-                    {% for game in team.lastGames %}
+                    {% for game in games %}
                         <div>
                             <a href="{{ path('show_game_by_id', {'id': game.id}) }}">
-                                {{ game.firstTeam }} ( {{ game.result.0 }} - {{ game.result.1 }} ) {{ game.secondTeam }}
+                                {{ game.firstTeam.name }} ( {{ game.firstTeamScore }} - {{ game.secondTeamScore }} ) {{ game.secondTeam.name }}
                             </a>
+
                         </div>
                     {% endfor %}
                 </div>
+
+
+
 
             </td>
         </tr>

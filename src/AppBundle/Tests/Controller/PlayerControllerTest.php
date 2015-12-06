@@ -27,14 +27,10 @@ class PlayerControllerTest extends AbstractController
     {
         return
             [
-                [200, "/player/lukaku"],
-                [200, "/player/andriy_yarmolenko"],
-                [200, "/player/czech-republic"],
                 [302, "/player/"],
                 [302, "/player"],
                 [404, "/player/player6"],
                 [404, "/player/player_"],
-                [404, "/player/152"]
             ];
     }
 }

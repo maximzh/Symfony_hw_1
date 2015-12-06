@@ -2,7 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Model\Game;
+use AppBundle\Entity\Game;
 use Faker\Factory;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -27,11 +27,15 @@ class GameController extends Controller
      */
     public function showAction($id)
     {
-        $game = new Game($id);
+        $game = $this->getDoctrine()
+            ->getRepository('AppBundle:Game')
+            ->find($id);
 
-        $faker = Factory::create();
-        $game->setFirstTeam($faker->country);
-        $game->setSecondTeam($faker->country);
+        if(!$game) {
+            throw $this->createNotFoundException('No game found for id: '.$id);
+        }
+
+
 
         return ['game' => $game];
     }

@@ -8,13 +8,10 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Model\Team;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class TeamController extends Controller
 {
@@ -29,13 +26,28 @@ class TeamController extends Controller
     }
 
     /**
-     * @Route("/team/{team}", requirements={"team" = "^[a-z]+[a-z_-]*[a-z]+$"}, name="show_team")
+     * @Route("/team/{slug}", requirements={"team" = "^[a-z]+[a-z_-]*[a-z]+$"}, name="show_team")
      * @Template()
      * @Method("GET")
      */
-    public function showAction($team)
+    public function showAction($slug)
     {
-        $instance = new Team($team);
-        return ['team' => $instance];
+        $team = $this->getDoctrine()
+            ->getRepository('AppBundle:Team')
+            ->findOneBy(array('slug' => $slug));
+
+        if (!$team) {
+            throw $this->createNotFoundException('No team found: '.$slug);
+        }
+
+        $games = $this->getDoctrine()
+            ->getRepository('AppBundle:Game')
+            ->findGamesByTeam($team);
+
+        return [
+            'team' => $team,
+            'games' => $games
+        ];
     }
+
 }

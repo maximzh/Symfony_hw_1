@@ -3,16 +3,16 @@
 {% block title %}Euro 2016{% endblock %}
 
 {% block body %}
-<h1 class="bg-primary"><img src="{{ asset('pictures/Euro2016.png') }}"> UEFA EURO 2016</h1>
+    <h1 class="bg-primary"><img src="{{ asset('pictures/Euro2016.png') }}"> UEFA EURO 2016</h1>
     <table class="table table-bordered table-hover">
     <tr>
         <th>POT 1</th>
         {% for item in pot_one %}
            <td>
-               <a href="{{ path('show_country', {'country': item.slug}) }}">
+               <a href="{{ path('show_country', {'slug': item.slug}) }}">
                    <img src="{{ item.flag }}">
                </a>
-               <a href="{{ path('show_team', {'team': item.slug}) }}">
+               <a href="{{ path('show_team', {'slug': item.team.slug }) }}">
                    {{ item.name }}
                </a>
            </td>
@@ -22,10 +22,10 @@
         <th>POT 2</th>
         {% for item in pot_two %}
             <td>
-                <a href="{{ path('show_country', {'country': item.slug}) }}">
+                <a href="{{ path('show_country', {'slug': item.slug}) }}">
                     <img src="{{ item.flag }}">
                 </a>
-                <a href="{{ path('show_team', {'team': item.slug}) }}">
+                <a href="{{ path('show_team', {'slug': item.team.slug}) }}">
                     {{ item.name }}
                 </a>
             </td>
@@ -35,10 +35,10 @@
         <th>POT 3</th>
         {% for item in pot_three %}
             <td>
-                <a href="{{ path('show_country', {'country': item.slug}) }}">
+                <a href="{{ path('show_country', {'slug': item.slug}) }}">
                     <img src="{{ item.flag }}">
                 </a>
-                <a href="{{ path('show_team', {'team': item.slug}) }}">
+                <a href="{{ path('show_team', {'slug': item.team.slug}) }}">
                     {{ item.name }}
                 </a>
             </td>
@@ -48,15 +48,16 @@
         <th>POT 4</th>
         {% for item in pot_four %}
             <td>
-                <a href="{{ path('show_country', {'country': item.slug}) }}">
+                <a href="{{ path('show_country', {'slug': item.slug}) }}">
                     <img src="{{ item.flag }}">
                 </a>
-                <a href="{{ path('show_team', {'team': item.slug}) }}">
+                <a href="{{ path('show_team', {'slug': item.team.slug}) }}">
                     {{ item.name }}
                 </a>
             </td>
         {% endfor %}
     </tr>
     </table>
+
 
 {% endblock %}
