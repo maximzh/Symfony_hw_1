@@ -2,7 +2,11 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Coach;
+use AppBundle\Entity\Player;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+
 
 /**
  * Team
@@ -107,18 +111,18 @@ class Team
      */
     public function __construct()
     {
-        $this->players = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->coaches = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->players = new ArrayCollection();
+        $this->coaches = new ArrayCollection();
     }
 
     /**
      * Add player
      *
-     * @param \AppBundle\Entity\Player $player
+     * @param Player $player
      *
      * @return Team
      */
-    public function addPlayer(\AppBundle\Entity\Player $player)
+    public function addPlayer(Player $player)
     {
         $this->players[] = $player;
 
@@ -128,9 +132,9 @@ class Team
     /**
      * Remove player
      *
-     * @param \AppBundle\Entity\Player $player
+     * @param Player $player
      */
-    public function removePlayer(\AppBundle\Entity\Player $player)
+    public function removePlayer(Player $player)
     {
         $this->players->removeElement($player);
     }
@@ -148,11 +152,11 @@ class Team
     /**
      * Add coach
      *
-     * @param \AppBundle\Entity\Coach $coach
+     * @param Coach $coach
      *
      * @return Team
      */
-    public function addCoach(\AppBundle\Entity\Coach $coach)
+    public function addCoach(Coach $coach)
     {
         $this->coaches[] = $coach;
 
@@ -162,9 +166,9 @@ class Team
     /**
      * Remove coach
      *
-     * @param \AppBundle\Entity\Coach $coach
+     * @param Coach $coach
      */
-    public function removeCoach(\AppBundle\Entity\Coach $coach)
+    public function removeCoach(Coach $coach)
     {
         $this->coaches->removeElement($coach);
     }

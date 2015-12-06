@@ -43,9 +43,9 @@ class Game
     private $gameDate;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="game_starts_at", type="time")
+     * @ORM\Column(name="game_starts_at", type="string")
      */
     private $gameStartsAt;
 
@@ -147,7 +147,7 @@ class Game
     /**
      * Set gameStartsAt
      *
-     * @param \DateTime $gameStartsAt
+     * @param string $gameStartsAt
      *
      * @return Game
      */
@@ -161,7 +161,7 @@ class Game
     /**
      * Get gameStartsAt
      *
-     * @return \DateTime
+     * @return string
      */
     public function getGameStartsAt()
     {
@@ -175,7 +175,7 @@ class Game
      *
      * @return Game
      */
-    public function setFirstTeam(\AppBundle\Entity\Team $firstTeam = null)
+    public function setFirstTeam(Team $firstTeam = null)
     {
         $this->firstTeam = $firstTeam;
 
@@ -199,7 +199,7 @@ class Game
      *
      * @return Game
      */
-    public function setSecondTeam(\AppBundle\Entity\Team $secondTeam = null)
+    public function setSecondTeam(Team $secondTeam = null)
     {
         $this->secondTeam = $secondTeam;
 

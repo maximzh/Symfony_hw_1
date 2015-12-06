@@ -233,7 +233,7 @@ class Country
     /**
      * Set nationalTeamFoundedAt
      *
-     * @param \DateTime $nationalTeamFoundedAt
+     * @param integer $nationalTeamFoundedAt
      *
      * @return Country
      */
