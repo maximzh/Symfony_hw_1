@@ -11,8 +11,8 @@
             </p>
 
             <p class="text-info">
-                {{ game.firstTeam }} ( <span class="bg-success"> {{ game.result.0 }} - {{ game.result.1 }} </span>
-                ) {{ game.secondTeam }}
+                {{ game.firstTeam.name }} ( <span class="bg-success"> {{ game.firstTeamScore }} - {{ game.secondTeamScore }} </span>
+                ) {{ game.secondTeam.name }}
             </p>
         </div>
 
@@ -22,7 +22,7 @@
             </p>
 
             <p class="text-info">
-                {{ game.gameDate|date("m/d/Y") }}
+                {{ game.gameDate|date("d/m/Y") }}
             </p>
         </div>
 
@@ -32,7 +32,7 @@
             </p>
 
             <p class="text-info">
-                {{ game.startTime }}
+                {{ game.gameStartsAt }}
             </p>
         </div>
     </div>

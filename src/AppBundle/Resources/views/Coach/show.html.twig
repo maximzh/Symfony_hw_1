@@ -5,8 +5,40 @@ Coach
 {% endblock title %}
 
 {% block body %}
-    <div>Name: {{ coach.name }}</div>
-    <div>Nationality: {{ coach.nationality }}</div>
-    <div>Date of birth: {{ coach.dateOfBirth|date("d/m/Y") }}</div>
-    <div>Team: {{ coach.team.name }}</div>
+    <h1 class="bg-primary">
+        <a href="{{ path('homepage') }}">
+            <img src="/pictures/Euro2016.png">
+        </a>
+        Coach
+    </h1>
+    <div class="fixed-width pull-left">
+        <h2>Name: {{ coach.name }}</h2>
+        <div>
+            <div class="bg-primary">
+                Nationality:
+            </div>
+            <p class="bg-info">
+                {{ coach.nationality }}
+            </p>
+        </div>
+
+        <div>
+            <div class="bg-primary">
+                Date of birth:
+            </div>
+            <p class="bg-info">
+                {{ coach.dateOfBirth|date('d-m-Y') }}
+            </p>
+        </div>
+
+        <div>
+            <div class="bg-primary">
+                Team:
+            </div>
+            <p class="bg-info">
+                {{ coach.team.name }}
+            </p>
+        </div>
+    </div>
+
 {% endblock body %}

@@ -76,17 +76,18 @@
 
             </td>
             <td>
-                {#
+
                 <div>
-                    {% for game in team.lastGames %}
+                    {% for game in games %}
                         <div>
                             <a href="{{ path('show_game_by_id', {'id': game.id}) }}">
-                                {{ game.firstTeam }} ( {{ game.result.0 }} - {{ game.result.1 }} ) {{ game.secondTeam }}
+                                {{ game.firstTeam.name }} ( {{ game.firstTeamScore }} - {{ game.secondTeamScore }} ) {{ game.secondTeam.name }}
                             </a>
+
                         </div>
                     {% endfor %}
                 </div>
-                #}
+
 
 
 
