@@ -7,7 +7,6 @@ class DefaultControllerTest extends AbstractController
 {
     public function testIndex()
     {
-        $this->requestTest(200, "/", 'GET');
 
         $client = static::createClient();
 
