@@ -28,9 +28,6 @@ class TeamControllerTest extends AbstractController
     {
         return
             [
-                [200, "/team/ukraine"],
-                [200, "/team/northern_ireland"],
-                [200, "/team/czech-republic"],
                 [404, "/team/_ukraine_"],
                 [404, "/team/england2"],
                 [404, "/team/12"],

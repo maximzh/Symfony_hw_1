@@ -26,9 +26,6 @@ class CountryControllerTest extends AbstractController
     {
         return
             [
-                [200, "/country/ukraine"],
-                [200, "/country/republic_of_ireland"],
-                [200, "/country/czech-republic"],
                 [302, "/country/"],
                 [302, "/country"],
                 [404, "/country/_ukraine_"],
