@@ -30,7 +30,7 @@ class CountryController extends Controller
     }
 
     /**
-     * @Route("/country/{slug}", requirements={"country" = "^[a-z]+[a-z_-]*[a-z]+$"}, name="show_country")
+     * @Route("/country/{slug}", requirements={"slug" = "^[a-z]+[a-z_-]*[a-z]+$"}, name="show_country")
      * @Template()
      * @Method("GET")
      */
