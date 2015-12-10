@@ -26,7 +26,7 @@ class TeamController extends Controller
     }
 
     /**
-     * @Route("/team/{slug}", requirements={"team" = "^[a-z]+[a-z_-]*[a-z]+$"}, name="show_team")
+     * @Route("/team/{slug}", requirements={"slug" = "^[a-z]+[a-z_-]*[a-z]+$"}, name="show_team")
      * @Template()
      * @Method("GET")
      */
@@ -34,7 +34,7 @@ class TeamController extends Controller
     {
         $team = $this->getDoctrine()
             ->getRepository('AppBundle:Team')
-            ->findOneBy(array('slug' => $slug));
+            ->findTeamWithDependencies($slug);
 
         if (!$team) {
             throw $this->createNotFoundException('No team found: '.$slug);

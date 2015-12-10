@@ -24,7 +24,7 @@ class DefaultController extends Controller
 
         $allCountries = $this->getDoctrine()
             ->getRepository('AppBundle:Country')
-            ->findAll();
+            ->findAllCountriesWithDependencies();
 
         foreach ($allCountries as $currentCountry) {
             if (in_array($currentCountry->getName(), $potOne)) {
