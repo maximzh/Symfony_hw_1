@@ -52,7 +52,6 @@ class GenerateController extends Controller
             $teamSlug = str_replace(' ', '-', $teamSlug);
             $team->setSlug($teamSlug);
 
-
             $country = new Country();
             $country->setName($team->getName());
             $country->setUefaRank($faker->numberBetween(1, 54));

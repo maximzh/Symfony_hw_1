@@ -1,0 +1,45 @@
+AppBundle\Entity\Team:
+    team{1..24}:
+        name (unique): <randomElement(['France', 'Italy', 'Czech Republic', 'Turkey', 'Spain', 'Russia', 'Sweden', 'Republic Of Ireland', 'Germany', 'Switzerland', 'Poland', 'Iceland', 'England', 'Austria', 'Romania', 'Wales', 'Portugal', 'Croatia', 'Slovakia', 'Albania', 'Belgium', 'Ukraine', 'Hungary', 'Northern Ireland'])>
+        slug (unique): <createSlug($name)>
+        players: 15x @player*
+        coaches: 4x @coach*
+
+AppBundle\Entity\Player:
+    player{1..360}:
+        name: <name()>
+        position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+        height: <numberBetween(165, 195)>
+        weight: <numberBetween(65, 90)>
+        squadNumber: <numberBetween(1, 100)>
+        dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+        shortBiography: <text(1000)>
+        team: @team*
+
+AppBundle\Entity\Coach:
+    coach{1..62}:
+        name: <name()>
+        dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+        nationality: <country()>
+        team: @team*
+
+AppBundle\Entity\Country:
+    country{1..24}:
+        team (unique): '@team<current()>'
+        name: '@team<current()>->name'
+        slug: <createSlug($name)>
+        uefaRank: <numberBetween(1, 54)>
+        flag: <createFlag($slug)>
+        shortHistory: <text(1000)>
+        firstMembership: <year()>
+        nationalTeamFoundedAt: <year()>
+
+
+AppBundle\Entity\Game:
+    game{1..24}:
+        firstTeam (unique): @team*
+        secondTeam (unique): @team*
+        gameDate: <dateTime()>
+        gameStartsAt: <time('H:i')>
+        firstTeamScore: <numberBetween(0, 5)>
+        secondTeamScore: <numberBetween(0, 5)>
