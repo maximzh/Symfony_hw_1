@@ -28,7 +28,7 @@ class GenerateController extends Controller
      */
     public function indexAction()
     {
-        $teams = [
+      /*  $teams = [
             "France", "Italy", "Czech Republic", "Turkey",
             "Spain", "Russia", "Sweden", "Republic Of Ireland",
             "Germany", "Switzerland", "Poland", "Iceland",
@@ -142,6 +142,7 @@ class GenerateController extends Controller
         }
         $em->flush();
 
-        return new Response('Fake data generated and saved to database');
+        return new Response('Fake data generated and saved to database');*/
+        return [];
     }
 }

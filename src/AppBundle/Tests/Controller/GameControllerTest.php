@@ -31,6 +31,7 @@ class GameControllerTest extends AbstractController
                 [404, "/game/0002"],
                 [404, "/game/abcd"],
                 [404, "/game/2_game"],
+                [200, "/game/1"]
             ];
     }
 }

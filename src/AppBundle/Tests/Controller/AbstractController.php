@@ -8,10 +8,11 @@
 
 namespace AppBundle\Tests\Controller;
 
+use AppBundle\Tests\TestBaseWeb;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 
-class AbstractController extends WebTestCase
+class AbstractController extends TestBaseWeb
 {
 
     protected function requestTest($expectedStatusCode, $path, $method = 'GET')

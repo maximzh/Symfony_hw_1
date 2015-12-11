@@ -16,9 +16,9 @@ class FixturesLoader extends DataFixtureLoader
         $env = $this->container->get('kernel')->getEnvironment();
         if ($env == 'test') {
             return [
-                __DIR__ . '/DataForTests/tags.yml',
-                __DIR__ . '/DataForTests/categories.yml',
-                __DIR__ . '/DataForTests/users.yml',
+                __DIR__ . '/DataForTests/fixtures.yml',
+               // __DIR__ . '/DataForTests/categories.yml',
+                //__DIR__ . '/DataForTests/users.yml',
             ];
         }
         return [
@@ -30,10 +30,11 @@ class FixturesLoader extends DataFixtureLoader
 
     public function createSlug($name)
     {
+        $name = trim($name);
         $slug = strtolower($name);
         $slug = str_replace(' ', '_', $slug);
 
-        return $slug;
+        return (string) $slug;
     }
 
     public function createFlag($slug)
