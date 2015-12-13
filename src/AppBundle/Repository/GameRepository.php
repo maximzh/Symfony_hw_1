@@ -13,17 +13,31 @@ use Doctrine\ORM\EntityRepository;
  */
 class GameRepository extends EntityRepository
 {
-    public function findGamesByTeam(Team $team)
+    public function findGamesByTeam(Team $team, $numberOfGames = 4)
     {
-        $query = $this->getEntityManager()
-            ->createQuery(
-                'SELECT g
-                FROM AppBundle:Game g
-                WHERE g.firstTeam = :id
-                OR g.secondTeam = :id
-                ORDER BY g.gameDate DESC
-                '
-            )->setParameter('id', $team->getId());
-        return $query->getResult();
+
+        return $this->createQueryBuilder('g')
+            ->select('g, ft, st')
+            ->join('g.firstTeam', 'ft')
+            ->join('g.secondTeam', 'st')
+            ->where('g.firstTeam = :id')
+            ->orWhere('g.secondTeam = :id')
+            ->setParameter('id', $team->getId())
+            ->orderBy('g.gameDate', 'DESC')
+            ->getQuery()
+            ->setMaxResults($numberOfGames)
+            ->getResult();
+    }
+
+    public function findGameWithDependencies($id)
+    {
+        return $this->createQueryBuilder('g')
+            ->select('g , ft, st')
+            ->join('g.firstTeam', 'ft')
+            ->join('g.secondTeam', 'st')
+            ->where('g.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 }

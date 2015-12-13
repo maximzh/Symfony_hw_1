@@ -9,7 +9,6 @@
 namespace AppBundle\Controller;
 
 
-use AppBundle\Model\Country;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -30,7 +29,7 @@ class CountryController extends Controller
     }
 
     /**
-     * @Route("/country/{slug}", requirements={"country" = "^[a-z]+[a-z_-]*[a-z]+$"}, name="show_country")
+     * @Route("/country/{slug}", requirements={"slug" = "^[a-z]+[a-z_-]*[a-z]+$"}, name="show_country")
      * @Template()
      * @Method("GET")
      */

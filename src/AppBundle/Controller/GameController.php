@@ -29,7 +29,7 @@ class GameController extends Controller
     {
         $game = $this->getDoctrine()
             ->getRepository('AppBundle:Game')
-            ->find($id);
+            ->findGameWithDependencies($id);
 
         if(!$game) {
             throw $this->createNotFoundException('No game found for id: '.$id);

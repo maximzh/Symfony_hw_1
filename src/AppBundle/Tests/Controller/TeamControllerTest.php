@@ -30,6 +30,7 @@ class TeamControllerTest extends AbstractController
             [
                 [302, "/team"],
                 [302, "/team/"],
+                [200, "team/ukraine"]
             ];
     }
 }

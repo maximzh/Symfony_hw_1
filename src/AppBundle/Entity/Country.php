@@ -45,7 +45,7 @@ class Country
     /**
      * @var string
      *
-     * @ORM\Column(name="flag", type="string", length=255, unique=true)
+     * @ORM\Column(name="flag", type="string", length=255)
      */
     private $flag;
 
