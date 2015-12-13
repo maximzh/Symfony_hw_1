@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    All Players
+{% endblock %}
+
+{% block body %}
+
+    {% for player in players %}
+        <p>
+            <a href="{{ path('show_player', {'id': player.id }) }}">
+                {{ player.name }}
+            </a>
+            (<a class="bg-success" href="{{ path('show_team', {'slug': player.team.slug}) }}">{{ player.team.name }}</a>)
+        </p>
+    {% endfor %}
+    {{ knp_pagination_render(players) }}
+
+{% endblock %}
