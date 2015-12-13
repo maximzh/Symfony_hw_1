@@ -1,7 +1,6 @@
 <?php
 namespace AppBundle\DataFixtures\ORM;
 
-use AppBundle\Entity\Country;
 use Hautelook\AliceBundle\Alice\DataFixtureLoader;
 
 class FixturesLoader extends DataFixtureLoader
@@ -16,11 +15,12 @@ class FixturesLoader extends DataFixtureLoader
         $env = $this->container->get('kernel')->getEnvironment();
         if ($env == 'test') {
             return [
-                __DIR__ . '/DataForTests/fixtures.yml',
+                __DIR__.'/DataForTests/fixtures.yml',
             ];
         }
+
         return [
-            __DIR__ . '/Data/fixtures.yml',
+            __DIR__.'/Data/fixtures.yml',
         ];
     }
 
@@ -30,7 +30,7 @@ class FixturesLoader extends DataFixtureLoader
         $slug = strtolower($name);
         $slug = str_replace(' ', '_', $slug);
 
-        return (string) $slug;
+        return (string)$slug;
     }
 
     public function createFlag($slug)
