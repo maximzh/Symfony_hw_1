@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-
+    {{ parent() }}
     {% for player in players %}
         <p>
             <a href="{{ path('show_player', {'id': player.id }) }}">

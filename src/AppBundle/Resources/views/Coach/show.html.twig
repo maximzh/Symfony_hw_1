@@ -5,12 +5,7 @@ Coach
 {% endblock title %}
 
 {% block body %}
-    <h1 class="bg-primary">
-        <a href="{{ path('homepage') }}">
-            <img src="/pictures/Euro2016.png">
-        </a>
-        Coach
-    </h1>
+    {{ parent() }}
     <div class="fixed-width pull-left">
         <h2>Name: {{ coach.name }}</h2>
         <div>

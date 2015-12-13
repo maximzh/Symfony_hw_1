@@ -26,28 +26,14 @@ class PlayerController extends Controller
      */
     public function indexAction(Request $request)
     {
-        //return $this->redirectToRoute("homepage",[], 302);
-        /*
-         $curPage = $request->query->getInt('page', 1);
-         $limit = 50;
-         $em = $this->getDoctrine()->getManager();
-         $count = $em->getRepository('AppBundle:Player')->countAllPlayers();
-         $users = $em->getRepository('AppBundle:Player')->getAllUsersWithPagination($limit, $curPage);
-         if($count > ($limit*$curPage) ) {
-             $nextPage = $curPage+1;
-         } else $nextPage = false;
-         if ($request->isXmlHttpRequest()) {
-             $content = $this->renderView('AppBundle:Player:body.html.twig',
-                 ['users' => $users , 'nextPage' => $nextPage]);
-             return new Response($content);
-         }
-         return ['users' => $users , 'nextPage' => $nextPage];
-        */
         $em = $this->getDoctrine()->getManager();
+
         $players = $em->getRepository('AppBundle:Player')
             ->findAllPlayersWithDependencies();
+
         $pager = $this->get('knp_paginator');
         $pagination = $pager->paginate($players, $request->query->getInt('page', 1), 20);
+
         return ['players' => $pagination];
     }
     /**

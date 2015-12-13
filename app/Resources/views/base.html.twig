@@ -9,7 +9,24 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body>
-{% block body %}{% endblock %}
+{% block body %}
+
+    <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+            <li class="active">
+                <a href="{{ path('homepage') }}">homepage</a>
+            </li>
+            <li>
+                <a href="{{ path('show_all_players') }}">all players</a>
+            </li>
+        </ul>
+    </nav>
+
+
+
+
+
+{% endblock %}
 {% block javascripts %}
     <script src="{{ asset('js/app.js') }}"></script>
 {% endblock %}
