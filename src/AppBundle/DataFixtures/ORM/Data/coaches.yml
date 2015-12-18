@@ -1,0 +1,144 @@
+AppBundle\Entity\Coach:
+    coach{1..4}:
+        name: <name()>
+        dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+        nationality: <country()>
+        team: @team1
+
+    coach{5..8}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team2
+
+    coach{9..12}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team3
+
+    coach{13..16}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team4
+
+    coach{17..20}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team5
+
+    coach{21..24}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team6
+
+    coach{25..28}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team7
+
+    coach{29..32}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team8
+
+    coach{33..36}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team9
+
+    coach{37..40}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team10
+
+    coach{41..44}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team11
+
+    coach{45..48}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team12
+
+    coach{49..52}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team13
+
+    coach{53..56}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team14
+
+    coach{57..60}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team15
+
+    coach{61..64}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team16
+
+    coach{65..68}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team17
+
+    coach{69..72}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team18
+
+    coach{73..76}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team19
+
+    coach{77..80}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team20
+
+    coach{81..84}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team21
+
+    coach{85..88}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team22
+
+    coach{89..92}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team23
+
+    coach{93..96}:
+            name: <name()>
+            dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+            nationality: <country()>
+            team: @team24

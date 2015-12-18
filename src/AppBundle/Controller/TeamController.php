@@ -46,7 +46,7 @@ class TeamController extends Controller
 
         return [
             'team' => $team,
-            'games' => $games
+            'games' => $games,
         ];
     }
 

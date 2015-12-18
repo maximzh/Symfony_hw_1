@@ -1,0 +1,8 @@
+AppBundle\Entity\Game:
+    game{1..24}:
+        firstTeam (unique): @team*
+        secondTeam (unique): @team*
+        gameDate: <dateTime()>
+        gameStartsAt: <time('H:i')>
+        firstTeamScore: <numberBetween(0, 5)>
+        secondTeamScore: <numberBetween(0, 5)>

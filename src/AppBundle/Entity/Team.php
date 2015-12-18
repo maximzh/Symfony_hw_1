@@ -126,6 +126,8 @@ class Team
     {
         $this->players[] = $player;
 
+        $player->setTeam($this);
+
         return $this;
     }
 

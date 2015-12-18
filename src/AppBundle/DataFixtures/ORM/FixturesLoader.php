@@ -1,7 +1,6 @@
 <?php
 namespace AppBundle\DataFixtures\ORM;
 
-use AppBundle\Entity\Country;
 use Hautelook\AliceBundle\Alice\DataFixtureLoader;
 
 class FixturesLoader extends DataFixtureLoader
@@ -16,11 +15,15 @@ class FixturesLoader extends DataFixtureLoader
         $env = $this->container->get('kernel')->getEnvironment();
         if ($env == 'test') {
             return [
-                __DIR__ . '/DataForTests/fixtures.yml',
+                __DIR__.'/DataForTests/fixtures.yml',
             ];
         }
+
         return [
-            __DIR__ . '/Data/fixtures.yml',
+            __DIR__.'/Data/teams.yml',
+            __DIR__.'/Data/players.yml',
+            __DIR__.'/Data/coaches.yml',
+            __DIR__.'/Data/games.yml',
         ];
     }
 
@@ -30,7 +33,7 @@ class FixturesLoader extends DataFixtureLoader
         $slug = strtolower($name);
         $slug = str_replace(' ', '_', $slug);
 
-        return (string) $slug;
+        return (string)$slug;
     }
 
     public function createFlag($slug)
@@ -38,6 +41,13 @@ class FixturesLoader extends DataFixtureLoader
         $flag = '/pictures/'.$slug.'.png';
 
         return $flag;
+    }
+
+    public function setTeamId($playerId)
+    {
+        $id = intval($playerId/15) + 1;
+        $result = "@team".$id;
+        return $result;
     }
 
 }

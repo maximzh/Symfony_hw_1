@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Game;
-use Faker\Factory;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -31,10 +30,9 @@ class GameController extends Controller
             ->getRepository('AppBundle:Game')
             ->findGameWithDependencies($id);
 
-        if(!$game) {
+        if (!$game) {
             throw $this->createNotFoundException('No game found for id: '.$id);
         }
-
 
 
         return ['game' => $game];

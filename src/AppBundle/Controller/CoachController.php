@@ -28,7 +28,7 @@ class CoachController extends Controller
             ->getRepository('AppBundle:Coach')
             ->find($id);
 
-        if(!$coach) {
+        if (!$coach) {
             throw $this->createNotFoundException('No coach found for id: '.$id);
         }
 

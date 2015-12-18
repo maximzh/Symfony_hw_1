@@ -15,7 +15,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class PlayerController extends Controller
 {
@@ -36,6 +35,7 @@ class PlayerController extends Controller
 
         return ['players' => $pagination];
     }
+
     /**
      * @Route("/player/{id}", name="show_player", requirements={"id" = "\d+"})
      * @Template()
@@ -46,9 +46,10 @@ class PlayerController extends Controller
         $player = $this->getDoctrine()
             ->getRepository('AppBundle:Player')
             ->find($id);
-        if(!$player) {
+        if (!$player) {
             throw $this->createNotFoundException('No player found for id '.$id);
         }
+
         return ['player' => $player];
     }
 }

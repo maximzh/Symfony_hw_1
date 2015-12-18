@@ -13,8 +13,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class CountryController extends Controller
 {
@@ -39,7 +37,7 @@ class CountryController extends Controller
             ->getRepository('AppBundle:Country')
             ->findOneBy(array('slug' => $slug));
 
-        if(!$country) {
+        if (!$country) {
             throw $this->createNotFoundException('No country found: '.$slug);
         }
 
