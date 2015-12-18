@@ -2,8 +2,6 @@ AppBundle\Entity\Team:
     team{1..2}:
         name (unique): <randomElement(['France','Ukraine'])>
         slug (unique): <createSlug($name)>
-        players: 15x @player*
-        coaches: 4x @coach*
 
 AppBundle\Entity\Country:
     country{1..2}:
@@ -17,7 +15,7 @@ AppBundle\Entity\Country:
         nationalTeamFoundedAt: <year()>
 
 AppBundle\Entity\Player:
-    player{1..30}:
+    player{1..15}:
         name: <name()>
         position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
         height: <numberBetween(165, 195)>
@@ -25,14 +23,30 @@ AppBundle\Entity\Player:
         squadNumber: <numberBetween(1, 100)>
         dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
         shortBiography: <text(1000)>
-        team: @team*
+        team: @team1
+
+    player{16..30}:
+        name: <name()>
+        position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+        height: <numberBetween(165, 195)>
+        weight: <numberBetween(65, 90)>
+        squadNumber: <numberBetween(1, 100)>
+        dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+        shortBiography: <text(1000)>
+        team: @team2
 
 AppBundle\Entity\Coach:
-    coach{1..8}:
+    coach{1..4}:
         name: <name()>
         dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
         nationality: <country()>
         team: @team*
+
+    coach{5..8}:
+        name: <name()>
+        dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
+        nationality: <country()>
+        team: @team2
 
 
 AppBundle\Entity\Game:

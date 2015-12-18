@@ -1,0 +1,240 @@
+AppBundle\Entity\Player:
+    player{1..15}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team1'
+
+    player{16..30}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team2'
+
+    player{31..45}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team3'
+
+    player{46..60}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team4'
+
+    player{61..75}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team5'
+
+    player{76..90}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team6'
+
+    player{91..105}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team7'
+
+    player{106..120}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team8'
+
+    player{121..135}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team9'
+
+    player{136..150}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team10'
+
+    player{151..165}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team11'
+
+    player{166..180}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team12'
+
+    player{181..195}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team13'
+
+    player{196..210}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team14'
+
+    player{211..225}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team15'
+
+    player{226..240}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team16'
+
+    player{241..255}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team17'
+
+    player{256..270}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team18'
+
+    player{271..285}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team19'
+
+    player{286..300}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team20'
+
+    player{301..315}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team21'
+
+    player{316..330}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team22'
+
+    player{331..345}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team23'
+
+    player{346..360}:
+            name: <name()>
+            position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
+            height: <numberBetween(165, 195)>
+            weight: <numberBetween(65, 90)>
+            squadNumber: <numberBetween(1, 100)>
+            dateOfBirth: <dateTimeBetween('-35 years', '-21 years')>
+            shortBiography: <text(1000)>
+            team: '@team24'

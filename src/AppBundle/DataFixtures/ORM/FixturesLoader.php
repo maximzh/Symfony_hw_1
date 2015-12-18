@@ -20,7 +20,10 @@ class FixturesLoader extends DataFixtureLoader
         }
 
         return [
-            __DIR__.'/Data/fixtures.yml',
+            __DIR__.'/Data/teams.yml',
+            __DIR__.'/Data/players.yml',
+            __DIR__.'/Data/coaches.yml',
+            __DIR__.'/Data/games.yml',
         ];
     }
 
@@ -38,6 +41,13 @@ class FixturesLoader extends DataFixtureLoader
         $flag = '/pictures/'.$slug.'.png';
 
         return $flag;
+    }
+
+    public function setTeamId($playerId)
+    {
+        $id = intval($playerId/15) + 1;
+        $result = "@team".$id;
+        return $result;
     }
 
 }
