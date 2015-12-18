@@ -33,7 +33,7 @@ class FixturesLoader extends DataFixtureLoader
         $slug = strtolower($name);
         $slug = str_replace(' ', '_', $slug);
 
-        return (string)$slug;
+        return $slug;
     }
 
     public function createFlag($slug)
