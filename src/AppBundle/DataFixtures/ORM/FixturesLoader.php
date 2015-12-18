@@ -43,11 +43,4 @@ class FixturesLoader extends DataFixtureLoader
         return $flag;
     }
 
-    public function setTeamId($playerId)
-    {
-        $id = intval($playerId/15) + 1;
-        $result = "@team".$id;
-        return $result;
-    }
-
 }
