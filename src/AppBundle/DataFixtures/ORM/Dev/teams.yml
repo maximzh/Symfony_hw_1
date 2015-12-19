@@ -3,6 +3,7 @@ AppBundle\Entity\Team:
         name(unique): <randomElement(['Albania', 'Austria', 'Belgium', 'Croatia', 'Czech Republic', 'England', 'France', 'Germany', 'Hungary', 'Iceland', 'Republic Of Ireland', 'Italy', 'Northern Ireland', 'Poland', 'Portugal', 'Romania', 'Russia', 'Slovakia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'Ukraine', 'Wales'])>
         slug: <($name)>
 
+
 AppBundle\Entity\Country:
     country{1..24}:
         team (unique): '@team<current()>'
@@ -13,3 +14,23 @@ AppBundle\Entity\Country:
         shortHistory: <text(1000)>
         firstMembership: <year()>
         nationalTeamFoundedAt: <year()>
+
+AppBundle\Entity\TournamentGroup:
+    tournamentGroup1:
+        name: 'A'
+        teams: @team{1..4}
+    tournamentGroup2:
+        name: 'B'
+        teams: @team{5..8}
+    tournamentGroup3:
+        name: 'C'
+        teams: @team{9..12}
+    tournamentGroup4:
+        name: 'D'
+        teams: @team{13..16}
+    tournamentGroup5:
+        name: 'E'
+        teams: @team{17..20}
+    tournamentGroup6:
+        name: 'F'
+        teams: @team{21..24}

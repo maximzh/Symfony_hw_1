@@ -15,9 +15,10 @@ class TeamRepository extends EntityRepository
     public function findTeamWithDependencies($slug)
     {
         return $this->createQueryBuilder('t')
-            ->select('t, p, c')
+            ->select('t, p, c, tg')
             ->join('t.players', 'p')
             ->join('t.coaches', 'c')
+            ->join('t.tournamentGroup','tg')
             ->where('t.slug = :slug')
             ->setParameter('slug', $slug)
             ->getQuery()

@@ -22,6 +22,19 @@ class Game
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", nullable=true)
+     */
+    private $city;
+
+    /**
+     * @var
+     * @ORM\Column(name="game_type", type="string", nullable=true)
+     */
+    private $gameType;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="first_team_score", type="smallint", nullable=true)
@@ -214,5 +227,38 @@ class Game
     public function getSecondTeam()
     {
         return $this->secondTeam;
+    }
+
+    /**
+     * Set city
+     * @param $city
+     * @return $this
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    public function setGameType($gameType)
+    {
+        $this->gameType = $gameType;
+
+        return $this;
+    }
+
+    public function getGameType()
+    {
+        return $this->gameType;
     }
 }

@@ -59,5 +59,92 @@
     </tr>
     </table>
 
+    <div id="groups">
+        <div id="group-a" class="pull-left">
+            <h4>Group A</h4>
+            {% for country in countries %}
+                {% if country.team.tournamentGroup.name == 'A' %}
+                <p>
+                    <a href="{{ path('show_team', {'slug': country.team.slug}) }}">
+                        {{ country.team.name }}
+                    </a>
+                </p>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+        <div id="group-b" class="pull-left">
+            <h4>Group B</h4>
+            {% for country in countries %}
+                {% if country.team.tournamentGroup.name == 'B' %}
+                    <p>
+                        <a href="{{ path('show_team', {'slug': country.team.slug}) }}">
+                            {{ country.team.name }}
+                        </a>
+                    </p>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+
+        <div id="group-c" class="pull-left">
+            <h4>Group C</h4>
+            {% for country in countries %}
+                {% if country.team.tournamentGroup.name == 'C' %}
+                    <p>
+                        <a href="{{ path('show_team', {'slug': country.team.slug}) }}">
+                            {{ country.team.name }}
+                        </a>
+                    </p>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+            <div id="group-d" class="pull-left">
+                <h4>Group D</h4>
+                {% for country in countries %}
+                    {% if country.team.tournamentGroup.name == 'D' %}
+                        <p>
+                            <a href="{{ path('show_team', {'slug': country.team.slug}) }}">
+                                {{ country.team.name }}
+                            </a>
+                        </p>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+
+            <div id="group-e" class="pull-left">
+                <h4>Group E</h4>
+                {% for country in countries %}
+                    {% if country.team.tournamentGroup.name == 'E' %}
+                        <p>
+                            <a href="{{ path('show_team', {'slug': country.team.slug}) }}">
+                                {{ country.team.name }}
+                            </a>
+                        </p>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+
+            <div id="group-f" class="pull-left">
+                <h4>Group F</h4>
+                {% for country in countries %}
+                    {% if country.team.tournamentGroup.name == 'F' %}
+                        <p>
+                            <a href="{{ path('show_team', {'slug': country.team.slug}) }}">
+                                {{ country.team.name }}
+                            </a>
+                        </p>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+
+
+
+    </div>
+
 
 {% endblock %}

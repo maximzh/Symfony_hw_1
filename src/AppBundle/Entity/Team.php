@@ -50,6 +50,12 @@ class Team
     protected $coaches;
 
     /**
+     * @ORM\ManyToOne(targetEntity="TournamentGroup", inversedBy="teams")
+     * @ORM\JoinColumn(name="tournament_group_id", referencedColumnName="id")
+     */
+    private $tournamentGroup;
+
+    /**
      * Get id
      *
      * @return int
@@ -183,5 +189,29 @@ class Team
     public function getCoaches()
     {
         return $this->coaches;
+    }
+
+    /**
+     * Set tournamentGroup
+     *
+     * @param \AppBundle\Entity\TournamentGroup $tournamentGroup
+     *
+     * @return Team
+     */
+    public function setTournamentGroup(\AppBundle\Entity\TournamentGroup $tournamentGroup = null)
+    {
+        $this->tournamentGroup = $tournamentGroup;
+
+        return $this;
+    }
+
+    /**
+     * Get tournamentGroup
+     *
+     * @return \AppBundle\Entity\TournamentGroup
+     */
+    public function getTournamentGroup()
+    {
+        return $this->tournamentGroup;
     }
 }
