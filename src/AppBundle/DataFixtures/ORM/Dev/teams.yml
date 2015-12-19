@@ -1,0 +1,15 @@
+AppBundle\Entity\Team:
+    team{1..24}:
+        name(unique): <randomElement(['Albania', 'Austria', 'Belgium', 'Croatia', 'Czech Republic', 'England', 'France', 'Germany', 'Hungary', 'Iceland', 'Republic Of Ireland', 'Italy', 'Northern Ireland', 'Poland', 'Portugal', 'Romania', 'Russia', 'Slovakia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'Ukraine', 'Wales'])>
+        slug: <($name)>
+
+AppBundle\Entity\Country:
+    country{1..24}:
+        team (unique): '@team<current()>'
+        name: '@team<current()>->name'
+        slug: <($name)>
+        uefaRank: <numberBetween(1, 54)>
+        flag: /pictures/<($slug)>.png
+        shortHistory: <text(1000)>
+        firstMembership: <year()>
+        nationalTeamFoundedAt: <year()>
