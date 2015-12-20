@@ -3,18 +3,32 @@
 
 {% block body %}
     {{ parent() }}
-    <h1>Group {{ teams[0].tournamentGroup.name }}</h1>
-    <h2>teams</h2>
+    <h1 class="bg-primary text-center">Group {{ teams[0].tournamentGroup.name }}</h1>
+    <h2 class="bg-primary text-center">teams</h2>
     {% for team in teams %}
-    <p>{{ team.name }}</p>
+    <p class="text-center">{{ team.name }}</p>
     {% endfor %}
 
     <div>
-        <h2>games</h2>
+        <h2 class="bg-primary text-center">games</h2>
         {% for game in games %}
-           <p>
-               {{ game.firstTeam.name }} - {{ game.secondTeam.name }} {{ game.gameDate|date("d/m/Y") }}
-           </p>
+           <div class="bg-info text-center">
+               <p>
+                   {{ game.firstTeam.name }} - {{ game.secondTeam.name }}
+               </p>
+               <p>
+                   {{ game.gameDate|date("d-m-Y") }}
+                   <span class="text-danger">
+                       ( {{ game.city }} )
+                   </span>
+
+               </p>
+               <p>
+                   Starts at: {{ game.gameStartsAt }}
+               </p>
+
+
+           </div>
 
         {% endfor %}
     </div>

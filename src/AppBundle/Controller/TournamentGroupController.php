@@ -18,10 +18,10 @@ class TournamentGroupController extends Controller
     /**
      * @param $id
      * @return array
-     * @Route("/group/{id}", name="show_group")
+     * @Route("/group/{name}", name="show_group")
      * @Template()
      */
-    public function showAction($id)
+    public function showAction($name)
     {
         /*$group = $this->getDoctrine()
             ->getRepository('AppBundle:TournamentGroup')
@@ -34,11 +34,11 @@ class TournamentGroupController extends Controller
 
         $games = $this->getDoctrine()
             ->getRepository('AppBundle:Game')
-            ->findGamesByGroup($id);
+            ->findGamesByGroup($name);
 
         $teams = $this->getDoctrine()
             ->getRepository('AppBundle:Team')
-            ->findTeamsByGroup($id);
+            ->findTeamsByGroup($name);
 
         return [
             //'group' => $group

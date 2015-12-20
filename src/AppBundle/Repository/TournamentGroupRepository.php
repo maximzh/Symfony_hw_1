@@ -12,14 +12,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class TournamentGroupRepository extends EntityRepository
 {
-    public function findGroupWithDependencies($id)
+    public function findGroupWithDependencies($name)
     {
         return $this->createQueryBuilder('gr')
             ->select('gr, games, teams')
             ->join('gr.games', 'games')
             ->join('gr.teams', 'teams')
-            ->where('gr.id = :id')
-            ->setParameter('id', $id)
+            ->where('gr.name = :name')
+            ->setParameter('name', $name)
             ->getQuery()
             ->getOneOrNullResult();
     }

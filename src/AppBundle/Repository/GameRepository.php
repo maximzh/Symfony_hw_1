@@ -14,14 +14,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class GameRepository extends EntityRepository
 {
-    public function findGamesByGroup($id)
+    public function findGamesByGroup($name)
     {
         return $this->createQueryBuilder('g')
-            ->select('g, ft, st')
+            ->select('g, ft, st, tg')
             ->join('g.firstTeam','ft')
             ->join('g.secondTeam', 'st')
-            ->where('g.tournamentGroup = :id')
-            ->setParameter('id', $id)
+            ->join('g.tournamentGroup', 'tg')
+            ->where('tg.name = :name')
+            ->setParameter('name', $name)
             ->getQuery()
             ->getResult();
 
