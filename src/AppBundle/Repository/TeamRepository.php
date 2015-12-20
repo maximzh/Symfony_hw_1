@@ -24,4 +24,19 @@ class TeamRepository extends EntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
+
+    public function findTeamsByGroup($id)
+    {
+        return $this->createQueryBuilder('t')
+            ->select('t, p, c, tg')
+            ->join('t.players', 'p')
+            ->join('t.coaches', 'c')
+            ->join('t.tournamentGroup','tg')
+            ->where('t.tournamentGroup = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult();
+    }
+
+
 }

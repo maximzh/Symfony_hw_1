@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+
+    {% for group in groups %}
+        <div>
+            <p class="bg-primary text-center">
+                Group {{ group.name }}
+            </p>
+            <p class="bg-info text-center">Teams</p>
+            {% for team in group.teams %}
+                <p class="text-info text-center">
+                    {{ team.name }}
+                </p>
+
+            {% endfor %}
+            <p class="bg-info text-center">Games</p>
+            {% for game in group.games %}
+                <p class="text-center text-info">
+                    {{ game.firstTeam.name }} vs {{ game.secondTeam.name }}
+                    <span class="text-danger">
+                        ({{ game.gameDate|date('d-m-Y') }})
+                    </span>
+
+                </p>
+
+            {% endfor %}
+        </div>
+
+
+    {% endfor %}
+
+
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+

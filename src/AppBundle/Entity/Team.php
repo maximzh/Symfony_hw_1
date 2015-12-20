@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use AppBundle\Entity\Coach;
 use AppBundle\Entity\Player;
+use AppBundle\Entity\TournamentGroup;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -194,13 +195,14 @@ class Team
     /**
      * Set tournamentGroup
      *
-     * @param \AppBundle\Entity\TournamentGroup $tournamentGroup
+     * @param TournamentGroup $tournamentGroup
      *
      * @return Team
      */
-    public function setTournamentGroup(\AppBundle\Entity\TournamentGroup $tournamentGroup = null)
+    public function setTournamentGroup(TournamentGroup $tournamentGroup = null)
     {
         $this->tournamentGroup = $tournamentGroup;
+
 
         return $this;
     }
@@ -208,7 +210,7 @@ class Team
     /**
      * Get tournamentGroup
      *
-     * @return \AppBundle\Entity\TournamentGroup
+     * @return TournamentGroup
      */
     public function getTournamentGroup()
     {

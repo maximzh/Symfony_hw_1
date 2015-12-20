@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Game;
 use AppBundle\Entity\Team;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -35,6 +36,11 @@ class TournamentGroup
      *
      */
     private $teams;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Game", mappedBy="tournamentGroup")
+     */
+    private $games;
 
 
     /**
@@ -76,6 +82,7 @@ class TournamentGroup
     public function __construct()
     {
         $this->teams = new ArrayCollection();
+        $this->games = new ArrayCollection();
     }
 
     /**
@@ -112,5 +119,41 @@ class TournamentGroup
     public function getTeams()
     {
         return $this->teams;
+    }
+
+    /**
+     * Add game
+     *
+     * @param Game $game
+     *
+     * @return TournamentGroup
+     */
+    public function addGame(Game $game)
+    {
+        $this->games[] = $game;
+
+        $game->setTournamentGroup($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove game
+     *
+     * @param Game $game
+     */
+    public function removeGame(Game $game)
+    {
+        $this->games->removeElement($game);
+    }
+
+    /**
+     * Get games
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGames()
+    {
+        return $this->games;
     }
 }

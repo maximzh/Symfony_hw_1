@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\TournamentGroup;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -27,12 +28,6 @@ class Game
      * @ORM\Column(name="city", type="string", nullable=true)
      */
     private $city;
-
-    /**
-     * @var
-     * @ORM\Column(name="game_type", type="string", nullable=true)
-     */
-    private $gameType;
 
     /**
      * @var int
@@ -63,6 +58,13 @@ class Game
     private $gameStartsAt;
 
     /**
+     * @var string
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
+
+
+    /**
      * @ORM\ManyToOne(targetEntity="Team")
      * @ORM\JoinColumn(name="first_team_id", referencedColumnName="id")
      */
@@ -74,6 +76,11 @@ class Game
      */
     protected $secondTeam;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="TournamentGroup", inversedBy="games")
+     * @ORM\JoinColumn(name="tournament_group_id", referencedColumnName="id")
+     */
+    private $tournamentGroup;
 
     /**
      * Get id
@@ -250,15 +257,48 @@ class Game
         return $this->city;
     }
 
-    public function setGameType($gameType)
+    /**
+     * @param $description
+     * @return $this
+     */
+    public function setDescription($description)
     {
-        $this->gameType = $gameType;
+        $this->description = $description;
 
         return $this;
     }
 
-    public function getGameType()
+    /**
+     * @return mixed
+     */
+    public function getDescription()
     {
-        return $this->gameType;
+        return $this->description;
+    }
+
+
+    /**
+     * Set tournamentGroup
+     *
+     * @param TournamentGroup $tournamentGroup
+     *
+     * @return Game
+     */
+    public function setTournamentGroup(TournamentGroup $tournamentGroup = null)
+    {
+        $this->tournamentGroup = $tournamentGroup;
+
+
+        return $this;
+    }
+
+    /**
+     * Get tournamentGroup
+     *
+     * @return TournamentGroup
+     */
+    public function getTournamentGroup()
+    {
+        return $this->tournamentGroup;
     }
 }
