@@ -4,30 +4,44 @@
     {{ parent() }}
 
     {% for group in groups %}
-        <div>
-            <p class="bg-primary text-center">
-                Group {{ group.name }}
-            </p>
-            <p class="bg-info text-center">Teams</p>
-            {% for team in group.teams %}
-                <p class="text-info text-center">
-                    {{ team.name }}
-                </p>
 
-            {% endfor %}
-            <p class="bg-info text-center">Games</p>
-            {% for game in group.games %}
-                <p class="text-center text-info">
-                    {{ game.firstTeam.name }} vs {{ game.secondTeam.name }}
-                    <span class="text-danger">
+        <div>
+            <div>
+                <h3 class="bg-info text-primary text-center">
+                    <a class="text-primary" href="{{ path('show_group', {'name': group.name}) }}">
+                        Group {{ group.name }}
+                    </a>
+
+                </h3>
+
+                <p class="bg-success text-center text-success">Teams</p>
+                {% for team in group.teams %}
+                    <p class="text-left">
+                        <a href="{{ path('show_country', {'slug': team.country.slug}) }}">
+                            <img src="{{ team.country.flag }}">
+                        </a>
+                        <a href="{{ path('show_team', {'slug': team.slug}) }}">
+                            {{ team.name }}
+                        </a>
+
+                    </p>
+                {% endfor %}
+            </div>
+
+            <div>
+                <p class="bg-info text-center text-info">Games schedule:</p>
+                {% for game in group.games %}
+                    <p class="text-left text-info">
+                        {{ game.firstTeam.name }} vs {{ game.secondTeam.name }}
+                        <span class="text-danger">
                         ({{ game.gameDate|date('d-m-Y') }})
                     </span>
 
-                </p>
+                    </p>
 
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-
 
     {% endfor %}
 
@@ -35,6 +49,6 @@
 {% endblock %}
 
 {% block title %}
-
+All Groups
 {% endblock %}
 

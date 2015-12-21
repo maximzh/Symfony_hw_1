@@ -3,36 +3,60 @@
 
 {% block body %}
     {{ parent() }}
-    <h1 class="bg-primary text-center">Group {{ teams[0].tournamentGroup.name }}</h1>
-    <h2 class="bg-primary text-center">teams</h2>
+
+
+
+<div>
+    <h1 class="bg-success text-center text-success">Group {{ teams[0].tournamentGroup.name }}:</h1>
+
     {% for team in teams %}
-    <p class="text-center">{{ team.name }}</p>
+        <div class="pull-left" style="margin: 40px">
+            <h4 class="bg-success text-center text-success">
+                <img src="{{ team.country.flag }}">
+                {{ team.name }}:
+            </h4>
+            {% for player in team.players %}
+                <p>
+                    <a href="{{ path('show_player', {'id': player.id}) }}">{{ player.name }}</a>
+                </p>
+            {% endfor %}
+            <a class="bg-success" href="{{ path('show_team', {'slug': team.slug}) }}">MORE...</a>
+        </div>
     {% endfor %}
+</div>
 
-    <div>
-        <h2 class="bg-primary text-center">games</h2>
-        {% for game in games %}
-           <div class="bg-info text-center">
-               <p>
-                   {{ game.firstTeam.name }} - {{ game.secondTeam.name }}
-               </p>
-               <p>
-                   {{ game.gameDate|date("d-m-Y") }}
-                   <span class="text-danger">
-                       ( {{ game.city }} )
-                   </span>
-
-               </p>
-               <p>
-                   Starts at: {{ game.gameStartsAt }}
-               </p>
+<div>
+    <h2 class="text-center text-success">Games schedule:</h2>
+    <table class="table table-bordered text-center-">
+        <tr>
+            {% for game in games %}
+                <td class="text-left">
+                    <div >
+                        <p class="text-success bg-success">
+                            {{ game.firstTeam.name }} - {{ game.secondTeam.name }}
+                        </p>
+                        <p class="text-danger">
+                            ( {{ game.city }} )
+                        </p>
+                        <p class="text-info">
+                            {{ game.gameDate|date("d-m-Y") }}
 
 
-           </div>
+                        </p>
+                        <p class="text-info">
+                            Starts at: {{ game.gameStartsAt }}
+                        </p>
+                    </div>
+                </td>
+            {% endfor %}
 
-        {% endfor %}
-    </div>
+        </tr>
+    </table>
+</div>
+
+
 
 
 
 {% endblock %}
+

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Team;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -71,10 +72,10 @@ class Country
     private $nationalTeamFoundedAt;
 
     /**
-     * @ORM\OneToOne(targetEntity="Team")
+     * @ORM\OneToOne(targetEntity="Team", inversedBy="country")
      * @ORM\JoinColumn(name="team_id", referencedColumnName="id")
      */
-    protected $team;
+    private $team;
 
     /**
      * Get id
@@ -257,11 +258,11 @@ class Country
     /**
      * Set team
      *
-     * @param \AppBundle\Entity\Team $team
+     * @param Team $team
      *
      * @return Country
      */
-    public function setTeam(\AppBundle\Entity\Team $team = null)
+    public function setTeam(Team $team = null)
     {
         $this->team = $team;
 
@@ -271,7 +272,7 @@ class Country
     /**
      * Get team
      *
-     * @return \AppBundle\Entity\Team
+     * @return Team
      */
     public function getTeam()
     {

@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Entity\Coach;
+use AppBundle\Entity\Country;
 use AppBundle\Entity\Player;
 use AppBundle\Entity\TournamentGroup;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -55,6 +56,11 @@ class Team
      * @ORM\JoinColumn(name="tournament_group_id", referencedColumnName="id")
      */
     private $tournamentGroup;
+
+    /**
+     *  @ORM\OneToOne(targetEntity="Country", mappedBy="team")
+     */
+    private $country;
 
     /**
      * Get id
@@ -215,5 +221,29 @@ class Team
     public function getTournamentGroup()
     {
         return $this->tournamentGroup;
+    }
+
+    /**
+     * Set country
+     *
+     * @param Country $country
+     *
+     * @return Team
+     */
+    public function setCountry(Country $country = null)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return Country
+     */
+    public function getCountry()
+    {
+        return $this->country;
     }
 }

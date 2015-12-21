@@ -15,21 +15,23 @@ class TournamentGroupRepository extends EntityRepository
     public function findGroupWithDependencies($name)
     {
         return $this->createQueryBuilder('gr')
-            ->select('gr, games, teams')
+            ->select('gr, games, teams, countries')
             ->join('gr.games', 'games')
             ->join('gr.teams', 'teams')
+            ->join('gr.teams.country', 'countries')
             ->where('gr.name = :name')
             ->setParameter('name', $name)
             ->getQuery()
-            ->getOneOrNullResult();
+            ->getResult();
     }
 
     public function findAllGroupsWithDependencies()
     {
         return $this->createQueryBuilder('g')
-            ->select('g, games, teams ')
+            ->select('g, games, teams, countries')
             ->join('g.games', 'games')
             ->join('g.teams', 'teams')
+            ->join('teams.country', 'countries')
             ->getQuery()
             ->getResult();
     }
