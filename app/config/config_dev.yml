@@ -40,3 +40,12 @@ monolog:
         #chromephp:
         #    type:   chromephp
         #    level:  info
+hautelook_alice:
+    db_drivers:
+        orm: true
+        mongodb: false
+        phpcr: false
+    locale: en_EN
+    seed: 1
+    persist_once: false
+    loading_limit: 5

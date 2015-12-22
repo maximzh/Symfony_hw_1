@@ -3,6 +3,7 @@
 namespace AppBundle\Repository;
 
 use AppBundle\Entity\Team;
+use AppBundle\Entity\TournamentGroup;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -13,13 +14,31 @@ use Doctrine\ORM\EntityRepository;
  */
 class GameRepository extends EntityRepository
 {
+    public function findGamesByGroup($name)
+    {
+        return $this->createQueryBuilder('g')
+            ->select('g, ft, st, tg, ftc, stc')
+            ->join('g.firstTeam','ft')
+            ->join('g.secondTeam', 'st')
+            ->join('ft.country', 'ftc')
+            ->join('st.country', 'stc')
+            ->join('g.tournamentGroup', 'tg')
+            ->where('tg.name = :name')
+            ->setParameter('name', $name)
+            ->getQuery()
+            ->getResult();
+
+    }
+
     public function findGamesByTeam(Team $team, $numberOfGames = 4)
     {
 
         return $this->createQueryBuilder('g')
-            ->select('g, ft, st')
+            ->select('g, ft, st, ftc, stc')
             ->join('g.firstTeam', 'ft')
             ->join('g.secondTeam', 'st')
+            ->join('ft.country', 'ftc')
+            ->join('st.country', 'stc')
             ->where('g.firstTeam = :id')
             ->orWhere('g.secondTeam = :id')
             ->setParameter('id', $team->getId())
@@ -29,12 +48,16 @@ class GameRepository extends EntityRepository
             ->getResult();
     }
 
+
+
     public function findGameWithDependencies($id)
     {
         return $this->createQueryBuilder('g')
-            ->select('g , ft, st')
+            ->select('g , ft, st, ftc, stc')
             ->join('g.firstTeam', 'ft')
             ->join('g.secondTeam', 'st')
+            ->join('ft.country', 'ftc')
+            ->join('st.country', 'stc')
             ->where('g.id = :id')
             ->setParameter('id', $id)
             ->getQuery()

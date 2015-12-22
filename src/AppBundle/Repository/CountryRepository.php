@@ -16,8 +16,9 @@ class CountryRepository extends EntityRepository
     public function findAllCountriesWithDependencies()
     {
         return $this->createQueryBuilder('c')
-            ->select('c, t')
+            ->select('c, t, tg')
             ->join('c.team', 't')
+            ->join('t.tournamentGroup', 'tg')
             ->getQuery()
             ->getResult();
 

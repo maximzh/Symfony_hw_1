@@ -15,8 +15,9 @@ class PlayerRepository extends EntityRepository
     public function findAllPlayersWithDependencies()
     {
         return $this->createQueryBuilder('p')
-            ->select('p, t')
+            ->select('p, t, c')
             ->join('p.team', 't')
+            ->join('t.country', 'c')
             ->orderBy('p.team')
             ->getQuery()
             ->getResult();

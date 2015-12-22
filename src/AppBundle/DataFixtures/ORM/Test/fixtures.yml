@@ -1,15 +1,15 @@
 AppBundle\Entity\Team:
     team{1..2}:
-        name (unique): <randomElement(['France','Ukraine'])>
-        slug (unique): <createSlug($name)>
+        name (unique): <randomElement(['France', "Ukraine"])>
+        slug: '<($name)>'
 
 AppBundle\Entity\Country:
     country{1..2}:
         team (unique): '@team<current()>'
         name: '@team<current()>->name'
-        slug: <createSlug($name)>
+        slug: '<($name)>'
         uefaRank: <numberBetween(1, 54)>
-        flag: <createFlag($slug)>
+        flag: /pictures/<($slug)>.png
         shortHistory: <text(1000)>
         firstMembership: <year()>
         nationalTeamFoundedAt: <year()>
@@ -40,7 +40,7 @@ AppBundle\Entity\Coach:
         name: <name()>
         dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
         nationality: <country()>
-        team: @team*
+        team: @team1
 
     coach{5..8}:
         name: <name()>

@@ -6,7 +6,7 @@
     {{ parent() }}
     <div>
         <div>
-            <p class="bg-primary">
+            <p class="bg-success">
                 Game result:
             </p>
 
@@ -17,7 +17,7 @@
         </div>
 
         <div>
-            <p class="bg-primary">
+            <p class="bg-success">
                 Game date:
             </p>
 
@@ -27,12 +27,20 @@
         </div>
 
         <div>
-            <p class="bg-primary">
+            <p class="bg-success">
                 Match starts at:
             </p>
 
             <p class="text-info">
                 {{ game.gameStartsAt }}
+            </p>
+
+            <p class="bg-success">
+                Details:
+            </p>
+
+            <p class="text-info">
+                {{ game.description }}
             </p>
         </div>
     </div>

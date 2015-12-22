@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\TournamentGroup;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,6 +21,13 @@ class Game
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", nullable=true)
+     */
+    private $city;
 
     /**
      * @var int
@@ -50,6 +58,13 @@ class Game
     private $gameStartsAt;
 
     /**
+     * @var string
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
+
+
+    /**
      * @ORM\ManyToOne(targetEntity="Team")
      * @ORM\JoinColumn(name="first_team_id", referencedColumnName="id")
      */
@@ -61,6 +76,11 @@ class Game
      */
     protected $secondTeam;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="TournamentGroup", inversedBy="games")
+     * @ORM\JoinColumn(name="tournament_group_id", referencedColumnName="id")
+     */
+    private $tournamentGroup;
 
     /**
      * Get id
@@ -214,5 +234,71 @@ class Game
     public function getSecondTeam()
     {
         return $this->secondTeam;
+    }
+
+    /**
+     * Set city
+     * @param $city
+     * @return $this
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param $description
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+
+    /**
+     * Set tournamentGroup
+     *
+     * @param TournamentGroup $tournamentGroup
+     *
+     * @return Game
+     */
+    public function setTournamentGroup(TournamentGroup $tournamentGroup = null)
+    {
+        $this->tournamentGroup = $tournamentGroup;
+
+
+        return $this;
+    }
+
+    /**
+     * Get tournamentGroup
+     *
+     * @return TournamentGroup
+     */
+    public function getTournamentGroup()
+    {
+        return $this->tournamentGroup;
     }
 }

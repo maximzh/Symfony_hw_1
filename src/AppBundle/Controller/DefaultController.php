@@ -48,6 +48,7 @@ class DefaultController extends Controller
             'pot_two' => $potTwoCountries,
             'pot_three' => $potThreeCountries,
             'pot_four' => $potFourCountries,
+            'countries' => $allCountries
         ];
     }
 }

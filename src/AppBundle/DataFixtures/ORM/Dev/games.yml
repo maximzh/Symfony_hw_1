@@ -1,0 +1,66 @@
+AppBundle\Entity\Game:
+    game{1..6}:
+        firstTeam: @team*
+        secondTeam: @team*
+        gameDate: <dateTime()>
+        gameStartsAt: <time('H:i')>
+        firstTeamScore: <numberBetween(0, 5)>
+        secondTeamScore: <numberBetween(0, 5)>
+        city: <city()>
+        description: <text(500)>
+        tournamentGroup: @tournamentGroup1
+
+    game{7..12}:
+            firstTeam: @team*
+            secondTeam: @team*
+            gameDate: <dateTime()>
+            gameStartsAt: <time('H:i')>
+            firstTeamScore: <numberBetween(0, 5)>
+            secondTeamScore: <numberBetween(0, 5)>
+            city: <city()>
+            description: <text(500)>
+            tournamentGroup: @tournamentGroup2
+
+    game{13..18}:
+            firstTeam: @team*
+            secondTeam: @team*
+            gameDate: <dateTime()>
+            gameStartsAt: <time('H:i')>
+            firstTeamScore: <numberBetween(0, 5)>
+            secondTeamScore: <numberBetween(0, 5)>
+            city: <city()>
+            description: <text(500)>
+            tournamentGroup: @tournamentGroup3
+
+    game{19..24}:
+            firstTeam: @team*
+            secondTeam: @team*
+            gameDate: <dateTime()>
+            gameStartsAt: <time('H:i')>
+            firstTeamScore: <numberBetween(0, 5)>
+            secondTeamScore: <numberBetween(0, 5)>
+            city: <city()>
+            description: <text(500)>
+            tournamentGroup: @tournamentGroup4
+
+    game{25..30}:
+            firstTeam: @team*
+            secondTeam: @team*
+            gameDate: <dateTime()>
+            gameStartsAt: <time('H:i')>
+            firstTeamScore: <numberBetween(0, 5)>
+            secondTeamScore: <numberBetween(0, 5)>
+            city: <city()>
+            description: <text(500)>
+            tournamentGroup: @tournamentGroup5
+
+    game{31..36}:
+            firstTeam: @team*
+            secondTeam: @team*
+            gameDate: <dateTime()>
+            gameStartsAt: <time('H:i')>
+            firstTeamScore: <numberBetween(0, 5)>
+            secondTeamScore: <numberBetween(0, 5)>
+            city: <city()>
+            description: <text(500)>
+            tournamentGroup: @tournamentGroup6

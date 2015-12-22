@@ -3,7 +3,9 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Entity\Coach;
+use AppBundle\Entity\Country;
 use AppBundle\Entity\Player;
+use AppBundle\Entity\TournamentGroup;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -48,6 +50,17 @@ class Team
      * @ORM\OneToMany(targetEntity="Coach", mappedBy="team")
      */
     protected $coaches;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="TournamentGroup", inversedBy="teams")
+     * @ORM\JoinColumn(name="tournament_group_id", referencedColumnName="id")
+     */
+    private $tournamentGroup;
+
+    /**
+     *  @ORM\OneToOne(targetEntity="Country", mappedBy="team")
+     */
+    private $country;
 
     /**
      * Get id
@@ -183,5 +196,54 @@ class Team
     public function getCoaches()
     {
         return $this->coaches;
+    }
+
+    /**
+     * Set tournamentGroup
+     *
+     * @param TournamentGroup $tournamentGroup
+     *
+     * @return Team
+     */
+    public function setTournamentGroup(TournamentGroup $tournamentGroup = null)
+    {
+        $this->tournamentGroup = $tournamentGroup;
+
+
+        return $this;
+    }
+
+    /**
+     * Get tournamentGroup
+     *
+     * @return TournamentGroup
+     */
+    public function getTournamentGroup()
+    {
+        return $this->tournamentGroup;
+    }
+
+    /**
+     * Set country
+     *
+     * @param Country $country
+     *
+     * @return Team
+     */
+    public function setCountry(Country $country = null)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return Country
+     */
+    public function getCountry()
+    {
+        return $this->country;
     }
 }

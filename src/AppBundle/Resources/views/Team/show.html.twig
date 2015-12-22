@@ -4,22 +4,22 @@
 
 {% block body %}
     {{ parent() }}
-    <h1 class="bg-info">{{ team.name }}</h1>
+    <h1 class="bg-success text-success text-center">{{ team.name }}</h1>
     <table class="table table-bordered table-hover">
         <tr>
-            <th class="bg-primary">Players list</th>
-            <th class="bg-primary">Coaches list</th>
-            <th class="bg-primary">Last games</th>
+            <th class="bg-success text-success text-center">Players</th>
+            <th class="bg-success text-success text-center">Coaches</th>
+            <th class="bg-success text-success text-center">Games</th>
         </tr>
         <tr>
             <td>
 
                 <div>
-                    <p class="bg-primary">FORWARDS</p>
+                    <p class="bg-success text-success text-center">FORWARDS</p>
                     {% for player in team.players %}
 
                         {% if player.position == 'Forward' %}
-                            <div>
+                            <div class="text-center">
                                 <a href="{{ path('show_player', {'id': player.id }) }}">{{ player.name }}</a>
                             </div>
                         {% endif %}
@@ -27,33 +27,33 @@
                 </div>
 
                 <div>
-                    <p class="bg-primary">DEFENDERS</p>
+                    <p class="bg-success text-success text-center">DEFENDERS</p>
                     {% for player in team.players %}
 
                         {% if player.position == 'Defender' %}
-                            <div>
+                            <div class="text-center">
                                 <a href="{{ path('show_player', {'id': player.id }) }}">{{ player.name }}</a>
                             </div>
                         {% endif %}
                     {% endfor %}
                 </div>
                 <div>
-                    <p class="bg-primary">MIDFIELDERS</p>
+                    <p class="bg-success text-success text-center">MIDFIELDERS</p>
                     {% for player in team.players %}
 
                         {% if player.position == 'Midfielder' %}
-                            <div>
+                            <div class="text-center">
                                 <a href="{{ path('show_player', {'id': player.id }) }}">{{ player.name }}</a>
                             </div>
                         {% endif %}
                     {% endfor %}
                 </div>
                 <div>
-                    <p class="bg-primary">GOAL KEEPERS</p>
+                    <p class="bg-success text-success text-center">GOAL KEEPERS</p>
                     {% for player in team.players %}
 
                         {% if player.position == 'Goal keeper' %}
-                            <div>
+                            <div class="text-center">
                                 <a href="{{ path('show_player', {'id': player.id }) }}">{{ player.name }}</a>
                             </div>
                         {% endif %}
@@ -64,7 +64,7 @@
             <td>
 
                 {% for coach in team.coaches %}
-                    <div>
+                    <div class="text-center">
                         <a href="{{ path('show_coach', {'id': coach.id}) }}">
                             {{ coach.name }}
                         </a>
@@ -79,7 +79,7 @@
 
                 <div>
                     {% for game in games %}
-                        <div>
+                        <div class="text-center">
                             <a href="{{ path('show_game_by_id', {'id': game.id}) }}">
                                 {{ game.firstTeam.name }} ( {{ game.firstTeamScore }} - {{ game.secondTeamScore }} ) {{ game.secondTeam.name }}
                             </a>
