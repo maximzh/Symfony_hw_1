@@ -7,8 +7,8 @@
 
         <div>
             <div>
-                <h3 class="bg-info text-primary text-center">
-                    <a class="text-primary" href="{{ path('show_group', {'name': group.name}) }}">
+                <h3 class="bg-success text-success text-center">
+                    <a  href="{{ path('show_group', {'name': group.name}) }}">
                         Group {{ group.name }}
                     </a>
 
@@ -16,7 +16,7 @@
 
                 <p class="bg-success text-center text-success">Teams</p>
                 {% for team in group.teams %}
-                    <p class="text-left">
+                    <p class="text-center">
                         <a href="{{ path('show_country', {'slug': team.country.slug}) }}">
                             <img src="{{ team.country.flag }}">
                         </a>
@@ -29,14 +29,21 @@
             </div>
 
             <div>
-                <p class="bg-info text-center text-info">Games schedule:</p>
+                <p class="bg-success text-center text-info">Games schedule:</p>
                 {% for game in group.games %}
-                    <p class="text-left text-info">
+                    <p class="text-left text-info text-center">
                         {{ game.firstTeam.name }} vs {{ game.secondTeam.name }}
                         <span class="text-danger">
-                        ({{ game.gameDate|date('d-m-Y') }})
-                    </span>
-
+                        {{ game.gameDate|date('d-m-Y') }}
+                        </span>
+                        at
+                        <span class="text-danger">
+                         {{ game.gameStartsAt}}
+                        </span>
+                        in
+                        <span class="text-danger">
+                         {{ game.city}}
+                        </span>
                     </p>
 
                 {% endfor %}

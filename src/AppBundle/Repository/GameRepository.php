@@ -34,9 +34,11 @@ class GameRepository extends EntityRepository
     {
 
         return $this->createQueryBuilder('g')
-            ->select('g, ft, st')
+            ->select('g, ft, st, ftc, stc')
             ->join('g.firstTeam', 'ft')
             ->join('g.secondTeam', 'st')
+            ->join('ft.country', 'ftc')
+            ->join('st.country', 'stc')
             ->where('g.firstTeam = :id')
             ->orWhere('g.secondTeam = :id')
             ->setParameter('id', $team->getId())
@@ -51,9 +53,11 @@ class GameRepository extends EntityRepository
     public function findGameWithDependencies($id)
     {
         return $this->createQueryBuilder('g')
-            ->select('g , ft, st')
+            ->select('g , ft, st, ftc, stc')
             ->join('g.firstTeam', 'ft')
             ->join('g.secondTeam', 'st')
+            ->join('ft.country', 'ftc')
+            ->join('st.country', 'stc')
             ->where('g.id = :id')
             ->setParameter('id', $id)
             ->getQuery()
