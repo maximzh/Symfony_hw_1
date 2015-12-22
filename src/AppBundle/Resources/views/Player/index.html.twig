@@ -7,12 +7,21 @@
 {% block body %}
     {{ parent() }}
     {% for player in players %}
-        <p>
+
+
+            <div>
+            <a href="{{ path('show_country', {'slug': player.team.country.slug}) }}">
+                <img src="{{ player.team.country.flag }}">
+            </a>
+
             <a href="{{ path('show_player', {'id': player.id }) }}">
                 {{ player.name }}
             </a>
-            (<a class="bg-success" href="{{ path('show_team', {'slug': player.team.slug}) }}">{{ player.team.name }}</a>)
-        </p>
+            (<a class="bg-success" href="{{ path('show_team', {'slug': player.team.slug}) }}">
+                {{ player.team.name }}
+            </a>)
+            </div>
+
     {% endfor %}
     {{ knp_pagination_render(players) }}
 

@@ -10,28 +10,28 @@
         <h2>Name: {{ coach.name }}</h2>
 
         <div>
-            <div class="bg-primary">
+            <div class="bg-success text-success">
                 Nationality:
             </div>
-            <p class="bg-info">
+            <p>
                 {{ coach.nationality }}
             </p>
         </div>
 
         <div>
-            <div class="bg-primary">
+            <div class="bg-success text-success">
                 Date of birth:
             </div>
-            <p class="bg-info">
+            <p>
                 {{ coach.dateOfBirth|date('d-m-Y') }}
             </p>
         </div>
 
         <div>
-            <div class="bg-primary">
+            <div class="bg-success text-success">
                 Team:
             </div>
-            <p class="bg-info">
+            <p>
                 {{ coach.team.name }}
             </p>
         </div>

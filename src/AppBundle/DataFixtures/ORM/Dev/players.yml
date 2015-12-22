@@ -1,6 +1,6 @@
 AppBundle\Entity\Player:
     player{1..15}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -10,7 +10,7 @@ AppBundle\Entity\Player:
             team: '@team1'
 
     player{16..30}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -20,7 +20,7 @@ AppBundle\Entity\Player:
             team: '@team2'
 
     player{31..45}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -30,7 +30,7 @@ AppBundle\Entity\Player:
             team: '@team3'
 
     player{46..60}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -40,7 +40,7 @@ AppBundle\Entity\Player:
             team: '@team4'
 
     player{61..75}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -50,7 +50,7 @@ AppBundle\Entity\Player:
             team: '@team5'
 
     player{76..90}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -60,7 +60,7 @@ AppBundle\Entity\Player:
             team: '@team6'
 
     player{91..105}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -70,7 +70,7 @@ AppBundle\Entity\Player:
             team: '@team7'
 
     player{106..120}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -80,7 +80,7 @@ AppBundle\Entity\Player:
             team: '@team8'
 
     player{121..135}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -90,7 +90,7 @@ AppBundle\Entity\Player:
             team: '@team9'
 
     player{136..150}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -100,7 +100,7 @@ AppBundle\Entity\Player:
             team: '@team10'
 
     player{151..165}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -110,7 +110,7 @@ AppBundle\Entity\Player:
             team: '@team11'
 
     player{166..180}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -120,7 +120,7 @@ AppBundle\Entity\Player:
             team: '@team12'
 
     player{181..195}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -130,7 +130,7 @@ AppBundle\Entity\Player:
             team: '@team13'
 
     player{196..210}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -140,7 +140,7 @@ AppBundle\Entity\Player:
             team: '@team14'
 
     player{211..225}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -150,7 +150,7 @@ AppBundle\Entity\Player:
             team: '@team15'
 
     player{226..240}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -160,7 +160,7 @@ AppBundle\Entity\Player:
             team: '@team16'
 
     player{241..255}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -170,7 +170,7 @@ AppBundle\Entity\Player:
             team: '@team17'
 
     player{256..270}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -180,7 +180,7 @@ AppBundle\Entity\Player:
             team: '@team18'
 
     player{271..285}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -190,7 +190,7 @@ AppBundle\Entity\Player:
             team: '@team19'
 
     player{286..300}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -200,7 +200,7 @@ AppBundle\Entity\Player:
             team: '@team20'
 
     player{301..315}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -210,7 +210,7 @@ AppBundle\Entity\Player:
             team: '@team21'
 
     player{316..330}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -220,7 +220,7 @@ AppBundle\Entity\Player:
             team: '@team22'
 
     player{331..345}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>
@@ -230,7 +230,7 @@ AppBundle\Entity\Player:
             team: '@team23'
 
     player{346..360}:
-            name: <name()>
+            name: <firstNameMale()> <lastName()>
             position: <randomElement(['Goal keeper', 'Defender', 'Midfielder', 'Forward'])>
             height: <numberBetween(165, 195)>
             weight: <numberBetween(65, 90)>

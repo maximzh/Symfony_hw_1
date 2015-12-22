@@ -24,14 +24,13 @@
         </div>
     {% endfor %}
 </div>
-
 <div>
-    <h2 class="text-center text-success">Games schedule:</h2>
     <table class="table table-bordered text-center-">
         <tr>
             {% for game in games %}
                 <td class="text-left">
-                    <div >
+                    <div>
+                        <a href="{{ path('show_game_by_id', {'id': game.id}) }}">Match</a>
                         <p class="text-success bg-success">
                             {{ game.firstTeam.name }} - {{ game.secondTeam.name }}
                         </p>
