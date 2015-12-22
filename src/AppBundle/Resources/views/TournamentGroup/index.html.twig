@@ -2,60 +2,50 @@
 
 {% block body %}
     {{ parent() }}
+    <table class="table table-bordered">
+        {% for group in groups %}
+            <tr class="bg-success">
+                <td></td>
+                <td class="text-danger"><a href="{{ path('show_group', {'name': group.name}) }}"><span
+                                class="text-danger">GROUP {{ group.name }}</span></a></td>
+            </tr>
+            <tr>
+                <td>
+                    {% for team in group.teams %}
+                        <p>
+                            <a href="{{ path('show_country', {'slug': team.country.slug}) }}">
+                                <img src="{{ team.country.flag }}">
+                            </a>
+                            <a href="{{ path('show_team', {'slug': team.slug}) }}">
+                                <span class="text-success">{{ team.name }}</span>
+                            </a>
+                        </p>
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for game in group.games %}
+                        <a href="{{ path('show_game_by_id', {'id': game.id}) }}"><span
+                                    class="text-success">{{ game.firstTeam.name }}</span> vs <span
+                                    class="text-success">{{ game.secondTeam.name }} </span> <span
+                                    class="text-success bg-success">{{ game.gameDate|date('d-m-Y') }}</span> at <span
+                                    class="text-primary">{{ game.gameStartsAt }}</span> in <span
+                                    class="text-warning bg-warning">{{ game.city }}</span></a>
+                        <p class="text-center">
 
-    {% for group in groups %}
+                        </p>
 
-        <div>
-            <div>
-                <h3 class="bg-success text-success text-center">
-                    <a  href="{{ path('show_group', {'name': group.name}) }}">
-                        Group {{ group.name }}
-                    </a>
+                    {% endfor %}
+                </td>
 
-                </h3>
+            </tr>
 
-                <p class="bg-success text-center text-success">Teams</p>
-                {% for team in group.teams %}
-                    <p class="text-center">
-                        <a href="{{ path('show_country', {'slug': team.country.slug}) }}">
-                            <img src="{{ team.country.flag }}">
-                        </a>
-                        <a href="{{ path('show_team', {'slug': team.slug}) }}">
-                            {{ team.name }}
-                        </a>
+        {% endfor %}
 
-                    </p>
-                {% endfor %}
-            </div>
-
-            <div>
-                <p class="bg-success text-center text-info">Games schedule:</p>
-                {% for game in group.games %}
-                    <p class="text-left text-info text-center">
-                        {{ game.firstTeam.name }} vs {{ game.secondTeam.name }}
-                        <span class="text-danger">
-                        {{ game.gameDate|date('d-m-Y') }}
-                        </span>
-                        at
-                        <span class="text-danger">
-                         {{ game.gameStartsAt}}
-                        </span>
-                        in
-                        <span class="text-danger">
-                         {{ game.city}}
-                        </span>
-                    </p>
-
-                {% endfor %}
-            </div>
-        </div>
-
-    {% endfor %}
-
+    </table>
 
 {% endblock %}
 
 {% block title %}
-All Groups
+    All Groups
 {% endblock %}
 
