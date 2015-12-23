@@ -19,6 +19,7 @@ class CountryRepository extends EntityRepository
             ->select('c, t, tg')
             ->join('c.team', 't')
             ->join('t.tournamentGroup', 'tg')
+            ->orderBy('c.uefaRank')
             ->getQuery()
             ->getResult();
 
