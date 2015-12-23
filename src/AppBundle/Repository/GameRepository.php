@@ -68,9 +68,11 @@ class GameRepository extends EntityRepository
     public function findAllGamesWithDependencies()
     {
         return $this->createQueryBuilder('g')
-            ->select('g, ft, st, tg')
+            ->select('g, ft, st, tg, ftc, stc')
             ->join('g.firstTeam', 'ft')
             ->join('g.secondTeam', 'st')
+            ->join('ft.country', 'ftc')
+            ->join('st.country', 'stc')
             ->join('g.tournamentGroup', 'tg')
             ->orderBy('g.gameDate', 'ASC')
             ->getQuery()
