@@ -25,6 +25,7 @@ class GameRepository extends EntityRepository
             ->join('g.tournamentGroup', 'tg')
             ->where('tg.name = :name')
             ->setParameter('name', $name)
+            ->orderBy('g.gameDate', 'ASC')
             ->getQuery()
             ->getResult();
 

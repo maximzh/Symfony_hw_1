@@ -2,7 +2,7 @@
 
 {% block body %}
     {{ parent() }}
-    <table class="table table-bordered">
+    <table class="table table-bordered table-hover">
         {% for group in groups %}
             <tr class="bg-success">
                 <td></td>
@@ -22,7 +22,7 @@
                         </p>
                     {% endfor %}
                 </td>
-                <td>
+                <td class="text-center">
                     {% for game in group.games %}
                         <a href="{{ path('show_game_by_id', {'id': game.id}) }}"><span
                                     class="text-success">{{ game.firstTeam.name }}</span> vs <span

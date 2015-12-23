@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TournamentGroupController extends Controller
 {
     /**
-     * @param $id
+     * @param $name
      * @return array
      * @Route("/group/{name}", name="show_group")
      * @Template()
