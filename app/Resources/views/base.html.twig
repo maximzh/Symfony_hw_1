@@ -11,7 +11,7 @@
 <body>
 {% block body %}
 
-    <nav class="navbar navbar-default nav-justified">
+    <nav class="navbar navbar-brand">
         <ul class="nav navbar-nav">
             <li class="active">
                 <a href="{{ path('homepage') }}">Homepage</a>
@@ -22,9 +22,16 @@
             <li>
                 <a href="{{ path('show_all_groups') }}">Groups</a>
             </li>
+            <li>
+                <a href="{{ path('show_all_games') }}">Games</a>
+            </li>
         </ul>
     </nav>
+    <h1 class="text-info bg-danger img-rounded">
+        <img src="{{ asset('pictures/Euro2016.png') }}">
+        Euro 2016 France
 
+    </h1>
 {% endblock %}
 {% block javascripts %}
     <script src="{{ asset('js/app.js') }}"></script>

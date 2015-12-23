@@ -64,4 +64,16 @@ class GameRepository extends EntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
+
+    public function findAllGamesWithDependencies()
+    {
+        return $this->createQueryBuilder('g')
+            ->select('g, ft, st, tg')
+            ->join('g.firstTeam', 'ft')
+            ->join('g.secondTeam', 'st')
+            ->join('g.tournamentGroup', 'tg')
+            ->orderBy('g.gameDate', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 }

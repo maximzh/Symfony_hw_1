@@ -38,5 +38,23 @@ class GameController extends Controller
         return ['game' => $game];
     }
 
+    /**
+     * @return array
+     * @Route("/game/all", name="show_all_games")
+     * @Template()
+     */
+    public function showAllAction()
+    {
+        $games = $this->getDoctrine()
+            ->getRepository('AppBundle:Game')
+            ->findAllGamesWithDependencies();
+
+        if (!$games) {
+            throw $this->createNotFoundException('No games found');
+        }
+
+        return ['games' => $games];
+    }
+
 }
 

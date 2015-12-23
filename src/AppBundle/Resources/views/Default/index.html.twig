@@ -4,12 +4,11 @@
 
 {% block body %}
     {{ parent() }}
-    <h1 class="text-center text-danger">Euro 2016 France
-        <img src="{{ asset('pictures/Euro2016.png') }}">
-    </h1>
+
+
 
     <table class="table">
-        <tr class="success">
+        <tr class="alert-info">
             <th> <a href="{{ path('show_group', {'name': 'A'}) }}">Group A</a></th>
             <th> <a href="{{ path('show_group', {'name': 'B'}) }}">Group B</a></th>
             <th> <a href="{{ path('show_group', {'name': 'C'}) }}">Group C</a></th>
@@ -115,13 +114,14 @@
                 {% endfor %}
             </td>
         </tr>
+        <tr class="bg-info"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
     </table>
 
-    <h2 class="bg-info text-center text-info">UEFA ranks:</h2>
+    <h2 class="bg-danger text-danger">UEFA ranks:</h2>
     <table class="table table-striped table-hover table-bordered table-condensed">
-        <tr class="success">
-            <th>Country</th>
-            <th>Rank</th>
+        <tr>
+            <th class="bg-info">Country</th>
+            <th class="bg-info">Rank</th>
         </tr>
 
         {% for country in countries %}

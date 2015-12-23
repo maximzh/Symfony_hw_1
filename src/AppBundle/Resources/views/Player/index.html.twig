@@ -8,15 +8,15 @@
     {{ parent() }}
     <table class="table table-striped table-bordered table-hover">
         <tr>
-            <th class="bg-warning">
+            <th class="bg-info text-danger">
                 Player name
             </th>
-            <th class="bg-success text-danger">Team</th>
-            <th class="bg-success text-danger">Position</th>
-            <th class="bg-success text-danger text-center">Squad Number</th>
-            <th class="bg-success text-danger">Date of Birth</th>
-            <th class="bg-success text-danger">Height</th>
-            <th class="bg-success text-danger">Weight</th>
+            <th class="bg-info text-danger">Team</th>
+            <th class="bg-info text-danger">Position</th>
+            <th class="bg-info text-danger text-center">Squad Number</th>
+            <th class="bg-info text-danger">Date of Birth</th>
+            <th class="bg-info text-danger">Height</th>
+            <th class="bg-info text-danger">Weight</th>
         </tr>
 
     {% for player in players %}
@@ -25,7 +25,7 @@
 
 
                     <tr>
-                        <td class="bg-success">
+                        <td class="bg-info">
                             <a href="{{ path('show_player', {'id': player.id }) }}">
                                 <span class="text-success">{{ player.name }}</span>
                             </a>
