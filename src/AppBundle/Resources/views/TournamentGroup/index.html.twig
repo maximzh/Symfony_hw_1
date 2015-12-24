@@ -2,6 +2,12 @@
 
 {% block body %}
     {{ parent() }}
+    <div class="clearfix bg-info">
+        <h1 class="pull-right">All Groups <img class="pull-right" src="{{ asset('pictures/soccer-player.png') }}"></h1>
+
+    </div>
+
+
     <table class="table table-hover table-condensed">
         {% for group in groups %}
             <tr class="bg-success">

@@ -1,15 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Team{% endblock %}
+{% block title %}{{ team.name }}{% endblock %}
 
 {% block body %}
 
     {{ parent() }}
 
-    <h1 class="text-success"><img src="{{ asset('pictures/Euro2016.png') }}">{{ team.name }} <img
-                src="{{ team.country.flag }}"></h1>
+    <div class="clearfix bg-info">
+        <h1 class="text-primary bg-info">{{ team.name }}
+
+            <img src="{{ team.country.flag }}">
+        </h1>
+        <div class="pull-left">
 
 
+
+        </div>
+
+
+    </div>
 
     <div class="clearfix">
         <h3 class="text-success">Football in {{ team.country.name }}:</h3>

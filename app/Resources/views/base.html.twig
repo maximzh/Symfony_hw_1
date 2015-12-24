@@ -11,7 +11,11 @@
 <body>
 {% block body %}
 
+    <div class="pull-left">
+        <img src="{{ asset('pictures/soccer-ball-icon.png') }}">
+    </div>
     <nav class="navbar navbar-brand">
+
         <ul class="nav navbar-nav">
             <li class="active">
                 <a href="{{ path('homepage') }}">Homepage</a>
@@ -27,11 +31,11 @@
             </li>
         </ul>
     </nav>
-    <h1 class="text-info bg-danger img-rounded">
-        <img src="{{ asset('pictures/Euro2016.png') }}">
-        Euro 2016 France
+    <div class="text-info bg-danger img-rounded">
+        <img  src="{{ asset('pictures/uefa-euro-2016.png') }}">
 
-    </h1>
+
+    </div>
 {% endblock %}
 {% block javascripts %}
     <script src="{{ asset('js/app.js') }}"></script>
