@@ -1,5 +1,6 @@
-body {width: 1024px; margin: auto; background-color: #F2F2F2; padding: 10px}
+body {width: 1024px; margin: auto; padding: 10px}
 .fixed-width {width: 350px}
 #groups div {margin: 40px}
-html {background-color: #DFF0D8}
-
+html {background-color: #F2F2F2}
+.bg-header {background-color: #B18990}
+nav ul li a {color: #F2F2F2 }
