@@ -6,14 +6,56 @@
 
 {% block body %}
     {{ parent() }}
+    <table class="table table-striped table-bordered table-hover">
+        <tr>
+            <th class="bg-info text-danger">
+                Player name
+            </th>
+            <th class="bg-info text-danger">Team</th>
+            <th class="bg-info text-danger">Position</th>
+            <th class="bg-info text-danger text-center">Squad Number</th>
+            <th class="bg-info text-danger">Date of Birth</th>
+            <th class="bg-info text-danger">Height</th>
+            <th class="bg-info text-danger">Weight</th>
+        </tr>
+
     {% for player in players %}
-        <p>
-            <a href="{{ path('show_player', {'id': player.id }) }}">
-                {{ player.name }}
-            </a>
-            (<a class="bg-success" href="{{ path('show_team', {'slug': player.team.slug}) }}">{{ player.team.name }}</a>)
-        </p>
+
+
+
+
+                    <tr>
+                        <td class="bg-info">
+                            <a href="{{ path('show_player', {'id': player.id }) }}">
+                                <span class="text-success">{{ player.name }}</span>
+                            </a>
+                        </td>
+
+                        <td>
+                            <a href="{{ path('show_country', {'slug': player.team.country.slug}) }}">
+                                <img class="img-circle" src="{{ player.team.country.flag }}">
+                            </a>
+                            <a class="text-success" href="{{ path('show_team', {'slug': player.team.slug}) }}">
+                                {{ player.team.name }}
+                            </a>
+                        </td>
+                        <td>
+                              <span class="text-success">  {{ player.position }}</span>
+
+                        </td>
+                        <td class="text-center text-success">
+                            {{ player.squadNumber }}
+                        </td>
+                        <td>{{ player.dateOfBirth|date('d-m-Y') }}</td>
+                        <td><span class="text-success">{{ player.height }}</span> cm.</td>
+                        <td><span class="text-success">{{ player.weight }}</span> kg.</td>
+                    </tr>
+
+
+
+
     {% endfor %}
+    </table>
     {{ knp_pagination_render(players) }}
 
 {% endblock %}

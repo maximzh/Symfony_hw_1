@@ -1,40 +1,45 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Coach
+    {{ coach.name }}
 {% endblock title %}
 
 {% block body %}
     {{ parent() }}
-    <div class="fixed-width pull-left">
-        <h2>Name: {{ coach.name }}</h2>
 
-        <div>
-            <div class="bg-primary">
-                Nationality:
-            </div>
-            <p class="bg-info">
+    <table class="table">
+        <tr class="success text-success">
+            <th>
+                Coach Name
+            </th>
+            <th>
+                Nationality
+            </th>
+            <th>Date of Birth</th>
+            <th>
+                Team
+            </th>
+        </tr>
+        <tr class="alert-info">
+            <td>
+                {{ coach.name }}
+            </td>
+            <td>
                 {{ coach.nationality }}
-            </p>
-        </div>
-
-        <div>
-            <div class="bg-primary">
-                Date of birth:
-            </div>
-            <p class="bg-info">
+            </td>
+            <td>
                 {{ coach.dateOfBirth|date('d-m-Y') }}
-            </p>
-        </div>
-
-        <div>
-            <div class="bg-primary">
-                Team:
-            </div>
-            <p class="bg-info">
-                {{ coach.team.name }}
-            </p>
-        </div>
+            </td>
+            <td>
+                <img class="img-circle" src="{{ coach.team.country.flag }}"> {{ coach.team.name }}
+            </td>
+        </tr>
+    </table>
+    <div>
+        <h4 class="text-center text-success">Coach Biography</h4>
+        <p>
+            {{ coach.shortBiography }}
+        </p>
     </div>
 
 {% endblock body %}

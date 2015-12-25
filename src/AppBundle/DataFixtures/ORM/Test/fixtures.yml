@@ -41,12 +41,14 @@ AppBundle\Entity\Coach:
         dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
         nationality: <country()>
         team: @team1
+        shortBiography: <text(1000)>
 
     coach{5..8}:
         name: <name()>
         dateOfBirth: <dateTimeBetween('-65 years', '-40 years')>
         nationality: <country()>
         team: @team2
+        shortBiography: <text(1000)>
 
 
 AppBundle\Entity\Game:

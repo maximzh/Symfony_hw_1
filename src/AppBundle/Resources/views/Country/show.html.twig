@@ -4,19 +4,26 @@
 
 {% block body %}
     {{ parent() }}
-    <h1 class="bg-success text-center text-success">{{ country.name }}</h1>
-    <div class="fixed-width">
-        <div>National flag: <img class="pull-right" src="{{ asset(country.flag) }}"></div>
-        <div>UEFA rank: <span class="pull-right">{{ country.uefaRank }}</span></div>
-        <div>First membership: <span class="pull-right">{{ country.firstMembership }}</span></div>
-        <div>National team founded: <span class="pull-right">{{ country.nationalTeamFoundedAt }}</span></div>
 
-    </div>
+    <table class="table table-bordered">
+        <tr class="success">
+            <th>Country</th>
+            <th>Flag</th>
+            <th>Current UEFA rank </th>
+            <th>Debuted in Euro Championship</th>
+            <th>Teem Founded</th>
+        </tr>
+        <tr>
+            <td>{{ country.name }}</td>
+            <td><img src="{{ country.flag }}"></td>
+            <td>{{ country.uefaRank }}</td>
+            <td>{{ country.firstMembership }}</td>
+            <td>{{ country.nationalTeamFoundedAt }}</td>
+        </tr>
+    </table>
     <div>
-        <h3 class="bg-success text-center text-success">Short history of football in {{ country.name }}</h3>
-
-        {{ country.shortHistory }}
+        <h2>History:</h2>
+        <p>{{ country.shortHistory }}</p>
     </div>
-
 
 {% endblock %}

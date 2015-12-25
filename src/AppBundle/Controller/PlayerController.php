@@ -31,7 +31,7 @@ class PlayerController extends Controller
             ->findAllPlayersWithDependencies();
 
         $pager = $this->get('knp_paginator');
-        $pagination = $pager->paginate($players, $request->query->getInt('page', 1), 20);
+        $pagination = $pager->paginate($players, $request->query->getInt('page', 1), 30);
 
         return ['players' => $pagination];
     }

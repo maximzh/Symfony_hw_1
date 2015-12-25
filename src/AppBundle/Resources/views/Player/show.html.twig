@@ -1,58 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Player{% endblock %}
+{% block title %}{{ player.name }}{% endblock %}
 
 {% block body %}
     {{ parent() }}
-    <div class="fixed-width pull-left">
-        <h2>{{ player.name }}</h2>
 
-        <div>
-            <div class="bg-primary">
-                Position:
-            </div>
-            <p>
+
+    <table class="table">
+        <tr class="success text-success">
+            <th>Player Name</th>
+            <th>Player position</th>
+            <th>Squad number</th>
+            <th>Birth</th>
+            <th>Height</th>
+            <th>Weight</th>
+            <th>Country</th>
+
+        </tr>
+        <tr class="alert-info">
+            <td>
+                {{ player.name }}
+            </td>
+            <td>
                 {{ player.position }}
-            </p>
-        </div>
-        <div>
-            <div class="bg-primary">
-                Squad Number:
-            </div>
-            <p>
+            </td>
+            <td>
                 {{ player.squadNumber }}
-            </p>
-        </div>
-        <div>
-            <div class="bg-primary">
-                Date of Birth:
-            </div>
-            <p>
+            </td>
+            <td>
                 {{ player.dateOfBirth|date("m/d/Y") }}
-            </p>
-        </div>
-        <div>
-            <div class="bg-primary">
-                Height:
-            </div>
-            <p>
+            </td>
+            <td>
                 {{ player.height }} cm
-            </p>
-        </div>
-        <div>
-            <div class="bg-primary">
-                Weight:
-            </div>
-            <p>
+            </td>
+            <td>
                 {{ player.weight }} kg
-            </p>
-        </div>
-    </div>
-    <div class="pull-left">
-        <p class="bg-primary">
-            Player short biography
+            </td>
+            <td>
+                <img class="img-circle" src="{{ player.team.country.flag }}"> <span class="text-success">{{ player.team.country.name }}</span>
+            </td>
+        </tr>
+    </table>
+    <div>
+        <p>
+            <h4 class="text-center text-success">Player Biography:</h4>
+            {{ player.shortBiography }}
         </p>
-        {{ player.shortBiography }}
     </div>
 
 {% endblock %}

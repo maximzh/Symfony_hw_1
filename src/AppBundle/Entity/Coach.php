@@ -44,6 +44,12 @@ class Coach
     private $dateOfBirth;
 
     /**
+     * @var string
+     * @ORM\Column(name="short_biography", type="text")
+     */
+    private $shortBiography;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Team", inversedBy="coaches")
      * @ORM\JoinColumn(name="team_id", referencedColumnName="id")
      */
@@ -156,4 +162,28 @@ class Coach
         return $this->team;
     }
 
+
+    /**
+     * Set shortBiography
+     *
+     * @param string $shortBiography
+     *
+     * @return Coach
+     */
+    public function setShortBiography($shortBiography)
+    {
+        $this->shortBiography = $shortBiography;
+
+        return $this;
+    }
+
+    /**
+     * Get shortBiography
+     *
+     * @return string
+     */
+    public function getShortBiography()
+    {
+        return $this->shortBiography;
+    }
 }

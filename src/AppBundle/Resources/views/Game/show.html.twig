@@ -1,48 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Game{% endblock %}
+{% block title %}{{ game.firstTeam.name }} vs {{ game.secondTeam.name }}{% endblock %}
 
 {% block body %}
     {{ parent() }}
-    <div>
-        <div>
-            <p class="bg-success">
-                Game result:
-            </p>
 
-            <p class="text-info">
-                {{ game.firstTeam.name }} ( <span class="bg-success"> {{ game.firstTeamScore }} - {{ game.secondTeamScore }} </span>
-                ) {{ game.secondTeam.name }}
-            </p>
-        </div>
-
-        <div>
-            <p class="bg-success">
-                Game date:
-            </p>
-
-            <p class="text-info">
+    <table class="table table-bordered">
+        <tr class="success">
+            <th>Result</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Place</th>
+        </tr>
+        <tr>
+            <td>
+                <p class="text-info">
+                    {{ game.firstTeam.name }} ( <span class="bg-success"> {{ game.firstTeamScore }} - {{ game.secondTeamScore }} </span>
+                    ) {{ game.secondTeam.name }}
+                </p>
+            </td>
+            <td>
                 {{ game.gameDate|date("d/m/Y") }}
-            </p>
-        </div>
-
-        <div>
-            <p class="bg-success">
-                Match starts at:
-            </p>
-
-            <p class="text-info">
+            </td>
+            <td>
                 {{ game.gameStartsAt }}
-            </p>
+            </td>
+            <td>
+                {{ game.city }}
+            </td>
+        </tr>
+    </table>
 
-            <p class="bg-success">
-                Details:
-            </p>
+    <div>
+        <p class="bg-success">
+            Details:
+        </p>
 
-            <p class="text-info">
-                {{ game.description }}
-            </p>
-        </div>
+        <p class="text-info">
+            {{ game.description }}
+        </p>
     </div>
+
+
 
 {% endblock %}

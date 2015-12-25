@@ -1,62 +1,91 @@
 {% extends 'base.html.twig' %}
-{% block title %}Group{% endblock %}
+{% block title %}Group {{ games[0].tournamentGroup.name }}{% endblock %}
 
 {% block body %}
     {{ parent() }}
 
+    <div>
+        <div>
 
 
-<div>
-    <h1 class="bg-success text-center text-success">Group {{ teams[0].tournamentGroup.name }}:</h1>
+            <h1 class="bg-info text-info">
+                Group <span class="text-danger">{{ teams[0].tournamentGroup.name }}</span>:
+            </h1>
 
-    {% for team in teams %}
-        <div class="pull-left" style="margin: 40px">
-            <h4 class="bg-success text-center text-success">
-                <img src="{{ team.country.flag }}">
-                {{ team.name }}:
-            </h4>
-            {% for player in team.players %}
-                <p>
-                    <a href="{{ path('show_player', {'id': player.id}) }}">{{ player.name }}</a>
-                </p>
-            {% endfor %}
-            <a class="bg-success" href="{{ path('show_team', {'slug': team.slug}) }}">MORE...</a>
         </div>
-    {% endfor %}
-</div>
-
-<div>
-    <h2 class="text-center text-success">Games schedule:</h2>
-    <table class="table table-bordered text-center-">
-        <tr>
-            {% for game in games %}
-                <td class="text-left">
-                    <div >
-                        <p class="text-success bg-success">
-                            {{ game.firstTeam.name }} - {{ game.secondTeam.name }}
-                        </p>
-                        <p class="text-danger">
-                            ( {{ game.city }} )
-                        </p>
-                        <p class="text-info">
-                            {{ game.gameDate|date("d-m-Y") }}
 
 
-                        </p>
-                        <p class="text-info">
-                            Starts at: {{ game.gameStartsAt }}
-                        </p>
-                    </div>
-                </td>
-            {% endfor %}
+        <table class="table">
+            <tr>
+                {% for team in teams %}
+                    <td>
+                        <h4 class="bg-success text-success">
+                            <a href="{{ path('show_country', {'slug': team.country.slug}) }}">
+                                <img class="img-circle" src="{{ team.country.flag }}">
+                            </a>
+                            <a href="{{ path('show_team', {'slug': team.slug}) }}">
+                                <span class="text-success">
+                                    {{ team.name }}:
+                                </span>
+                            </a>
+                        </h4><br>
+                        {% for player in team.players %}
+                            <p>
+                                <a href="{{ path('show_player', {'id': player.id}) }}">{{ player.name }}
+                                    <span class="text-success">
+                                        ({{ player.squadNumber }})({{ player.position }})
+                                    </span>
+                                </a>
+                            </p>
+                        {% endfor %}
+                    </td>
+                {% endfor %}
+            </tr>
+        </table>
+        <h2 class="text-center text-success bg-success">
+            Group <span class="text-danger">{{ teams[0].tournamentGroup.name }}</span> games:
+        </h2>
+        <table class="table table-bordered text-center-">
+            <tr>
+                {% for game in games %}
+                    <td class="text-left">
+                        <div>
 
-        </tr>
-    </table>
-</div>
+                            <p class="text-success">
+                                <a href="{{ path('show_game_by_id', {'id': game.id}) }}">
+                                    {{ game.firstTeam.name }} <span
+                                            class="text-danger">vs</span> {{ game.secondTeam.name }}
+                                </a>
+                                {% if (game.firstTeamScore != null) and (game.firstTeamScore != null) %}
 
+                            <p class="text-center text-primary">
+                                {{ game.firstTeamScore }} - {{ game.secondTeamScore }}
+                            </p>
+                            {% endif %}
+                            </p>
+                            <p class="bg-info">Place:</p>
 
+                            <p class="text-success">
+                                {{ game.city }}
+                            </p>
 
+                            <p class="bg-info">Date:</p>
 
+                            <p class="text-success">
+                                {{ game.gameDate|date("d-m-Y") }}
+                            </p>
+
+                            <p class="bg-info">Time:</p>
+
+                            <p class="text-success">
+                                {{ game.gameStartsAt }}
+                            </p>
+                        </div>
+                    </td>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
 
 {% endblock %}
 

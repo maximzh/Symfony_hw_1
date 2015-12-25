@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{{ parent() }}
+
+<h1 class="bg-info text-center">Group Tournament</h1>
+
+    <table class="table table-condensed">
+        <tr class="bg-warning">
+            <th class="text-center">Group A</th>
+            <th class="text-center">Group B</th>
+            <th class="text-center">Group C</th>
+            <th class="text-center">Group D</th>
+            <th class="text-center">Group E</th>
+            <th class="text-center">Group F</th>
+
+        </tr>
+        <tr>
+            <td>
+                {% for game in games %}
+                    {% if game.tournamentGroup.name == 'A' %}
+                        <p class="bg-warning">{{ game.firstTeam.name }} - {{ game.secondTeam.name }}</p>
+                        <p class="bg-info">Date and place<br>{{ game.gameDate|date('d-m-Y') }} ({{ game.gameStartsAt }})<br><span class="text-danger">{{ game.city }}</span> </p>
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td>
+                {% for game in games %}
+                    {% if game.tournamentGroup.name == 'B' %}
+                        <p class="bg-warning">{{ game.firstTeam.name }} - {{ game.secondTeam.name }}</p>
+                        <p class="bg-info">Date and place<br>{{ game.gameDate|date('d-m-Y') }} ({{ game.gameStartsAt }})<br><span class="text-danger">{{ game.city }}</span> </p>
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td>
+                {% for game in games %}
+                    {% if game.tournamentGroup.name == 'C' %}
+                        <p class="bg-warning">{{ game.firstTeam.name }} - {{ game.secondTeam.name }}</p>
+                        <p class="bg-info">Date and place<br>{{ game.gameDate|date('d-m-Y') }} ({{ game.gameStartsAt }})<br><span class="text-danger">{{ game.city }}</span> </p>
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td>
+                {% for game in games %}
+                    {% if game.tournamentGroup.name == 'D' %}
+                        <p class="bg-warning">{{ game.firstTeam.name }} - {{ game.secondTeam.name }}</p>
+                        <p class="bg-info">Date and place<br>{{ game.gameDate|date('d-m-Y') }} ({{ game.gameStartsAt }})<br><span class="text-danger">{{ game.city }}</span> </p>
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td>
+                {% for game in games %}
+                    {% if game.tournamentGroup.name == 'E' %}
+                        <p class="bg-warning">{{ game.firstTeam.name }} - {{ game.secondTeam.name }}</p>
+                        <p class="bg-info">Date and place<br>{{ game.gameDate|date('d-m-Y') }} ({{ game.gameStartsAt }})<br><span class="text-danger">{{ game.city }}</span> </p>
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td>
+                {% for game in games %}
+                    {% if game.tournamentGroup.name == 'F' %}
+                        <p class="bg-warning">{{ game.firstTeam.name }} - {{ game.secondTeam.name }}</p>
+                        <p class="bg-info">Date and place<br>{{ game.gameDate|date('d-m-Y') }} ({{ game.gameStartsAt }})<br><span class="text-danger">{{ game.city }}</span> </p>
+                    {% endif %}
+                {% endfor %}
+            </td>
+
+        </tr>
+    </table>
+
+{% endblock %}
+
+{% block title %}
+    All Games
+{% endblock %}
+
