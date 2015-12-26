@@ -34,7 +34,8 @@ class TeamController extends Controller
     {
         $team = $this->getDoctrine()
             ->getRepository('AppBundle:Team')
-            ->findTeamWithDependencies($slug);
+            //->findTeamWithDependencies($slug);
+            ->findOneBy(array('slug' => $slug));
 
         if (!$team) {
             throw $this->createNotFoundException('No team found: '.$slug);

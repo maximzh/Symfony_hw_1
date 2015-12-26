@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ parent() }}
+
+    <div class="pull-left">
+        {% for country in countries %}
+        <p>
+            {{ country.name }}
+        </p>
+        {% endfor %}
+    </div>
+{% endblock %}

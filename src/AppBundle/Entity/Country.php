@@ -46,7 +46,7 @@ class Country
     /**
      * @var string
      *
-     * @ORM\Column(name="flag", type="string", length=255)
+     * @ORM\Column(name="flag", type="string", length=255, nullable=true)
      */
     private $flag;
 
@@ -60,14 +60,14 @@ class Country
     /**
      * @var int
      *
-     * @ORM\Column(name="first_membership", type="smallint")
+     * @ORM\Column(name="first_membership", type="smallint", nullable=true)
      */
     private $firstMembership;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="national_team_founded_at", type="smallint")
+     * @ORM\Column(name="national_team_founded_at", type="smallint", nullable=true)
      */
     private $nationalTeamFoundedAt;
 

@@ -233,6 +233,7 @@ class Team
     public function setCountry(Country $country = null)
     {
         $this->country = $country;
+        $country->setTeam($this);
 
         return $this;
     }
