@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/admin")
+     * @Route("/admin", name="admin_default")
      * @Route("/admin/")
      */
     public function indexAction()
