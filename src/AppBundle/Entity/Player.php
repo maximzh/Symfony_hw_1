@@ -73,7 +73,7 @@ class Player
 
     /**
      * @ORM\ManyToOne(targetEntity="Team", inversedBy="players")
-     * @ORM\JoinColumn(name="team_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="team_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      */
     protected $team;
 

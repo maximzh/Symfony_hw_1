@@ -1,0 +1,48 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}
+    All Players
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <h2 class="bg-success">
+        <a href="{{ path('add_new_player') }}">Create a new player</a>
+    </h2>
+    <table class="table table-striped table-bordered table-hover">
+        <tr>
+            <th>Player name</th>
+            <th>Team</th>
+            <th>Edit</th>
+            <th>Remove</th>
+        </tr>
+        {% for player in players %}
+
+            <tr>
+                <td>
+                    <span class="text-success">{{ player.name }}</span>
+                </td>
+                <td>
+                    {% if player.team is not null %}
+                        {% if player.team.country is not null %}
+                            <img class="img-circle" src="{{ player.team.country.flag }}">
+                        {% endif %}
+                        {{ player.team.name }}
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ path('edit_player', {'id': player.id}) }}">
+                        Edit
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ path('remove_player', {'id': player.id}) }}">
+                        Remove
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {{ knp_pagination_render(players) }}
+
+{% endblock %}

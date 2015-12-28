@@ -24,9 +24,29 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class PlayerController extends Controller
 {
+
+    /**
+     * @param Request $request
+     * @return array
+     * @Route("/manage", name="manage_players")
+     * @Template()
+     */
+    public function indexAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $players = $em->getRepository('AppBundle:Player')
+            ->findAll();
+
+        $pager = $this->get('knp_paginator');
+        $pagination = $pager->paginate($players, $request->query->getInt('page', 1), 30);
+
+        return ['players' => $pagination];
+    }
+
     /**
      * @return array
-     * @Route("/new")
+     * @Route("/new", name="add_new_player")
      * @Template()
      */
     public function newAction()
@@ -67,7 +87,83 @@ class PlayerController extends Controller
             $em->persist($player);
             $em->flush();
 
-            return $this->redirectToRoute('homepage');
+            return $this->redirectToRoute('manage_players');
         }
+    }
+
+    /**
+     * @param $id
+     * @param Request $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route("/edit/{id}", name="edit_player")
+     * @Template()
+     */
+    public function editAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $player = $em->getRepository('AppBundle:Player')
+            ->find($id);
+
+        $form = $this->createForm(
+            PlayerType::class,
+            $player,
+            [
+                'em' => $em,
+                'action' => $this->generateUrl('edit_player', ['id' => $id]),
+                'method' => Request::METHOD_POST,
+            ]
+        );
+
+        if ($request->getMethod() == 'POST') {
+
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em->persist($player);
+                $em->flush();
+
+                return $this->redirectToRoute('manage_players');
+            }
+        }
+
+        return ['form' => $form->createView()];
+    }
+
+    /**
+     * @param $id
+     * @param Request $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route("/remove/{id}", name="remove_player")
+     * @Template()
+     */
+    public function removeAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $player = $em->getRepository('AppBundle:Player')
+            ->find($id);
+
+        $form = $this->createForm(
+            PlayerType::class,
+            $player,
+            [
+                'em' => $em,
+                'action' => $this->generateUrl('remove_player', ['id' => $id]),
+                'method' => Request::METHOD_POST,
+            ]
+        );
+
+        if ($request->getMethod() == 'POST') {
+
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em->remove($player);
+                $em->flush();
+
+                return $this->redirectToRoute('manage_players');
+            }
+        }
+
+        return ['form' => $form->createView()];
     }
 }

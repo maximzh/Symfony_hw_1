@@ -51,7 +51,7 @@ class Coach
 
     /**
      * @ORM\ManyToOne(targetEntity="Team", inversedBy="coaches")
-     * @ORM\JoinColumn(name="team_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="team_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      */
     protected $team;
 

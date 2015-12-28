@@ -73,7 +73,7 @@ class Country
 
     /**
      * @ORM\OneToOne(targetEntity="Team", inversedBy="country")
-     * @ORM\JoinColumn(name="team_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="team_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      */
     private $team;
 

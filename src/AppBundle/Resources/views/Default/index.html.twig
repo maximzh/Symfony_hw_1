@@ -20,7 +20,26 @@
         <tr>
             <td>
                 {% for country in countries %}
-                    {% if country.team.tournamentGroup.name == 'A' %}
+
+                        {% if (country.team is not null) and (country.team.tournamentGroup.name == 'A') %}
+                            <p>
+                                <a href="{{ path('show_country', {'slug': country.slug}) }}">
+                                    <img class="img-circle" src="{{ country.flag }}">
+                                </a>
+                                <a href="{{ path('show_team', {'slug': country.team.slug}) }}">
+                                    {{ country.team.name }}
+                                </a>
+                                <br>
+                            </p>
+                        {% endif %}
+
+
+                {% endfor %}
+            </td>
+
+            <td>
+                {% for country in countries %}
+                    {% if (country.team is not null) and (country.team.tournamentGroup.name == 'B') %}
                         <p>
                             <a href="{{ path('show_country', {'slug': country.slug}) }}">
                                 <img class="img-circle" src="{{ country.flag }}">
@@ -36,7 +55,7 @@
 
             <td>
                 {% for country in countries %}
-                    {% if country.team.tournamentGroup.name == 'B' %}
+                    {% if (country.team is not null) and (country.team.tournamentGroup.name == 'C') %}
                         <p>
                             <a href="{{ path('show_country', {'slug': country.slug}) }}">
                                 <img class="img-circle" src="{{ country.flag }}">
@@ -52,7 +71,7 @@
 
             <td>
                 {% for country in countries %}
-                    {% if country.team.tournamentGroup.name == 'C' %}
+                    {% if (country.team is not null) and (country.team.tournamentGroup.name == 'D') %}
                         <p>
                             <a href="{{ path('show_country', {'slug': country.slug}) }}">
                                 <img class="img-circle" src="{{ country.flag }}">
@@ -68,7 +87,7 @@
 
             <td>
                 {% for country in countries %}
-                    {% if country.team.tournamentGroup.name == 'D' %}
+                    {% if (country.team is not null) and (country.team.tournamentGroup.name == 'E') %}
                         <p>
                             <a href="{{ path('show_country', {'slug': country.slug}) }}">
                                 <img class="img-circle" src="{{ country.flag }}">
@@ -84,23 +103,7 @@
 
             <td>
                 {% for country in countries %}
-                    {% if country.team.tournamentGroup.name == 'E' %}
-                        <p>
-                            <a href="{{ path('show_country', {'slug': country.slug}) }}">
-                                <img class="img-circle" src="{{ country.flag }}">
-                            </a>
-                            <a href="{{ path('show_team', {'slug': country.team.slug}) }}">
-                                {{ country.team.name }}
-                            </a>
-                            <br>
-                        </p>
-                    {% endif %}
-                {% endfor %}
-            </td>
-
-            <td>
-                {% for country in countries %}
-                    {% if country.team.tournamentGroup.name == 'F' %}
+                    {% if  (country.team is not null) and (country.team.tournamentGroup.name == 'F') %}
                         <p>
                             <a href="{{ path('show_country', {'slug': country.slug}) }}">
                                 <img class="img-circle" src="{{ country.flag }}">

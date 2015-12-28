@@ -3,14 +3,13 @@
 {% block body %}
     {{ parent() }}
     <div style="width: 300px">
-        <h1>Create new game</h1>
+        <h1>Remove player</h1>
         {{ form_start(form) }}
         {{ form_widget(form) }}
 
-        <input type="submit" value="Create"
-               class="btn btn-default pull-right" />
+        <input type="submit" value="Remove"
+               class="btn btn-default pull-left" />
         {{ form_end(form) }}
     </div>
 
 {% endblock %}
-

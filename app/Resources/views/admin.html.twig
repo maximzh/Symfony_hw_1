@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+{{ parent() }}
+    <div class="admin-menu bg-primary">
+        <nav class="navbar">
+
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="{{ path('manage_teams') }}">Manage teams</a>
+                </li>
+                <li>
+                    <a href="{{ path('manage_countries') }}">Manage countries</a>
+                </li>
+                <li>
+                    <a href="{{ path('manage_players') }}">Manage players</a>
+                </li>
+                <li>
+                    <a href="{{ path('manage_coaches') }}">Manage coaches</a>
+                </li>
+                <li>
+                    <a href="{{ path('manage_games') }}">Manage games</a>
+                </li>
+
+                <li>
+                    <a href="{{ path('manage_groups') }}">Manage groups</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+{% endblock %}

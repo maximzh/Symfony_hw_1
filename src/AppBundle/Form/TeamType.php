@@ -11,11 +11,9 @@ namespace AppBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use AppBundle\Form\PlayerType;
 
 class TeamType extends AbstractType
 {
@@ -24,10 +22,25 @@ class TeamType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('slug', TextType::class)
-            ->add('country', EntityType::class, array(
-                'class' => 'AppBundle:Country',
-                'choice_label' => 'name'
-            ));
+            ->add(
+                'country',
+                EntityType::class,
+                array(
+                    'class' => 'AppBundle:Country',
+                    'choice_label' => 'name',
+                    'placeholder' => 'Choose country',
+                )
+            )
+            ->add(
+                'tournamentGroup',
+                EntityType::class,
+                array(
+                    'class' => 'AppBundle:TournamentGroup',
+                    'choice_label' => 'name',
+                    'placeholder' => 'select group',
+                    'required' => false
+                )
+            );
 
     }
 

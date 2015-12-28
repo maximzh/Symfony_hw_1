@@ -1,14 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
 {% block body %}
     {{ parent() }}
+    <h1>Create new country</h1>
     <div style="width: 300px">
 
         {{ form_start(form) }}
         {{ form_widget(form) }}
 
         <input type="submit" value="Create"
-               class="btn btn-default pull-right" />
+               class="btn btn-default pull-left" />
         {{ form_end(form) }}
     </div>
 

@@ -25,8 +25,28 @@ use Symfony\Component\Routing\Annotation\Route;
 class GameController extends Controller
 {
     /**
+     * @param Request $request
      * @return array
-     * @Route("/new")
+     * @Route("/manage", name="manage_games")
+     * @Template()
+     */
+    public function indexAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $games = $em->getRepository('AppBundle:Game')
+            ->findAll();
+
+        $pager = $this->get('knp_paginator');
+        $pagination = $pager->paginate($games, $request->query->getInt('page', 1), 50);
+
+        return ['games' => $pagination];
+    }
+
+
+    /**
+     * @return array
+     * @Route("/new", name="add_new_game")
      * @Template()
      */
     public function newAction()
@@ -70,5 +90,81 @@ class GameController extends Controller
 
             return $this->redirectToRoute('homepage');
         }
+    }
+
+    /**
+     * @param $id
+     * @param Request $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route("/edit/{id}", name="edit_game")
+     * @Template()
+     */
+    public function editAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $game = $em->getRepository('AppBundle:Game')
+            ->find($id);
+
+        $form = $this->createForm(
+            GameType::class,
+            $game,
+            [
+                'em' => $em,
+                'action' => $this->generateUrl('edit_game', ['id' => $id]),
+                'method' => Request::METHOD_POST,
+            ]
+        );
+
+        if ($request->getMethod() == 'POST') {
+
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em->persist($game);
+                $em->flush();
+
+                return $this->redirectToRoute('manage_games');
+            }
+        }
+
+        return ['form' => $form->createView()];
+    }
+
+    /**
+     * @param $id
+     * @param Request $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route("/remove/{id}", name="remove_game")
+     * @Template()
+     */
+    public function removeAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $game = $em->getRepository('AppBundle:Game')
+            ->find($id);
+
+        $form = $this->createForm(
+            GameType::class,
+            $game,
+            [
+                'em' => $em,
+                'action' => $this->generateUrl('remove_game', ['id' => $id]),
+                'method' => Request::METHOD_POST,
+            ]
+        );
+
+        if ($request->getMethod() == 'POST') {
+
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em->remove($game);
+                $em->flush();
+
+                return $this->redirectToRoute('manage_games');
+            }
+        }
+
+        return ['form' => $form->createView()];
     }
 }

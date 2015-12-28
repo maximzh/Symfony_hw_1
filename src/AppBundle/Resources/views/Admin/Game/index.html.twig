@@ -1,0 +1,49 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+{{ parent() }}
+
+    <h2 class="bg-success">
+        <a href="{{ path('add_new_game') }}">Create a new game</a>
+    </h2>
+    <table class="table table-striped table-bordered table-hover">
+        <tr>
+            <th>Date</th>
+            <th>First team</th>
+            <th>Second team</th>
+            <th>Edit</th>
+            <th>Remove</th>
+        </tr>
+        {% for game in games %}
+
+            <tr>
+                <td>
+                    <span class="text-success">{{ game.gameDate|date('d-m-Y') }}</span>
+                </td>
+                <td>
+                    {% if game.firstTeam is not null %}
+                    {{ game.firstTeam.name }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if game.secondTeam is not null %}
+                        {{ game.secondTeam.name }}
+                    {% endif %}
+                </td>
+
+                <td>
+                    <a href="{{ path('edit_game', {'id': game.id}) }}">
+                        Edit
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ path('remove_game', {'id': game.id}) }}">
+                        Remove
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {{ knp_pagination_render(games) }}
+{% endblock %}
+

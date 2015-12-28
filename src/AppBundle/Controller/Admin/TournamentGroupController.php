@@ -2,61 +2,58 @@
 /**
  * Created by PhpStorm.
  * User: fumus
- * Date: 26.12.15
- * Time: 17:45
+ * Date: 27.12.15
+ * Time: 21:15
  */
 
 namespace AppBundle\Controller\Admin;
 
 
-use AppBundle\Entity\Team;
-use AppBundle\Form\TeamType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use AppBundle\Entity\TournamentGroup;
+use AppBundle\Form\TournamentGroupType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class TeamController
+ * Class TournamentGroupController
  * @package AppBundle\Controller\Admin
- * @Route("/admin/team")
+ * @Route("/admin/group")
  */
-class TeamController extends Controller
+class TournamentGroupController extends Controller
 {
     /**
+     * @param Request $request
      * @return array
-     * @Route("/manage", name="manage_teams")
+     * @Route("/manage", name="manage_groups")
      * @Template()
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $teams = $em->getRepository('AppBundle:Team')
+        $groups = $em->getRepository('AppBundle:TournamentGroup')
             ->findAll();
 
-        return [
-            'teams' => $teams,
-        ];
+        return ['groups' => $groups];
     }
 
     /**
-     * @return array
-     * @Route("/new", name="new_team")
+     * @Route("/new", name="new_group")
      * @Template()
      */
     public function newAction()
     {
-        $team = new Team();
+        $group = new TournamentGroup();
 
-        $form = $this->createForm(TeamType::class, $team, array(
-            'action' => $this->generateUrl('create_team'),
-            'method' => 'POST'
+        $form = $this->createForm(TournamentGroupType::class, $group, array(
+            'action' => $this->generateUrl('create_group'),
+            'method' => 'POST',
         ));
 
         return [
-            'team' => $team,
+            'group' => $group,
             'form' => $form->createView(),
         ];
     }
@@ -64,24 +61,24 @@ class TeamController extends Controller
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     * @Route("/create", name="create_team")
-     * @Method("POST")
+     * @Route("/create", name="create_group")
      */
     public function createAction(Request $request)
     {
-        $team = new Team();
+        $group = new TournamentGroup();
         $em = $this->getDoctrine()->getManager();
 
-        $form = $this->createForm(TeamType::class, $team, array(
-            'action' => $this->generateUrl('create_team'),
+        $form = $this->createForm(TournamentGroupType::class, $group, array(
+            'action' => $this->generateUrl('create_group'),
             'method' => 'POST',
             'em' => $em,
         ));
+
         $form->handleRequest($request);
 
-        if($form->isValid()) {
-
-            $em->persist($team);
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($group);
             $em->flush();
 
             return $this->redirectToRoute('homepage');
@@ -89,25 +86,25 @@ class TeamController extends Controller
     }
 
     /**
-     * @param $slug
+     * @param $name
      * @param Request $request
-     * @Route("/edit/{slug}", name="edit_team")
-     * @Template()
      * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route("/edit/{name}", name="edit_group")
+     * @Template()
      */
-    public function editAction($slug, Request $request)
+    public function editAction($name, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $team = $em->getRepository('AppBundle:Team')
-            ->findOneBy(['slug' => $slug]);
+        $group = $em->getRepository('AppBundle:TournamentGroup')
+            ->findOneBy(['name' => $name]);
 
         $form = $this->createForm(
-            TeamType::class,
-            $team,
+            TournamentGroupType::class,
+            $group,
             [
                 'em' => $em,
-                'action' => $this->generateUrl('edit_team', ['slug' => $slug]),
+                'action' => $this->generateUrl('edit_group', ['name' => $name]),
                 'method' => Request::METHOD_POST,
             ]
         );
@@ -116,10 +113,10 @@ class TeamController extends Controller
 
             $form->handleRequest($request);
             if ($form->isValid()) {
-                $em->persist($team);
+                $em->persist($game);
                 $em->flush();
 
-                return $this->redirectToRoute('manage_teams');
+                return $this->redirectToRoute('manage_games');
             }
         }
 
@@ -127,25 +124,25 @@ class TeamController extends Controller
     }
 
     /**
-     * @param $slug
+     * @param $name
      * @param Request $request
      * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
-     * @Route("/remove/{slug}", name="remove_team")
+     * @Route("/remove/{name}", name="remove_group")
      * @Template()
      */
-    public function removeAction($slug, Request $request)
+    public function removeAction($name, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $team = $em->getRepository('AppBundle:Team')
-            ->findOneBy(['slug' => $slug]);
+        $group = $em->getRepository('AppBundle:TournamentGroup')
+            ->findOneBy(['name' => $name]);
 
         $form = $this->createForm(
-            TeamType::class,
-            $team,
+            TournamentGroupType::class,
+            $group,
             [
                 'em' => $em,
-                'action' => $this->generateUrl('remove_team', ['slug' => $slug]),
+                'action' => $this->generateUrl('remove_group', ['name' => $name]),
                 'method' => Request::METHOD_POST,
             ]
         );
@@ -154,10 +151,10 @@ class TeamController extends Controller
 
             $form->handleRequest($request);
             if ($form->isValid()) {
-                $em->remove($team);
+                $em->remove($group);
                 $em->flush();
 
-                return $this->redirectToRoute('manage_teams');
+                return $this->redirectToRoute('manage_groups');
             }
         }
 

@@ -12,4 +12,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class CoachRepository extends EntityRepository
 {
+    public function findAllCoachesWithDependencies()
+    {
+        return $this->createQueryBuilder('c')
+            ->select('c, t, cntr')
+            ->join('c.team', 't')
+            ->join('t.country', 'cntr')
+            ->orderBy('c.team')
+            ->getQuery()
+            ->getResult();
+    }
 }
