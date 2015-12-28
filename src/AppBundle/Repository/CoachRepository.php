@@ -16,8 +16,8 @@ class CoachRepository extends EntityRepository
     {
         return $this->createQueryBuilder('c')
             ->select('c, t, cntr')
-            ->join('c.team', 't')
-            ->join('t.country', 'cntr')
+            ->leftJoin('c.team', 't')
+            ->leftJoin('t.country', 'cntr')
             ->orderBy('c.team')
             ->getQuery()
             ->getResult();

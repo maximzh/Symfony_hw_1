@@ -69,11 +69,11 @@ class GameRepository extends EntityRepository
     {
         return $this->createQueryBuilder('g')
             ->select('g, ft, st, tg, ftc, stc')
-            ->join('g.firstTeam', 'ft')
-            ->join('g.secondTeam', 'st')
-            ->join('ft.country', 'ftc')
-            ->join('st.country', 'stc')
-            ->join('g.tournamentGroup', 'tg')
+            ->leftJoin('g.firstTeam', 'ft')
+            ->leftJoin('g.secondTeam', 'st')
+            ->leftJoin('ft.country', 'ftc')
+            ->leftJoin('st.country', 'stc')
+            ->leftJoin('g.tournamentGroup', 'tg')
             ->orderBy('g.gameDate', 'ASC')
             ->getQuery()
             ->getResult();

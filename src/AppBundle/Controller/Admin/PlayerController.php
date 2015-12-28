@@ -36,7 +36,7 @@ class PlayerController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $players = $em->getRepository('AppBundle:Player')
-            ->findAll();
+            ->findAllPlayersWithDependencies();
 
         $pager = $this->get('knp_paginator');
         $pagination = $pager->paginate($players, $request->query->getInt('page', 1), 30);

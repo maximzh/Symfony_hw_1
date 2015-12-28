@@ -35,7 +35,7 @@ class GameController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $games = $em->getRepository('AppBundle:Game')
-            ->findAll();
+            ->findAllGamesWithDependencies();
 
         $pager = $this->get('knp_paginator');
         $pagination = $pager->paginate($games, $request->query->getInt('page', 1), 50);

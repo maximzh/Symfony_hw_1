@@ -35,7 +35,7 @@ class CoachController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $coaches = $em->getRepository('AppBundle:Coach')
-            ->findAll();
+            ->findAllCoachesWithDependencies();
 
         $pager = $this->get('knp_paginator');
         $pagination = $pager->paginate($coaches, $request->query->getInt('page', 1), 24);
