@@ -168,7 +168,7 @@ class Country
      */
     public function setFlag($flag)
     {
-        $this->flag = $flag;
+        $this->flag = "/pictures/".$flag;
 
         return $this;
     }

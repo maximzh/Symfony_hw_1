@@ -28,6 +28,10 @@ class CountryType extends AbstractType
        $builder
            ->add('name')
            ->add('slug')
+           ->add('flag', TextType::class, array(
+               'label' => 'Flag image name, for example Ukraine.png',
+               'required' => false,
+           ))
            ->add('uefaRank', IntegerType::class)
            ->add('shortHistory', TextareaType::class)
        ;
