@@ -113,10 +113,10 @@ class TournamentGroupController extends Controller
 
             $form->handleRequest($request);
             if ($form->isValid()) {
-                $em->persist($game);
+                $em->persist($group);
                 $em->flush();
 
-                return $this->redirectToRoute('manage_games');
+                return $this->redirectToRoute('manage_groups');
             }
         }
 

@@ -16,6 +16,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 //use AppBundle\Form\TeamType;
@@ -50,6 +52,9 @@ class PlayerType extends AbstractType
             ->add('shortBiography', TextareaType::class)
 
         ;
+        $builder->get('name')->addEventListener(FormEvents::SUBMIT, function(FormEvent $event) {
+            $event->setData(trim(ucwords(strtolower($event->getData()))));
+        });
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -13,6 +13,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
@@ -35,6 +37,14 @@ class CountryType extends AbstractType
            ->add('uefaRank', IntegerType::class)
            ->add('shortHistory', TextareaType::class)
        ;
+       $builder->get('name')->addEventListener(FormEvents::SUBMIT, function(FormEvent $event) {
+           $event->setData(trim(ucfirst(strtolower($event->getData()))));
+       });
+        $builder->get('slug')->addEventListener(FormEvents::SUBMIT, function(FormEvent $event) {
+            $slug = strtolower($event->getData());
+            $slug = str_replace(' ', '-', $slug);
+            $event->setData($slug);
+        });
     }
 
     public function configureOptions(OptionsResolver $resolver)

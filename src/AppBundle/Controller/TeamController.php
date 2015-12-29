@@ -26,7 +26,7 @@ class TeamController extends Controller
     }
 
     /**
-     * @Route("/team/{slug}", requirements={"slug" = "^[a-zA-Z ]+$"}, name="show_team")
+     * @Route("/team/{slug}", requirements={"slug" = "^[a-zA-Z- ]+$"}, name="show_team")
      * @Template()
      * @Method("GET")
      */

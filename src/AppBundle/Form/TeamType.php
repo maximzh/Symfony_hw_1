@@ -13,6 +13,8 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class TeamType extends AbstractType
@@ -41,6 +43,15 @@ class TeamType extends AbstractType
                     'required' => false
                 )
             );
+
+        $builder->get('name')->addEventListener(FormEvents::SUBMIT, function(FormEvent $event) {
+            $event->setData(trim(ucfirst(strtolower($event->getData()))));
+        });
+        $builder->get('slug')->addEventListener(FormEvents::SUBMIT, function(FormEvent $event) {
+            $slug = strtolower($event->getData());
+            $slug = str_replace(' ', '-', $slug);
+            $event->setData($slug);
+        });
 
     }
 
