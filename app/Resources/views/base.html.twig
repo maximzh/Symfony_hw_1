@@ -11,31 +11,37 @@
 <body>
 {% block body %}
 
-    <div class="pull-left">
-        <img src="{{ asset('pictures/soccer-ball-icon.png') }}">
+    <div class="clearfix">
+        <div class="pull-left">
+            <img src="{{ asset('pictures/soccer-ball-icon.png') }}">
+        </div>
+        <nav class="navbar navbar-brand">
+
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="{{ path('homepage') }}">Homepage</a>
+                </li>
+                <li>
+                    <a href="{{ path('show_all_players') }}">All Players</a>
+                </li>
+                <li>
+                    <a href="{{ path('show_all_groups') }}">Groups</a>
+                </li>
+                <li>
+                    <a href="{{ path('show_all_games') }}">Games</a>
+                </li>
+                <li>
+                    <a href="{{ path('admin_default') }}">Manage data</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="text-info bg-header img-rounded">
+            <img  src="{{ asset('pictures/uefa-euro-2016.png') }}">
+
+
+        </div>
     </div>
-    <nav class="navbar navbar-brand">
 
-        <ul class="nav navbar-nav">
-            <li class="active">
-                <a href="{{ path('homepage') }}">Homepage</a>
-            </li>
-            <li>
-                <a href="{{ path('show_all_players') }}">All Players</a>
-            </li>
-            <li>
-                <a href="{{ path('show_all_groups') }}">Groups</a>
-            </li>
-            <li>
-                <a href="{{ path('show_all_games') }}">Games</a>
-            </li>
-        </ul>
-    </nav>
-    <div class="text-info bg-header img-rounded">
-        <img  src="{{ asset('pictures/uefa-euro-2016.png') }}">
-
-
-    </div>
 {% endblock %}
 {% block javascripts %}
     <script src="{{ asset('js/app.js') }}"></script>

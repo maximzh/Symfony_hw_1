@@ -10,7 +10,7 @@ AppBundle\Entity\Country:
         name: '@team<current()>->name'
         slug: <($name)>
         uefaRank: <numberBetween(1, 54)>
-        flag: /pictures/<($slug)>.png
+        flag: <($slug)>.png
         shortHistory: <text(1000)>
         firstMembership: <year()>
         nationalTeamFoundedAt: <year()>

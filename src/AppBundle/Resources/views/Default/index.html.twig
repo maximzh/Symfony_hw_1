@@ -6,6 +6,7 @@
     {{ parent() }}
 
 
+
     <table class="table">
         <tr class="alert-info">
             <th> <a href="{{ path('show_group', {'name': 'A'}) }}">Group A</a></th>
@@ -19,7 +20,26 @@
         <tr>
             <td>
                 {% for country in countries %}
-                    {% if country.team.tournamentGroup.name == 'A' %}
+
+                        {% if (country.team is not null) and (country.team.tournamentGroup.name == 'A') %}
+                            <p>
+                                <a href="{{ path('show_country', {'slug': country.slug}) }}">
+                                    <img class="img-circle" src="{{ country.flag }}">
+                                </a>
+                                <a href="{{ path('show_team', {'slug': country.team.slug}) }}">
+                                    {{ country.team.name }}
+                                </a>
+                                <br>
+                            </p>
+                        {% endif %}
+
+
+                {% endfor %}
+            </td>
+
+            <td>
+                {% for country in countries %}
+                    {% if (country.team is not null) and (country.team.tournamentGroup.name == 'B') %}
                         <p>
                             <a href="{{ path('show_country', {'slug': country.slug}) }}">
                                 <img class="img-circle" src="{{ country.flag }}">
@@ -35,7 +55,7 @@
 
             <td>
                 {% for country in countries %}
-                    {% if country.team.tournamentGroup.name == 'B' %}
+                    {% if (country.team is not null) and (country.team.tournamentGroup.name == 'C') %}
                         <p>
                             <a href="{{ path('show_country', {'slug': country.slug}) }}">
                                 <img class="img-circle" src="{{ country.flag }}">
@@ -51,7 +71,7 @@
 
             <td>
                 {% for country in countries %}
-                    {% if country.team.tournamentGroup.name == 'C' %}
+                    {% if (country.team is not null) and (country.team.tournamentGroup.name == 'D') %}
                         <p>
                             <a href="{{ path('show_country', {'slug': country.slug}) }}">
                                 <img class="img-circle" src="{{ country.flag }}">
@@ -67,7 +87,7 @@
 
             <td>
                 {% for country in countries %}
-                    {% if country.team.tournamentGroup.name == 'D' %}
+                    {% if (country.team is not null) and (country.team.tournamentGroup.name == 'E') %}
                         <p>
                             <a href="{{ path('show_country', {'slug': country.slug}) }}">
                                 <img class="img-circle" src="{{ country.flag }}">
@@ -83,23 +103,7 @@
 
             <td>
                 {% for country in countries %}
-                    {% if country.team.tournamentGroup.name == 'E' %}
-                        <p>
-                            <a href="{{ path('show_country', {'slug': country.slug}) }}">
-                                <img class="img-circle" src="{{ country.flag }}">
-                            </a>
-                            <a href="{{ path('show_team', {'slug': country.team.slug}) }}">
-                                {{ country.team.name }}
-                            </a>
-                            <br>
-                        </p>
-                    {% endif %}
-                {% endfor %}
-            </td>
-
-            <td>
-                {% for country in countries %}
-                    {% if country.team.tournamentGroup.name == 'F' %}
+                    {% if  (country.team is not null) and (country.team.tournamentGroup.name == 'F') %}
                         <p>
                             <a href="{{ path('show_country', {'slug': country.slug}) }}">
                                 <img class="img-circle" src="{{ country.flag }}">
@@ -116,7 +120,7 @@
         <tr class="bg-info"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
     </table>
 
-    <h2 class="bg-danger text-danger">UEFA ranks:</h2>
+    <h2 class="bg-success text-success">UEFA ranks:</h2>
     <table class="table table-striped table-hover table-bordered table-condensed">
         <tr>
             <th class="bg-info">Country</th>

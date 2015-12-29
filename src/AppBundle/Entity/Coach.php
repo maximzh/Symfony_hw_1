@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Team;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -51,7 +52,7 @@ class Coach
 
     /**
      * @ORM\ManyToOne(targetEntity="Team", inversedBy="coaches")
-     * @ORM\JoinColumn(name="team_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="team_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      */
     protected $team;
 
@@ -141,11 +142,11 @@ class Coach
     /**
      * Set team
      *
-     * @param \AppBundle\Entity\Team $team
+     * @param Team $team
      *
      * @return Coach
      */
-    public function setTeam(\AppBundle\Entity\Team $team = null)
+    public function setTeam(Team $team = null)
     {
         $this->team = $team;
 
@@ -155,7 +156,7 @@ class Coach
     /**
      * Get team
      *
-     * @return \AppBundle\Entity\Team
+     * @return Team
      */
     public function getTeam()
     {

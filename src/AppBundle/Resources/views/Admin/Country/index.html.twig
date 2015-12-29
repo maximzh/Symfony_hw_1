@@ -1,0 +1,32 @@
+{% extends 'admin.html.twig' %}
+{% block body %}
+    {{ parent() }}
+    <h2 class="bg-info">
+        <a href="{{ path('new_country') }}">Create a new country</a>
+    </h2>
+
+    <table class="table table-striped table-hover">
+        <tr class="success">
+            <th>Country</th>
+            <th>Edit</th>
+            <th>Remove</th>
+        </tr>
+        {% for country in countries %}
+        <tr>
+            <td>
+                {{ country.name }}
+            </td>
+            <td>
+                <a href="{{ path('edit_country', {'slug': country.slug}) }}">
+                    Edit
+                </a>
+            </td>
+            <td>
+                <a href="{{ path('remove_country', {'slug': country.slug}) }}">
+                    Remove
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

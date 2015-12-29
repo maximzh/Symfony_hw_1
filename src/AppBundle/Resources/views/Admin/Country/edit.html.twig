@@ -1,0 +1,16 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <h1>Edit country</h1>
+    <div class="form-control-static">
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+        <input type="submit" value="Update"
+               class="btn btn-default pull-left" />
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+

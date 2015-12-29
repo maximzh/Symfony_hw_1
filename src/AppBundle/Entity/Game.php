@@ -2,7 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\TournamentGroup;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -66,19 +65,19 @@ class Game
 
     /**
      * @ORM\ManyToOne(targetEntity="Team")
-     * @ORM\JoinColumn(name="first_team_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="first_team_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      */
     protected $firstTeam;
 
     /**
      * @ORM\ManyToOne(targetEntity="Team")
-     * @ORM\JoinColumn(name="second_team_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="second_team_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      */
     protected $secondTeam;
 
     /**
      * @ORM\ManyToOne(targetEntity="TournamentGroup", inversedBy="games")
-     * @ORM\JoinColumn(name="tournament_group_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="tournament_group_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      */
     private $tournamentGroup;
 

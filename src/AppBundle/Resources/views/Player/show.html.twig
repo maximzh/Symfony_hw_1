@@ -37,7 +37,11 @@
                 {{ player.weight }} kg
             </td>
             <td>
-                <img class="img-circle" src="{{ player.team.country.flag }}"> <span class="text-success">{{ player.team.country.name }}</span>
+                {% if player.team is not null %}
+
+                    <img class="img-circle" src="{{ player.team.country.flag }}"> <span class="text-success">{{ player.team.country.name }}</span>
+                {% endif %}
+
             </td>
         </tr>
     </table>

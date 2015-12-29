@@ -22,7 +22,8 @@ class DefaultController extends Controller
             ->findAllCountriesWithDependencies();
 
         return [
-            'countries' => $allCountries
+            'countries' => $allCountries,
+
         ];
     }
 }

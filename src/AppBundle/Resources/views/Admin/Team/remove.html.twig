@@ -1,0 +1,15 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <h1>Remove team</h1>
+    <div style="width: 300px">
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+        <input type="submit" value="Remove"
+               class="btn btn-default pull-right" />
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

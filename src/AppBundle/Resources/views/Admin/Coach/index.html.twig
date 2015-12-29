@@ -1,0 +1,51 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}
+    All Coaches
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+    <h2 class="bg-success">
+        <a href="{{ path('add_new_coach') }}">Create a new coach</a>
+    </h2>
+    <table class="table table-striped table-bordered table-hover">
+        <tr>
+            <th>Coach name</th>
+            <th>Team</th>
+            <th>Edit</th>
+            <th>Remove</th>
+        </tr>
+        {% for coach in coaches %}
+
+            <tr>
+                <td>
+                    <span class="text-success">{{ coach.name }}</span>
+                </td>
+                <td>
+                    {% if coach.team is not null %}
+                        {% if coach.team.country is not null %}
+                            <img class="img-circle" src="{{ coach.team.country.flag }}">
+                        {% endif %}
+                        {{ coach.team.name }}
+                    {% endif %}
+
+                </td>
+
+                <td>
+                    <a href="{{ path('edit_coach', {'id': coach.id}) }}">
+                        Edit
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ path('remove_coach', {'id': coach.id}) }}">
+                        Remove
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {{ knp_pagination_render(coaches) }}
+
+{% endblock %}

@@ -2,8 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\Game;
-use AppBundle\Entity\Team;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -76,6 +74,7 @@ class TournamentGroup
     {
         return $this->name;
     }
+
     /**
      * Constructor
      */

@@ -16,8 +16,8 @@ class PlayerRepository extends EntityRepository
     {
         return $this->createQueryBuilder('p')
             ->select('p, t, c')
-            ->join('p.team', 't')
-            ->join('t.country', 'c')
+            ->leftJoin('p.team', 't')
+            ->leftJoin('t.country', 'c')
             ->orderBy('p.team')
             ->getQuery()
             ->getResult();

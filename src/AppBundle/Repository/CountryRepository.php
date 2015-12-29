@@ -17,8 +17,8 @@ class CountryRepository extends EntityRepository
     {
         return $this->createQueryBuilder('c')
             ->select('c, t, tg')
-            ->join('c.team', 't')
-            ->join('t.tournamentGroup', 'tg')
+            ->leftJoin('c.team', 't')
+            ->leftJoin('t.tournamentGroup', 'tg')
             ->orderBy('c.uefaRank')
             ->getQuery()
             ->getResult();

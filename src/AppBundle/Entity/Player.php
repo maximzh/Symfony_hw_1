@@ -73,7 +73,7 @@ class Player
 
     /**
      * @ORM\ManyToOne(targetEntity="Team", inversedBy="players")
-     * @ORM\JoinColumn(name="team_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="team_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      */
     protected $team;
 
@@ -258,11 +258,11 @@ class Player
     /**
      * Set team
      *
-     * @param \AppBundle\Entity\Team $team
+     * @param Team $team
      *
      * @return Player
      */
-    public function setTeam(\AppBundle\Entity\Team $team = null)
+    public function setTeam(Team $team = null)
     {
         $this->team = $team;
 
@@ -272,7 +272,7 @@ class Player
     /**
      * Get team
      *
-     * @return \AppBundle\Entity\Team
+     * @return Team
      */
     public function getTeam()
     {

@@ -2,7 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\Team;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,7 +45,7 @@ class Country
     /**
      * @var string
      *
-     * @ORM\Column(name="flag", type="string", length=255)
+     * @ORM\Column(name="flag", type="string", length=255, nullable=true)
      */
     private $flag;
 
@@ -60,20 +59,20 @@ class Country
     /**
      * @var int
      *
-     * @ORM\Column(name="first_membership", type="smallint")
+     * @ORM\Column(name="first_membership", type="smallint", nullable=true)
      */
     private $firstMembership;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="national_team_founded_at", type="smallint")
+     * @ORM\Column(name="national_team_founded_at", type="smallint", nullable=true)
      */
     private $nationalTeamFoundedAt;
 
     /**
      * @ORM\OneToOne(targetEntity="Team", inversedBy="country")
-     * @ORM\JoinColumn(name="team_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="team_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      */
     private $team;
 
@@ -168,7 +167,7 @@ class Country
      */
     public function setFlag($flag)
     {
-        $this->flag = $flag;
+        $this->flag = "/pictures/".$flag;
 
         return $this;
     }

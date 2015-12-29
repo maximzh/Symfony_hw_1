@@ -2,10 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\Coach;
-use AppBundle\Entity\Country;
-use AppBundle\Entity\Player;
-use AppBundle\Entity\TournamentGroup;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -53,12 +49,12 @@ class Team
 
     /**
      * @ORM\ManyToOne(targetEntity="TournamentGroup", inversedBy="teams")
-     * @ORM\JoinColumn(name="tournament_group_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="tournament_group_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      */
     private $tournamentGroup;
 
     /**
-     *  @ORM\OneToOne(targetEntity="Country", mappedBy="team")
+     * @ORM\OneToOne(targetEntity="Country", mappedBy="team")
      */
     private $country;
 
@@ -119,6 +115,7 @@ class Team
     {
         return $this->slug;
     }
+
     /**
      * Constructor
      */
@@ -233,6 +230,7 @@ class Team
     public function setCountry(Country $country = null)
     {
         $this->country = $country;
+        $country->setTeam($this);
 
         return $this;
     }
