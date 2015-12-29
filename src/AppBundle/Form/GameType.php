@@ -15,6 +15,8 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class GameType extends AbstractType
@@ -42,7 +44,9 @@ class GameType extends AbstractType
             ))
             ->add('gameStartsAt')
             ->add('city')
-            ->add('gameDate', DateType::class)
+            ->add('gameDate', DateType::class, array(
+                'years' => range(1945, 2025),
+            ))
             ->add('description', TextareaType::class)
             ->add('tournamentGroup', EntityType::class, array(
                 'class' => 'AppBundle:TournamentGroup',
@@ -51,6 +55,10 @@ class GameType extends AbstractType
                 'required' => false,
             ))
         ;
+
+        $builder->get('city')->addEventListener(FormEvents::SUBMIT, function(FormEvent $event) {
+            $event->setData(trim(ucwords(strtolower($event->getData()))));
+        });
 
     }
 
