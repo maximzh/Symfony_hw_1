@@ -3,7 +3,6 @@
 namespace AppBundle\Repository;
 
 use AppBundle\Entity\Team;
-use AppBundle\Entity\TournamentGroup;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -18,7 +17,7 @@ class GameRepository extends EntityRepository
     {
         return $this->createQueryBuilder('g')
             ->select('g, ft, st, tg, ftc, stc')
-            ->join('g.firstTeam','ft')
+            ->join('g.firstTeam', 'ft')
             ->join('g.secondTeam', 'st')
             ->join('ft.country', 'ftc')
             ->join('st.country', 'stc')
@@ -48,7 +47,6 @@ class GameRepository extends EntityRepository
             ->setMaxResults($numberOfGames)
             ->getResult();
     }
-
 
 
     public function findGameWithDependencies($id)

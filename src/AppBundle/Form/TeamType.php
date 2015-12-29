@@ -40,18 +40,24 @@ class TeamType extends AbstractType
                     'class' => 'AppBundle:TournamentGroup',
                     'choice_label' => 'name',
                     'placeholder' => 'select group',
-                    'required' => false
+                    'required' => false,
                 )
             );
 
-        $builder->get('name')->addEventListener(FormEvents::SUBMIT, function(FormEvent $event) {
-            $event->setData(trim(ucfirst(strtolower($event->getData()))));
-        });
-        $builder->get('slug')->addEventListener(FormEvents::SUBMIT, function(FormEvent $event) {
-            $slug = strtolower($event->getData());
-            $slug = str_replace(' ', '-', $slug);
-            $event->setData($slug);
-        });
+        $builder->get('name')->addEventListener(
+            FormEvents::SUBMIT,
+            function (FormEvent $event) {
+                $event->setData(trim(ucfirst(strtolower($event->getData()))));
+            }
+        );
+        $builder->get('slug')->addEventListener(
+            FormEvents::SUBMIT,
+            function (FormEvent $event) {
+                $slug = strtolower($event->getData());
+                $slug = str_replace(' ', '-', $slug);
+                $event->setData($slug);
+            }
+        );
 
     }
 

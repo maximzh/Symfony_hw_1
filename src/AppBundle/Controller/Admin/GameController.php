@@ -53,14 +53,18 @@ class GameController extends Controller
     {
         $game = new Game();
 
-        $form = $this->createForm(GameType::class, $game, array(
-            'action' => $this->generateUrl('create_game'),
-            'method' => 'POST'
-        ));
+        $form = $this->createForm(
+            GameType::class,
+            $game,
+            array(
+                'action' => $this->generateUrl('create_game'),
+                'method' => 'POST',
+            )
+        );
 
         return [
-          'game' => $game,
-          'form' => $form->createView(),
+            'game' => $game,
+            'form' => $form->createView(),
         ];
     }
 
@@ -75,15 +79,19 @@ class GameController extends Controller
         $game = new Game();
         $em = $this->getDoctrine()->getManager();
 
-        $form = $this->createForm(GameType::class, $game, array(
-            'action' => $this->generateUrl('create_game'),
-            'method' => 'POST',
-            'em' => $em,
-        ));
+        $form = $this->createForm(
+            GameType::class,
+            $game,
+            array(
+                'action' => $this->generateUrl('create_game'),
+                'method' => 'POST',
+                'em' => $em,
+            )
+        );
 
         $form->handleRequest($request);
 
-        if($form->isValid()) {
+        if ($form->isValid()) {
 
             $em->persist($game);
             $em->flush();

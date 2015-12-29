@@ -47,10 +47,14 @@ class TournamentGroupController extends Controller
     {
         $group = new TournamentGroup();
 
-        $form = $this->createForm(TournamentGroupType::class, $group, array(
-            'action' => $this->generateUrl('create_group'),
-            'method' => 'POST',
-        ));
+        $form = $this->createForm(
+            TournamentGroupType::class,
+            $group,
+            array(
+                'action' => $this->generateUrl('create_group'),
+                'method' => 'POST',
+            )
+        );
 
         return [
             'group' => $group,
@@ -68,11 +72,15 @@ class TournamentGroupController extends Controller
         $group = new TournamentGroup();
         $em = $this->getDoctrine()->getManager();
 
-        $form = $this->createForm(TournamentGroupType::class, $group, array(
-            'action' => $this->generateUrl('create_group'),
-            'method' => 'POST',
-            'em' => $em,
-        ));
+        $form = $this->createForm(
+            TournamentGroupType::class,
+            $group,
+            array(
+                'action' => $this->generateUrl('create_group'),
+                'method' => 'POST',
+                'em' => $em,
+            )
+        );
 
         $form->handleRequest($request);
 

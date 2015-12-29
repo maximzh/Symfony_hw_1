@@ -24,49 +24,77 @@ class GameType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstTeam', EntityType::class, array(
-                'class' => 'AppBundle:Team',
-                'choice_label' => 'name',
-                'placeholder' => 'Choose team',
-                'required' => false,
-            ))
-            ->add('secondTeam', EntityType::class, array(
-                'class' => 'AppBundle:Team',
-                'choice_label' => 'name',
-                'placeholder' => 'Choose team',
-                'required' => false,
-            ))
-            ->add('firstTeamScore', IntegerType::class, array(
-                'required' =>false
-            ))
-            ->add('secondTeamScore', IntegerType::class, array(
-                'required' =>false
-            ))
+            ->add(
+                'firstTeam',
+                EntityType::class,
+                array(
+                    'class' => 'AppBundle:Team',
+                    'choice_label' => 'name',
+                    'placeholder' => 'Choose team',
+                    'required' => false,
+                )
+            )
+            ->add(
+                'secondTeam',
+                EntityType::class,
+                array(
+                    'class' => 'AppBundle:Team',
+                    'choice_label' => 'name',
+                    'placeholder' => 'Choose team',
+                    'required' => false,
+                )
+            )
+            ->add(
+                'firstTeamScore',
+                IntegerType::class,
+                array(
+                    'required' => false,
+                )
+            )
+            ->add(
+                'secondTeamScore',
+                IntegerType::class,
+                array(
+                    'required' => false,
+                )
+            )
             ->add('gameStartsAt')
             ->add('city')
-            ->add('gameDate', DateType::class, array(
-                'years' => range(1945, 2025),
-            ))
+            ->add(
+                'gameDate',
+                DateType::class,
+                array(
+                    'years' => range(1945, 2025),
+                )
+            )
             ->add('description', TextareaType::class)
-            ->add('tournamentGroup', EntityType::class, array(
-                'class' => 'AppBundle:TournamentGroup',
-                'choice_label' => 'name',
-                'placeholder' => 'No Group',
-                'required' => false,
-            ))
-        ;
+            ->add(
+                'tournamentGroup',
+                EntityType::class,
+                array(
+                    'class' => 'AppBundle:TournamentGroup',
+                    'choice_label' => 'name',
+                    'placeholder' => 'No Group',
+                    'required' => false,
+                )
+            );
 
-        $builder->get('city')->addEventListener(FormEvents::SUBMIT, function(FormEvent $event) {
-            $event->setData(trim(ucwords(strtolower($event->getData()))));
-        });
+        $builder->get('city')->addEventListener(
+            FormEvents::SUBMIT,
+            function (FormEvent $event) {
+                $event->setData(trim(ucwords(strtolower($event->getData()))));
+            }
+        );
 
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
-            'data_class' => 'AppBundle\Entity\Game',
-            'em' => null,
-        ]);
+        $resolver->setDefaults(
+            [
+                'data_class' => 'AppBundle\Entity\Game',
+                'em' => null,
+            ]
+        );
     }
 }

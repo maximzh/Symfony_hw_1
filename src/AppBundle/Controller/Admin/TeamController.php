@@ -50,10 +50,14 @@ class TeamController extends Controller
     {
         $team = new Team();
 
-        $form = $this->createForm(TeamType::class, $team, array(
-            'action' => $this->generateUrl('create_team'),
-            'method' => 'POST'
-        ));
+        $form = $this->createForm(
+            TeamType::class,
+            $team,
+            array(
+                'action' => $this->generateUrl('create_team'),
+                'method' => 'POST',
+            )
+        );
 
         return [
             'team' => $team,
@@ -72,14 +76,18 @@ class TeamController extends Controller
         $team = new Team();
         $em = $this->getDoctrine()->getManager();
 
-        $form = $this->createForm(TeamType::class, $team, array(
-            'action' => $this->generateUrl('create_team'),
-            'method' => 'POST',
-            'em' => $em,
-        ));
+        $form = $this->createForm(
+            TeamType::class,
+            $team,
+            array(
+                'action' => $this->generateUrl('create_team'),
+                'method' => 'POST',
+                'em' => $em,
+            )
+        );
         $form->handleRequest($request);
 
-        if($form->isValid()) {
+        if ($form->isValid()) {
 
             $em->persist($team);
             $em->flush();

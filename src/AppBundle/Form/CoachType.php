@@ -25,29 +25,41 @@ class CoachType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('team', EntityType::class, array(
-                'class' => 'AppBundle:Team',
-                'choice_label' => 'name',
-            ))
+            ->add(
+                'team',
+                EntityType::class,
+                array(
+                    'class' => 'AppBundle:Team',
+                    'choice_label' => 'name',
+                )
+            )
             ->add('name', TextType::class)
-            ->add('dateOfBirth', DateType::class, array(
-                'years' => range(1945, 2015),
-            ))
-            ->add('shortBiography', TextareaType::class)
-        ;
+            ->add(
+                'dateOfBirth',
+                DateType::class,
+                array(
+                    'years' => range(1945, 2015),
+                )
+            )
+            ->add('shortBiography', TextareaType::class);
 
-        $builder->get('name')->addEventListener(FormEvents::SUBMIT, function(FormEvent $event) {
-            $event->setData(trim(ucwords(strtolower($event->getData()))));
-        });
+        $builder->get('name')->addEventListener(
+            FormEvents::SUBMIT,
+            function (FormEvent $event) {
+                $event->setData(trim(ucwords(strtolower($event->getData()))));
+            }
+        );
 
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
 
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Coach',
-            'em' => null,
-        ));
+        $resolver->setDefaults(
+            array(
+                'data_class' => 'AppBundle\Entity\Coach',
+                'em' => null,
+            )
+        );
     }
 }

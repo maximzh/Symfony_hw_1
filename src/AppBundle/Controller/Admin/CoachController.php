@@ -52,10 +52,14 @@ class CoachController extends Controller
     {
         $coach = new Coach();
 
-        $form = $this->createForm(CoachType::class, $coach, array(
-            'action' => $this->generateUrl('create_coach'),
-            'method' => Request::METHOD_POST
-        ));
+        $form = $this->createForm(
+            CoachType::class,
+            $coach,
+            array(
+                'action' => $this->generateUrl('create_coach'),
+                'method' => Request::METHOD_POST,
+            )
+        );
 
         return [
             'coach' => $coach,
@@ -74,14 +78,18 @@ class CoachController extends Controller
         $coach = new Coach();
         $em = $this->getDoctrine()->getManager();
 
-        $form = $this->createForm(CoachType::class, $coach, array(
-            'action' => $this->generateUrl('create_coach'),
-            'method' => Request::METHOD_POST,
-            'em' => $em,
-        ));
+        $form = $this->createForm(
+            CoachType::class,
+            $coach,
+            array(
+                'action' => $this->generateUrl('create_coach'),
+                'method' => Request::METHOD_POST,
+                'em' => $em,
+            )
+        );
         $form->handleRequest($request);
 
-        if($form->isValid()) {
+        if ($form->isValid()) {
 
             $em->persist($coach);
             $em->flush();

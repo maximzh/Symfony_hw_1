@@ -15,7 +15,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Form\PlayerType;
 
 class PlayerController extends Controller
 {
@@ -52,17 +51,5 @@ class PlayerController extends Controller
         }
 
         return ['player' => $player];
-    }
-
-    /**
-     * @param Request $request
-     * @Route("/player/new", name="new_player")
-     * @Template()
-     */
-    public function newAction(Request $request)
-    {
-        $player = new Player();
-        $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm(PlayerType::class, $player);
     }
 }

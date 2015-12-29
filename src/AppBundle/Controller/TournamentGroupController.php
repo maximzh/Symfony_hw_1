@@ -43,7 +43,7 @@ class TournamentGroupController extends Controller
         return [
             //'group' => $group
             'teams' => $teams,
-            'games' => $games
+            'games' => $games,
         ];
     }
 
@@ -53,10 +53,11 @@ class TournamentGroupController extends Controller
      */
     public function indexAction()
     {
-       $groups = $this->getDoctrine()
-           ->getRepository('AppBundle:TournamentGroup')
-           ->findAllGroupsWithDependencies();
-           //->findAll();
+        $groups = $this->getDoctrine()
+            ->getRepository('AppBundle:TournamentGroup')
+            ->findAllGroupsWithDependencies();
+
+        //->findAll();
 
 
         return ['groups' => $groups];

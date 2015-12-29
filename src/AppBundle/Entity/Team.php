@@ -2,10 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\Coach;
-use AppBundle\Entity\Country;
-use AppBundle\Entity\Player;
-use AppBundle\Entity\TournamentGroup;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -58,7 +54,7 @@ class Team
     private $tournamentGroup;
 
     /**
-     *  @ORM\OneToOne(targetEntity="Country", mappedBy="team")
+     * @ORM\OneToOne(targetEntity="Country", mappedBy="team")
      */
     private $country;
 
@@ -119,6 +115,7 @@ class Team
     {
         return $this->slug;
     }
+
     /**
      * Constructor
      */

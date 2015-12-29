@@ -2,7 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\Team;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

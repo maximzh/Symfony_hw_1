@@ -53,10 +53,14 @@ class PlayerController extends Controller
     {
         $player = new Player();
 
-        $form = $this->createForm(PlayerType::class, $player, array(
-            'action' => $this->generateUrl('create_player'),
-            'method' => 'POST'
-        ));
+        $form = $this->createForm(
+            PlayerType::class,
+            $player,
+            array(
+                'action' => $this->generateUrl('create_player'),
+                'method' => 'POST',
+            )
+        );
 
         return [
             'player' => $player,
@@ -75,14 +79,18 @@ class PlayerController extends Controller
         $player = new Player();
         $em = $this->getDoctrine()->getManager();
 
-        $form = $this->createForm(PlayerType::class, $player, array(
-            'action' => $this->generateUrl('create_player'),
-            'method' => 'POST',
-            'em' => $em,
-        ));
+        $form = $this->createForm(
+            PlayerType::class,
+            $player,
+            array(
+                'action' => $this->generateUrl('create_player'),
+                'method' => 'POST',
+                'em' => $em,
+            )
+        );
         $form->handleRequest($request);
 
-        if($form->isValid()) {
+        if ($form->isValid()) {
 
             $em->persist($player);
             $em->flush();
